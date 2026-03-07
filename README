@@ -26,3 +26,7 @@ Then, we move onto the second token, "pen", and we compare it to the second toke
 When comparing with shorter words, such as "cameras", the last token of cameras will be "s". We will only include this word if we have a match in the previous tokens. If we have zero matches, we do not include it in the list.
 
 When it comes to larger potential matches, such as "calisthenic", the tokens will be "cal", "ist", "hen", "ic". Naturally, there will be nothing to compare "ic" with, and so, if we have a previous match, we include it in the list.
+
+Later edit: I'll need to explore ways in which I can make the searches as fast as possible. Are different types of databases faster than using a simple text file? If we're looking at word length, maybe we should break down out databases into smaller ones, based on word length? A database for words made up of two letters, three, four, etc.
+
+This way, we'd have to search through fewer words.
