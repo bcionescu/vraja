@@ -1,23 +1,58 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// Haven't touched C in a few months. Building this spellchecker will be a great way to not only refresh my knowledge, but to learn ever further.
+char** tokenize(char *p, int *final_count) {
+  char buffer[4];
+  int capacity = 2;
+  int buffer_counter = 0;
+  int group_counter = 0;
 
-int main() {
-  char word[] = "calpentry";
-  char *p = word;
-  int third = 0;
+  char **list = malloc(capacity * sizeof(char *));
+  if (!list) return NULL;
 
   while (*p) {
-    printf("%c", *p);
-    p++;
-
-    if (third < 2) {
-      third++;
+    buffer[buffer_counter] = *p;
+    if (buffer_counter < 2) {
+      buffer_counter++;
     } else {
-      third = 0;
-      printf("\n");
+        buffer[3] = '\0';
+        if (group_counter == capacity) {
+          capacity *= 2;
+          list = realloc(list, capacity * sizeof(char *));
+        }
+        list[group_counter] = malloc(4 * sizeof(char));
+        strcpy(list[group_counter], buffer);
+        group_counter++;
+        buffer_counter = 0;
     }
+    p++;
   }
+
+  if (buffer_counter > 0) {
+    buffer[buffer_counter] = '\0';
+    if (group_counter == capacity) {
+      list = realloc(list, (group_counter + 1) * sizeof(char *));
+    }
+    list[group_counter] = malloc(4);
+    strcpy(list[group_counter], buffer);
+    group_counter++;
+  }
+
+  *final_count = group_counter;
+  return list;
+ 
 }
 
+int main() {
+  int total_groups = 0;
+  char **tokens = tokenize("calpentry", &total_groups);
 
+  if (tokens == NULL) return 1;
+
+  for (int i = 0; i < total_groups; i++) {
+    printf("%s ", tokens[i]);
+  }
+
+  return 0;
+}
