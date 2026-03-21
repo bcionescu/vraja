@@ -2,7 +2,7 @@ Spell is a spellchecker written in C.
 
 # To Do
 
-+ [ ] Assemble a dictionary.
++ [x] Assemble a dictionary.
 + [ ] Start off by passing a word at a time.
 + [ ] Pass a text as a variable.
 + [ ] Check the text for words which do not appear in the dictionary.
