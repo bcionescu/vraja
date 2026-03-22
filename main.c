@@ -34,7 +34,7 @@ char** tokenize(char *p, int *final_count) {
     if (group_counter == capacity) {
       list = realloc(list, (group_counter + 1) * sizeof(char *));
     }
-    list[group_counter] = malloc(4);
+    list[group_counter] = malloc(buffer_counter + 1);
     strcpy(list[group_counter], buffer);
     group_counter++;
   }
