@@ -109,7 +109,9 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
     char *p2 = match_tokens[i];
 
     while (*p1 && *p2) {
-      if (*p1 == *p2) score++;
+      if (*p1 == *p2) {
+        score += 2;
+      }
       p1++;
       p2++;
     }
@@ -135,9 +137,6 @@ int main() {
   int total_groups_match = 0;
   char **match_tokens = tokenize(potential_match, &total_groups_match);
 
-  printf("%d\n", total_groups_misspelled);
-  printf("%d\n", total_groups_match);
-
   if (misspelled_tokens == NULL) return 1;
   if (match_tokens == NULL) return 1;
 
@@ -148,7 +147,6 @@ int main() {
   int score = 0;
 
   score += full_group_match(limit, misspelled_tokens, match_tokens);
-
 
   // For each perfect letter match (same position) allocate 3 points
 
