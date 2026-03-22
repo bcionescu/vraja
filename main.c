@@ -75,15 +75,48 @@ void print_tokens() {
   // fclose(file);
 }
 
+int calculate_group_limit(int total_groups_misspelled, int total_groups_match) {
+  int limit = (total_groups_misspelled < total_groups_match)
+    ? total_groups_misspelled
+    : total_groups_match;
+  return limit;
+}
+
 int main() {
 
   // Let's figure out how to calculate the potential match score of a word, based on the misspelled one
 
-  // We have a misspelled word, and a list of potential matches
+  // We have a misspelled word, and a potential match
 
-  // We take the misspelled word, and a word from the list and tokenize them
+  char misspelled[] = "calpentyr";
+  char potential_match[] = "callipers";
+
+  // We tokenize the word, and the potential match
+
+  int total_groups_misspelled = 0;
+  char **misspelled_tokens = tokenize(misspelled, &total_groups_misspelled);
+
+  int total_groups_match = 0;
+  char **match_tokens = tokenize(potential_match, &total_groups_match);
+
+  if (misspelled_tokens == NULL) return 1;
+  if (match_tokens == NULL) return 1;
+
+  int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
 
   // We compare group[1] from the misspelled word with group[1] from the potential match, and so on
+
+  int score = 0;
+
+  for (int i = 0; i < limit; i++) {
+      printf("[%d] %s %s -> ", i, misspelled_tokens[i], match_tokens[i]);
+    if (strcmp(misspelled_tokens[i], match_tokens[i]) == 0) {
+      score += 3;
+      printf("[%d]\n", score);
+    } else {
+        printf("[0]\n");
+    }
+  }
 
   // For a full match of a group, allocate a further 3 points
   // Eg. cae vs car -> 0 points
@@ -148,6 +181,10 @@ int main() {
   // length * 6 = 54
   // Does this mean that longer potential matches would get higher scores? Should the score be adjusted to take the length into account?
   // Scoring against the misspelled word only might remove this issue altogether
+
+  // To make the list of words more efficient, we break it down into lists based on length (2 letter words, 3 letter words, etc.)
+
+  // We load the list that matches the misspelled word's length, and check. If we don't get a sufficiently high score, we expand to -1/+1 length. If we still don't get a good match, we do -2/+2, etc.
 
   return 0;
 }
