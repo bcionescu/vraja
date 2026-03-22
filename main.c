@@ -45,14 +45,33 @@ char** tokenize(char *p, int *final_count) {
 }
 
 int main() {
-  int total_groups = 0;
-  char **tokens = tokenize("calpentry", &total_groups);
 
-  if (tokens == NULL) return 1;
+  int word_counter = 0;
 
-  for (int i = 0; i < total_groups; i++) {
-    printf("%s ", tokens[i]);
+  FILE *file = fopen("words/master.txt", "r");
+
+  if (file == NULL) {
+    perror("Error opening file");
+    return 1;
   }
+
+  char line_buffer[30];
+
+  while (fgets(line_buffer, sizeof(line_buffer), file)) {
+    int total_groups = 0;
+    char **tokens = tokenize(line_buffer, &total_groups);
+
+    if (tokens == NULL) return 1;
+
+    for (int i = 0; i < total_groups; i++) {
+      printf("%s ", tokens[i]);
+    }
+
+    printf("%d ", word_counter);
+    word_counter++;
+  }
+
+  fclose(file);
 
   return 0;
 }
