@@ -111,13 +111,270 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
     while (*p1 && *p2) {
       if (*p1 == *p2) {
         score += 2;
+      } else {
+
+          char *n_a = "qwsxz`";
+          char *n_b = "vghn";
+          char *n_c = "xdfv";
+          char *n_d = "werfcxs";
+          char *n_e = "34rfdsw";
+          char *n_f = "ertgvcd";
+          char *n_g = "rtyhbvf";
+          char *n_h = "tyujnbg";
+          char *n_i = "89olkju";
+          char *n_j = "yuikmnh";
+          char *n_k = "uiol,mj";
+          char *n_l = "iop;.,k";
+          char *n_m = "njk,";
+          char *n_n = "bhjm";
+          char *n_o = "90p;lki";
+          char *n_p = "0-[';lo";
+          char *n_q = "12wsa";
+          char *n_r = "45tgfde";
+          char *n_s = "wedxzaq";
+          char *n_t = "56yhgfr";
+          char *n_u = "78ikjhy";
+          char *n_v = "cfgb";
+          char *n_w = "23edsaq";
+          char *n_x = "zsdc";
+          char *n_y = "67ujhgt";
+          char *n_z = "asx`";
+
+          while (*n_a) {
+            if (*p1 == 'a' && *p2 == *n_a) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_a++;
+          }
+
+          while (*n_b) {
+            if (*p1 == 'b' && *p2 == *n_b) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_b++;
+          }
+
+          while (*n_c) {
+            if (*p1 == 'c' && *p2 == *n_c) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_c++;
+          }
+
+          while (*n_d) {
+            if (*p1 == 'd' && *p2 == *n_d) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_d++;
+          }
+
+          while (*n_e) {
+            if (*p1 == 'e' && *p2 == *n_e) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_e++;
+          }
+
+          while (*n_f) {
+            if (*p1 == 'f' && *p2 == *n_f) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_f++;
+          }
+
+          while (*n_g) {
+            if (*p1 == 'g' && *p2 == *n_g) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_g++;
+          }
+
+          while (*n_h) {
+            if (*p1 == 'h' && *p2 == *n_h) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_h++;
+          }
+
+          while (*n_i) {
+            if (*p1 == 'i' && *p2 == *n_i) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_i++;
+          }
+
+          while (*n_j) {
+            if (*p1 == 'j' && *p2 == *n_j) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_j++;
+          }
+
+          while (*n_k) {
+            if (*p1 == 'k' && *p2 == *n_k) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_k++;
+          }
+
+          while (*n_l) {
+            if (*p1 == 'l' && *p2 == *n_l) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_l++;
+          }
+
+          while (*n_m) {
+            if (*p1 == 'm' && *p2 == *n_m) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_m++;
+          }
+
+          while (*n_n) {
+            if (*p1 == 'n' && *p2 == *n_n) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_n++;
+          }
+
+          while (*n_o) {
+            if (*p1 == 'o' && *p2 == *n_o) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_o++;
+          }
+
+          while (*n_p) {
+            if (*p1 == 'p' && *p2 == *n_p) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_p++;
+          }
+
+          while (*n_q) {
+            if (*p1 == 'q' && *p2 == *n_q) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_q++;
+          }
+
+          while (*n_r) {
+            if (*p1 == 'r' && *p2 == *n_r) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_r++;
+          }
+
+          while (*n_s) {
+            if (*p1 == 's' && *p2 == *n_s) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_s++;
+          }
+
+          while (*n_t) {
+            if (*p1 == 't' && *p2 == *n_t) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_t++;
+          }
+
+          while (*n_u) {
+            if (*p1 == 'u' && *p2 == *n_u) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_u++;
+          }
+
+          while (*n_v) {
+            if (*p1 == 'v' && *p2 == *n_v) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_v++;
+          }
+
+          while (*n_w) {
+            if (*p1 == 'w' && *p2 == *n_w) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_w++;
+          }
+
+          while (*n_x) {
+            if (*p1 == 'x' && *p2 == *n_x) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_x++;
+          }
+
+          while (*n_y) {
+            if (*p1 == 'y' && *p2 == *n_y) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_y++;
+          }
+
+          while (*n_z) {
+            if (*p1 == 'z' && *p2 == *n_z) {
+              score++;
+              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+            }
+            n_z++;
+          }
       }
+
       p1++;
       p2++;
     }
+}
+
+printf("Perfect letter match score: %d\n", score);
+
+return score;
+}
+
+int swapped_letter_match(char *misspelled, char *potential_match) {
+  int length = 0;
+  int score = 0;
+
+  if (strlen(misspelled) < strlen(potential_match)) {
+    length = strlen(misspelled);
+  } else {
+    length = strlen(potential_match);
   }
 
-printf("Perfect letter match score: %d", score);
+  for (int i = 1; i < length; i++) {
+    if (misspelled[i] == potential_match[i-1] && misspelled[i-1] == potential_match[i]) {
+    score += 2;
+    printf("Match at %d\n", i-1);
+    }
+  }
 
 return score;
 }
@@ -126,7 +383,7 @@ int main() {
 
   // We have a misspelled word, and a potential match
 
-  char misspelled[] =      "calpentyr";
+  char misspelled[] =      "caprentyr";
   char potential_match[] = "carpentry";
 
   // We tokenize the word, and the potential match
@@ -148,41 +405,17 @@ int main() {
 
   score += full_group_match(limit, misspelled_tokens, match_tokens);
 
-  // For each perfect letter match (same position) allocate 3 points
+  // For each perfect letter match (same position) allocate 3 points. We also allocate 2 points for a neighbouring match.
 
   score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
 
+
+  // We allocate 2 points for letters which are swapped around
+  // Eg. carpent[yr] -> carpent[ry]
+
+  score += swapped_letter_match(misspelled, potential_match);
+
   printf("\n[%d] %s", score, potential_match);
-
-  // For a neighbouring match, allocate 2 points. Eg: If the misspelled word starts with "s" but the possible  match starts with "d" as those two letters are next to eachother on a QWERTY keyboard, thus it could be a possible finger slip
-  // Eg. cae vs car -> 2 points
-  // Eg. pen vs pen -> 0 points
-  // Eg. tyr vs try -> 0 points
-
-  // Eg. car vs per -> 0 points
-  // Eg. pen va man -> 0 points
-  // Eg. tyr vs ent -> 1 point
-
-  // Eg. car vs car -> 0 points
-  // Eg. pen vs pen -> 0 points
-  // Eg. try vs try -> 0 points
-  //
-  // For each letter that matches (but not in the same place) allocate 1 point
-  // Eg. cae vs car -> 0 points 
-  // Eg. pen vs pen -> 0 points
-  // Eg. tyr vs try -> 2 points
-
-  // Eg. car vs per -> 0 points
-  // Eg. pen va man -> 0 points
-  // Eg. tyr vs ent -> 1 point
-
-  // Eg. car vs car -> 0 points
-  // Eg. pen vs pen -> 0 points
-  // Eg. try vs try -> 0 points
-  //
-  // caepentyr -> 13 points (very likely match)
-  // permanent -> 4 points (unlikely match)
-  // carpentry -> 54 points (perfect match)
 
   // In theory, this should provide us with a score that we can then use the figure out the most likely match
 
