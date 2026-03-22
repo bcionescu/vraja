@@ -46,37 +46,6 @@ if (buffer_counter > 0) {
 return list;
 }
 
-void print_tokens() {
-  // Deal with this bit later, as we don't currently need it
-  //
-  // int word_counter = 0;
-  //
-  // FILE *file = fopen("words/master.txt", "r");
-  //
-  // if (file == NULL) {
-  //   perror("Error opening file");
-  //   return 1;
-  // }
-  //
-  // char line_buffer[30];
-  //
-  // while (fgets(line_buffer, sizeof(line_buffer), file)) {
-  //   int total_groups = 0;
-  //   char **tokens = tokenize(line_buffer, &total_groups);
-  //
-  //   if (tokens == NULL) return 1;
-  //
-  //   for (int i = 0; i < total_groups; i++) {
-  //     printf("%s ", tokens[i]);
-  //   }
-  //
-  //   printf("%d ", word_counter);
-  //   word_counter++;
-  // }
-  //
-  // fclose(file);
-}
-
 int calculate_group_limit(int total_groups_misspelled, int total_groups_match) {
   int limit = (total_groups_misspelled < total_groups_match)
     ? total_groups_misspelled
@@ -88,12 +57,9 @@ int full_group_match(int limit, char **misspelled_tokens, char **match_tokens) {
   int score = 0;
 
   for (int i = 0; i < limit; i++) {
-      printf("[%d] %s %s -> ", i, misspelled_tokens[i], match_tokens[i]);
+      // printf("%s %s -> ", misspelled_tokens[i], match_tokens[i]);
     if (strcmp(misspelled_tokens[i], match_tokens[i]) == 0) {
       score += 3;
-      printf("[3]\n");
-    } else {
-        printf("[0]\n");
     }
   }
 
@@ -143,7 +109,7 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_a) {
             if (*p1 == 'a' && *p2 == *n_a) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
+              // printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_a++;
           }
@@ -151,7 +117,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_b) {
             if (*p1 == 'b' && *p2 == *n_b) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_b++;
           }
@@ -159,7 +124,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_c) {
             if (*p1 == 'c' && *p2 == *n_c) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_c++;
           }
@@ -167,7 +131,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_d) {
             if (*p1 == 'd' && *p2 == *n_d) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_d++;
           }
@@ -175,7 +138,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_e) {
             if (*p1 == 'e' && *p2 == *n_e) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_e++;
           }
@@ -183,7 +145,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_f) {
             if (*p1 == 'f' && *p2 == *n_f) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_f++;
           }
@@ -191,7 +152,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_g) {
             if (*p1 == 'g' && *p2 == *n_g) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_g++;
           }
@@ -199,7 +159,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_h) {
             if (*p1 == 'h' && *p2 == *n_h) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_h++;
           }
@@ -207,7 +166,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_i) {
             if (*p1 == 'i' && *p2 == *n_i) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_i++;
           }
@@ -215,7 +173,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_j) {
             if (*p1 == 'j' && *p2 == *n_j) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_j++;
           }
@@ -223,7 +180,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_k) {
             if (*p1 == 'k' && *p2 == *n_k) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_k++;
           }
@@ -231,7 +187,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_l) {
             if (*p1 == 'l' && *p2 == *n_l) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_l++;
           }
@@ -239,7 +194,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_m) {
             if (*p1 == 'm' && *p2 == *n_m) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_m++;
           }
@@ -247,7 +201,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_n) {
             if (*p1 == 'n' && *p2 == *n_n) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_n++;
           }
@@ -255,7 +208,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_o) {
             if (*p1 == 'o' && *p2 == *n_o) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_o++;
           }
@@ -263,7 +215,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_p) {
             if (*p1 == 'p' && *p2 == *n_p) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_p++;
           }
@@ -271,7 +222,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_q) {
             if (*p1 == 'q' && *p2 == *n_q) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_q++;
           }
@@ -279,7 +229,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_r) {
             if (*p1 == 'r' && *p2 == *n_r) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_r++;
           }
@@ -287,7 +236,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_s) {
             if (*p1 == 's' && *p2 == *n_s) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_s++;
           }
@@ -295,7 +243,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_t) {
             if (*p1 == 't' && *p2 == *n_t) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_t++;
           }
@@ -303,7 +250,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_u) {
             if (*p1 == 'u' && *p2 == *n_u) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_u++;
           }
@@ -311,7 +257,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_v) {
             if (*p1 == 'v' && *p2 == *n_v) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_v++;
           }
@@ -319,7 +264,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_w) {
             if (*p1 == 'w' && *p2 == *n_w) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_w++;
           }
@@ -327,7 +271,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_x) {
             if (*p1 == 'x' && *p2 == *n_x) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_x++;
           }
@@ -335,7 +278,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_y) {
             if (*p1 == 'y' && *p2 == *n_y) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_y++;
           }
@@ -343,7 +285,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
           while (*n_z) {
             if (*p1 == 'z' && *p2 == *n_z) {
               score++;
-              printf("%c %c -> Ne match -> [1]\n", *p1, *p2);
             }
             n_z++;
           }
@@ -353,8 +294,6 @@ int perfect_letter_match(int limit, char **misspelled_tokens, char **match_token
       p2++;
     }
 }
-
-printf("Perfect letter match score: %d\n", score);
 
 return score;
 }
@@ -372,7 +311,7 @@ int swapped_letter_match(char *misspelled, char *potential_match) {
   for (int i = 1; i < length; i++) {
     if (misspelled[i] == potential_match[i-1] && misspelled[i-1] == potential_match[i]) {
     score += 2;
-    printf("Match at %d\n", i-1);
+    // printf("Match at %d\n", i-1);
     }
   }
 
@@ -381,49 +320,61 @@ return score;
 
 int main() {
 
-  // We have a misspelled word, and a potential match
+  FILE *file = fopen("words/list.txt", "r");
 
-  char misspelled[] =      "caprentyr";
-  char potential_match[] = "carpentry";
+  if (file == NULL) {
+    perror("Error opening file");
+    return 1;
+  }
 
-  // We tokenize the word, and the potential match
+  char line_buffer[30];
+
+  char misspelled[] = "caprentyr";
 
   int total_groups_misspelled = 0;
   char **misspelled_tokens = tokenize(misspelled, &total_groups_misspelled);
 
-  int total_groups_match = 0;
-  char **match_tokens = tokenize(potential_match, &total_groups_match);
+  while (fgets(line_buffer, sizeof(line_buffer), file)) {
 
-  if (misspelled_tokens == NULL) return 1;
-  if (match_tokens == NULL) return 1;
+    line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
-  int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
+    // We tokenize the word, and the potential match
 
-  // We compare group[1] from the misspelled word with group[1] from the potential match, and so on
+    int total_groups_match = 0;
+    char **match_tokens = tokenize(line_buffer, &total_groups_match);
 
-  int score = 0;
+    if (misspelled_tokens == NULL) return 1;
+    if (match_tokens == NULL) return 1;
 
-  score += full_group_match(limit, misspelled_tokens, match_tokens);
+    int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
 
-  // For each perfect letter match (same position) allocate 3 points. We also allocate 2 points for a neighbouring match.
+    // We compare group[1] from the misspelled word with group[1] from the potential match, and so on
 
-  score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
+    int score = 0;
 
+    score += full_group_match(limit, misspelled_tokens, match_tokens);
 
-  // We allocate 2 points for letters which are swapped around
-  // Eg. carpent[yr] -> carpent[ry]
+    // For each perfect letter match (same position) allocate 3 points. We also allocate 2 points for a neighbouring match.
 
-  score += swapped_letter_match(misspelled, potential_match);
+    score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
 
-  printf("\n[%d] %s", score, potential_match);
+    // We allocate 2 points for letters which are swapped around
+    // Eg. carpent[yr] -> carpent[ry]
+
+    score += swapped_letter_match(misspelled, line_buffer);
+
+    printf("%s [%d]\n", line_buffer, score);
+
+    // for (int i = 0; i < total_groups; i++) {
+    //   printf("%s ", tokens[i]);
+    // }
+  }
+
+  fclose(file);
 
   // In theory, this should provide us with a score that we can then use the figure out the most likely match
 
-  // What is the maximum score achievable for a nine-digit word?
 
-  // length * 6 = 54
-  // Does this mean that longer potential matches would get higher scores? Should the score be adjusted to take the length into account?
-  // Scoring against the misspelled word only might remove this issue altogether
 
   // To make the list of words more efficient, we break it down into lists based on length (2 letter words, 3 letter words, etc.)
 
