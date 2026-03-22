@@ -29,19 +29,21 @@ char** tokenize(char *p, int *final_count) {
     p++;
   }
 
-  if (buffer_counter > 0) {
+if (buffer_counter > 0) {
     buffer[buffer_counter] = '\0';
+    
     if (group_counter == capacity) {
-      list = realloc(list, (group_counter + 1) * sizeof(char *));
+        capacity *= 2;
+        list = realloc(list, capacity * sizeof(char *));
     }
+    
     list[group_counter] = malloc(buffer_counter + 1);
     strcpy(list[group_counter], buffer);
     group_counter++;
-  }
+}
 
-  *final_count = group_counter;
-  return list;
- 
+*final_count = group_counter;
+return list;
 }
 
 void print_tokens() {
@@ -82,6 +84,23 @@ int calculate_group_limit(int total_groups_misspelled, int total_groups_match) {
   return limit;
 }
 
+int full_group_match(int limit, char **misspelled_tokens, char **match_tokens) {
+  int score = 0;
+
+  for (int i = 0; i < limit; i++) {
+      printf("[%d] %s %s -> ", i, misspelled_tokens[i], match_tokens[i]);
+    if (strcmp(misspelled_tokens[i], match_tokens[i]) == 0) {
+      score += 3;
+      printf("[3]\n");
+    } else {
+        printf("[0]\n");
+    }
+  }
+
+  return score;
+}
+
+
 int main() {
 
   // Let's figure out how to calculate the potential match score of a word, based on the misspelled one
@@ -89,7 +108,7 @@ int main() {
   // We have a misspelled word, and a potential match
 
   char misspelled[] = "calpentyr";
-  char potential_match[] = "callipers";
+  char potential_match[] = "birmingham";
 
   // We tokenize the word, and the potential match
 
@@ -99,37 +118,20 @@ int main() {
   int total_groups_match = 0;
   char **match_tokens = tokenize(potential_match, &total_groups_match);
 
+  printf("%d\n", total_groups_misspelled);
+  printf("%d\n", total_groups_match);
+
   if (misspelled_tokens == NULL) return 1;
   if (match_tokens == NULL) return 1;
 
   int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
 
   // We compare group[1] from the misspelled word with group[1] from the potential match, and so on
-
   int score = 0;
 
-  for (int i = 0; i < limit; i++) {
-      printf("[%d] %s %s -> ", i, misspelled_tokens[i], match_tokens[i]);
-    if (strcmp(misspelled_tokens[i], match_tokens[i]) == 0) {
-      score += 3;
-      printf("[%d]\n", score);
-    } else {
-        printf("[0]\n");
-    }
-  }
+  score += full_group_match(limit, misspelled_tokens, match_tokens);
 
-  // For a full match of a group, allocate a further 3 points
-  // Eg. cae vs car -> 0 points
-  // Eg. pen vs pen -> 3 points
-  // Eg. tyr vs try -> 0 points
-
-  // Eg. car vs per -> 0 points
-  // Eg. pen va man -> 0 points
-  // Eg. tyr vs ent -> 0 points
-
-  // Eg. car vs car -> 9 points
-  // Eg. pen vs pen -> 9 points
-  // Eg. try vs try -> 9 points
+  printf("\n[%d] %s", score, potential_match);
 
   // For each perfect letter match (same position) allocate 3 points
   // Eg. cae vs car -> 2 points
