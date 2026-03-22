@@ -100,15 +100,32 @@ int full_group_match(int limit, char **misspelled_tokens, char **match_tokens) {
   return score;
 }
 
+int perfect_letter_match(int limit, char **misspelled_tokens, char **match_tokens) {
+  
+  int score = 0;
+
+  for (int i = 0; i < limit; i++) {
+    char *p1 = misspelled_tokens[i];
+    char *p2 = match_tokens[i];
+
+    while (*p1 && *p2) {
+      if (*p1 == *p2) score++;
+      p1++;
+      p2++;
+    }
+  }
+
+printf("Perfect letter match score: %d", score);
+
+return score;
+}
 
 int main() {
 
-  // Let's figure out how to calculate the potential match score of a word, based on the misspelled one
-
   // We have a misspelled word, and a potential match
 
-  char misspelled[] = "calpentyr";
-  char potential_match[] = "birmingham";
+  char misspelled[] =      "calpentyr";
+  char potential_match[] = "carpentry";
 
   // We tokenize the word, and the potential match
 
@@ -127,24 +144,17 @@ int main() {
   int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
 
   // We compare group[1] from the misspelled word with group[1] from the potential match, and so on
+
   int score = 0;
 
   score += full_group_match(limit, misspelled_tokens, match_tokens);
 
-  printf("\n[%d] %s", score, potential_match);
 
   // For each perfect letter match (same position) allocate 3 points
-  // Eg. cae vs car -> 2 points
-  // Eg. pen vs pen -> 3 points
-  // Eg. tyr vs try -> 1 point
 
-  // Eg. car vs per -> 1 point
-  // Eg. pen va man -> 1 point
-  // Eg. tyr vs ent -> 0 points
+  score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
 
-  // Eg. car vs car -> 9 points
-  // Eg. pen vs pen -> 9 points
-  // Eg. try vs try -> 9 points
+  printf("\n[%d] %s", score, potential_match);
 
   // For a neighbouring match, allocate 2 points. Eg: If the misspelled word starts with "s" but the possible  match starts with "d" as those two letters are next to eachother on a QWERTY keyboard, thus it could be a possible finger slip
   // Eg. cae vs car -> 2 points
