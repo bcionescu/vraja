@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct {
+  char word[32];
+  int points;
+} Match;
+
 char** tokenize(char *p, int *final_count) {
   char buffer[4];
   int capacity = 2;
@@ -59,7 +64,7 @@ int full_group_match(int limit, char **misspelled_tokens, char **match_tokens) {
   for (int i = 0; i < limit; i++) {
       // printf("%s %s -> ", misspelled_tokens[i], match_tokens[i]);
     if (strcmp(misspelled_tokens[i], match_tokens[i]) == 0) {
-      score += 3;
+      score += 5;
     }
   }
 
@@ -311,16 +316,31 @@ int swapped_letter_match(char *misspelled, char *potential_match) {
   for (int i = 1; i < length; i++) {
     if (misspelled[i] == potential_match[i-1] && misspelled[i-1] == potential_match[i]) {
     score += 2;
-    // printf("Match at %d\n", i-1);
     }
   }
 
 return score;
 }
 
+int compare_matches(const void *a, const void *b) {
+  Match *m1 = (Match *)a;
+  Match *m2 = (Match *)b;
+
+  return (m2->points - m1->points);
+}
+
 int main() {
 
-  FILE *file = fopen("words/list.txt", "r");
+  int count = 0;
+
+  char misspelled[] = "occurence";
+
+  char path[16];
+  int len = strlen(misspelled);
+
+  sprintf(path, "words/%d.txt", len);
+
+  FILE *file = fopen("words/words.txt", "r");
 
   if (file == NULL) {
     perror("Error opening file");
@@ -329,12 +349,13 @@ int main() {
 
   char line_buffer[30];
 
-  char misspelled[] = "caprentyr";
-
   int total_groups_misspelled = 0;
   char **misspelled_tokens = tokenize(misspelled, &total_groups_misspelled);
 
-  while (fgets(line_buffer, sizeof(line_buffer), file)) {
+  int max_entries = 100000;
+  Match *results = malloc(sizeof(Match) * max_entries);
+
+  while (fgets(line_buffer, sizeof(line_buffer), file) && count < max_entries) {
 
     line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
@@ -358,25 +379,24 @@ int main() {
 
     score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
 
-    // We allocate 2 points for letters which are swapped around
-    // Eg. carpent[yr] -> carpent[ry]
-
     score += swapped_letter_match(misspelled, line_buffer);
 
-    printf("%s [%d]\n", line_buffer, score);
+    strcpy(results[count].word, line_buffer);
+    results[count].points = score;
+    count++;
 
-    // for (int i = 0; i < total_groups; i++) {
-    //   printf("%s ", tokens[i]);
-    // }
+    // printf("%s [%d]\n", line_buffer, score);
   }
 
   fclose(file);
 
-  // In theory, this should provide us with a score that we can then use the figure out the most likely match
+  qsort(results, count, sizeof(Match), compare_matches);
 
+  for (int i = 0; i < 5 && i < count; i++) {
+    printf("%s [%d]\n", results[i].word, results[i].points);
+  }
 
-
-  // To make the list of words more efficient, we break it down into lists based on length (2 letter words, 3 letter words, etc.)
+  // To make the Nvim Nerdlist of words more efficient, we break it down into lists based on length (2 letter words, 3 letter words, etc.)
 
   // We load the list that matches the misspelled word's length, and check. If we don't get a sufficiently high score, we expand to -1/+1 length. If we still don't get a good match, we do -2/+2, etc.
 
