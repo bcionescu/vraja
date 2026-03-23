@@ -336,13 +336,17 @@ int main() {
 
   int count = 0;
 
-  char misspelled[] = "calpentry";
+  char misspelled[] = "begginning";
 
-  char path[16];
-  int len = strlen(misspelled);
+  // Use the neighbouring strategy for the very first letter of the word. For example, if someone types "darpentry", and they meant carpentry, we should allow only allow for words that start with w,e,r,f,c,x,s,d. Also always include k, as it is often silent. This will dramatically reduce the number of words it could be, and improve our matching strategy.
 
-  sprintf(path, "words/%d.txt", len);
+  // Maybe even prioritise words that match both the first, and the second letter.
 
+  // char path[16];
+  // int len = strlen(misspelled);
+
+  // sprintf(path, "words/%d.txt", len);
+  //
   FILE *file = fopen("words/words.txt", "r");
 
   if (file == NULL) {
@@ -357,6 +361,10 @@ int main() {
 
   int max_entries = 100000;
   Match *results = malloc(sizeof(Match) * max_entries);
+
+  // Instead of tokenizing all the words, let's only select words that start with a neighbouring letter.
+
+
 
   while (fgets(line_buffer, sizeof(line_buffer), file) && count < max_entries) {
 
@@ -430,6 +438,8 @@ int main() {
   // Before we do anything else, look for b, c, i, and v in the word, and double it. Does this now perfectly match a word in the dictionary? If so, print i.
 
   // Then, double e, f, g, l, m, n, o, p, r, s, t, and u, and check them against the dictionary.
+
+  // In order to increase the speed at which we search, we should not only break the list down in terms of length, but also starting letter. So have 2a.txt, 2b.txt ... 8t.txt 8u.txt, etc.
 
   // Also add a manual list which supersedes all other processes, and shows up first (maybe).
 
