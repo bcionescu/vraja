@@ -447,5 +447,7 @@ int main() {
 
   // Also add a manual list which supersedes all other processes, and shows up first (maybe).
 
+  free(results);
+  free(misspelled_tokens);
   return 0;
 }
