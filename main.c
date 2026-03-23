@@ -336,7 +336,7 @@ int main() {
 
   int count = 0;
 
-  char misspelled[] = "begginning";
+  char misspelled[] = "tn";
 
   // Use the neighbouring strategy for the very first letter of the word. For example, if someone types "darpentry", and they meant carpentry, we should allow only allow for words that start with w,e,r,f,c,x,s,d. Also always include k, as it is often silent. This will dramatically reduce the number of words it could be, and improve our matching strategy.
 
@@ -440,6 +440,10 @@ int main() {
   // Then, double e, f, g, l, m, n, o, p, r, s, t, and u, and check them against the dictionary.
 
   // In order to increase the speed at which we search, we should not only break the list down in terms of length, but also starting letter. So have 2a.txt, 2b.txt ... 8t.txt 8u.txt, etc.
+
+  // Maybe sometimes prioritise words of the same, or similar length, especially for very short words.
+
+  // If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
 
   // Also add a manual list which supersedes all other processes, and shows up first (maybe).
 
