@@ -37,11 +37,6 @@ Maybe sometimes prioritise words of the same, or similar length, especially for 
 
 If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
 
-Idea: When deciding how much to allocate to max_results, instead of having a large number like 400k, instead calculate it based on how many lists we add into memory. For example, if we add words that are 7, 8, and 9 letters long, add those up, and make that the maximum, as we can't have more anyway. In fact, even that is wasteful. It should really only be a fraction of that, but not so few that we omit entries.
-
-Maybe do some experimentation, printing out how many entries we actually get, just to get a sense of things.
-
-
 Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.
 
 There is also another concern. Extra or missing letters cause problems, because now the groups no longer line up. If you have "fridge" and "frridge", "fridge" will not be the obvious choice, as it'll get fewer points due to no longer lining up properly. Maybe we can add a meme where we go letter by letter, and we check if it's present before or after the current index, and add points for that.
