@@ -2796,13 +2796,12 @@ int main() {
 
     int iterations = sizeof(misspelled) / sizeof(misspelled[0]);
 
+    int total_groups_match = 0;
+    char **match_tokens;
+
     for (int i = 0; i < iterations - 1; i++) {
 
       clock_t start = clock();
-
-      int len = strlen(misspelled[i]);
-      int max_results = 25000;
-      int entry_count = 0;
 
       FILE *file = fopen("words/words.txt", "r");
 
@@ -2810,6 +2809,10 @@ int main() {
         perror("Error opening file");
         return 1;
       }
+
+      int len = strlen(misspelled[i]);
+      int max_results = 25000;
+      int entry_count = 0;
 
       char line_buffer[30];
       line_buffer[0] = '\0';
@@ -2833,9 +2836,11 @@ int main() {
         if (line_len < miss_len - 2) continue;
         if (line_len > miss_len + 2) break;
 
-        int total_groups_match = 0;
-        char **match_tokens = tokenize(line_buffer, &total_groups_match);
-        if (match_tokens == NULL) return 1;
+        if (i == 0) {
+          total_groups_match = 0;
+          match_tokens = tokenize(line_buffer, &total_groups_match);
+          if (match_tokens == NULL) return 1;
+        }
 
         int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
 
