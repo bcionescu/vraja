@@ -355,29 +355,45 @@ int length_difference(char *misspelled, char *line_buffer) {
 
 int first_and_last_letter(char *misspelled, char *line_buffer) {
   int score = 0;
-  int perfect_match = 0;
+  int first_perfect_match = 0;
+  int second_perfect_match = 0;
+  int third_perfect_match = 0;
 
   if (misspelled[0] == line_buffer[0]) {
     score += 15;
-    perfect_match += 1;
+    first_perfect_match += 1;
   }
 
   if (misspelled[strlen(misspelled) - 1] == line_buffer[strlen(line_buffer) - 1]) {
     score += 15;
-    perfect_match += 1;
+    first_perfect_match += 1;
   }
 
-  if (perfect_match == 2) score += 15;
+  if (first_perfect_match == 2) score += 30;
 
   if (misspelled[1] == line_buffer[1]) {
     score += 10;
-    perfect_match += 1;
+    second_perfect_match += 1;
   }
 
   if (misspelled[strlen(misspelled) - 2] == line_buffer[strlen(line_buffer) - 2]) {
     score += 10;
-    perfect_match += 10;
+    second_perfect_match += 1;
   }
+
+  if (second_perfect_match == 2) score += 15;
+
+  if (misspelled[2] == line_buffer[2]) {
+    score += 10;
+    third_perfect_match += 1;
+  }
+
+  if (misspelled[strlen(misspelled) - 3] == line_buffer[strlen(line_buffer) - 3]) {
+    score += 10;
+    third_perfect_match += 1;
+  }
+
+  if (third_perfect_match == 2) score += 10;
 
   // If the first letter gets a neighbour match, 7 bonus points.
 
@@ -874,6 +890,7 @@ int manual_list(char *miss, char *line) {
   if (strcmp(miss, "untill") == 0 && strcmp(line, "until") == 0) score += 100;
   if (strcmp(miss, "utill") == 0 && strcmp(line, "until") == 0) score += 100;
   if (strcmp(miss, "wierd") == 0 && strcmp(line, "weird") == 0) score += 25;
+  if (strcmp(miss, "analize") == 0 && strcmp(line, "analyze") == 0) score += 100;
 
   // if (strcmp(miss, "") == 0 && strcmp(line, "") == 0) score += 100;
 
