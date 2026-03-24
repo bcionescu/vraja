@@ -103,3 +103,4 @@ allegedy->allegedly
 
 , "alltime", "all-time", "antiapartheid", "anti-apartheid", "Coca Cola", "Coca-Cola", "co", "ncided->coincided", "aircrafts'", "aircraft's"};
 
+Maybe have a separate file that we import for other words, such as "a lot", or "don't".
