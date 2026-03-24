@@ -803,6 +803,40 @@ int neighbour_scan(char *misspelled, char *line_buffer) {
   return score;
 }
 
+int manual_list(char *misspelled, char *line_buffer) {
+  int score = 0;
+
+  if (strcmp(misspelled, "calender") == 0 && strcmp(line_buffer, "calendar") == 0) score += 100;
+  if (strcmp(misspelled, "seperate") == 0 && strcmp(line_buffer, "separate") == 0) score += 100;
+  if (strcmp(misspelled, "definately") == 0 && strcmp(line_buffer, "definitely") == 0) score += 100;
+  if (strcmp(misspelled, "recieve") == 0 && strcmp(line_buffer, "receive") == 0) score += 100;
+  if (strcmp(misspelled, "absense") == 0 && strcmp(line_buffer, "absence") == 0) score += 100;
+  if (strcmp(misspelled, "colum") == 0 && strcmp(line_buffer, "column") == 0) score += 100;
+  if (strcmp(misspelled, "reciept") == 0 && strcmp(line_buffer, "receipt") == 0) score += 100;
+  if (strcmp(misspelled, "amatuer") == 0 && strcmp(line_buffer, "amateur") == 0) score += 100;
+  if (strcmp(misspelled, "appearence") == 0 && strcmp(line_buffer, "appearance") == 0) score += 100;
+  if (strcmp(misspelled, "arguement") == 0 && strcmp(line_buffer, "argument") == 0) score += 100;
+  if (strcmp(misspelled, "basicly") == 0 && strcmp(line_buffer, "basically") == 0) score += 100;
+  if (strcmp(misspelled, "begining") == 0 && strcmp(line_buffer, "beginning") == 0) score += 100;
+
+  if (strcmp(misspelled, "believ") == 0 && strcmp(line_buffer, "believe") == 0) score += 100;
+  if (strcmp(misspelled, "believ") == 0 && strcmp(line_buffer, "belief") == 0) score += 100;
+
+  if (strcmp(misspelled, "cemetary") == 0 && strcmp(line_buffer, "cemetery") == 0) score += 100;
+  if (strcmp(misspelled, "definate") == 0 && strcmp(line_buffer, "definite") == 0) score += 100;
+  if (strcmp(misspelled, "existance") == 0 && strcmp(line_buffer, "existence") == 0) score += 100;
+  if (strcmp(misspelled, "immediatly") == 0 && strcmp(line_buffer, "immediately") == 0) score += 100;
+  if (strcmp(misspelled, "incidently") == 0 && strcmp(line_buffer, "incidentally") == 0) score += 100;
+  if (strcmp(misspelled, "liason") == 0 && strcmp(line_buffer, "liaison") == 0) score += 100;
+  if (strcmp(misspelled, "relavant") == 0 && strcmp(line_buffer, "relevant") == 0) score += 100;
+  if (strcmp(misspelled, "untill") == 0 && strcmp(line_buffer, "until") == 0) score += 100;
+  if (strcmp(misspelled, "wierd") == 0 && strcmp(line_buffer, "weird") == 0) score += 25;
+
+  // if (strcmp(misspelled, "") == 0 && strcmp(line_buffer, "") == 0) score += 100;
+
+  return score;
+}
+
 int main() {
 
   clock_t start = clock();
@@ -816,7 +850,7 @@ int main() {
 
   int max_results = 400000;
   int entry_count = 0;
-  char misspelled[] = "beginer";
+  char misspelled[] = "irelevant";
   char line_buffer[30];
   Match *results = malloc(sizeof(Match) * max_results);
 
@@ -847,6 +881,7 @@ int main() {
     score += length_difference(misspelled, line_buffer);
     score += first_and_last_letter(misspelled, line_buffer);
     score += neighbour_scan(misspelled, line_buffer);
+    score += manual_list(misspelled, line_buffer);
 
     strcpy(results[entry_count].word, line_buffer);
     results[entry_count].points = score;
@@ -857,7 +892,7 @@ int main() {
 
   qsort(results, entry_count, sizeof(Match), compare_matches);
 
-  for (int i = 0; i < 5 && i < entry_count; i++) {
+  for (int i = 0; i < 3 && i < entry_count; i++) {
     printf("%s [%d]\n", results[i].word, results[i].points);
   }
 
