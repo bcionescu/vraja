@@ -803,106 +803,158 @@ int neighbour_scan(char *misspelled, char *line_buffer) {
   return score;
 }
 
-int manual_list(char *misspelled, char *line_buffer) {
+int manual_list(char *miss, char *line) {
   int score = 0;
 
-  if (strcmp(misspelled, "calender") == 0 && strcmp(line_buffer, "calendar") == 0) score += 100;
-  if (strcmp(misspelled, "seperate") == 0 && strcmp(line_buffer, "separate") == 0) score += 100;
-  if (strcmp(misspelled, "definately") == 0 && strcmp(line_buffer, "definitely") == 0) score += 100;
-  if (strcmp(misspelled, "recieve") == 0 && strcmp(line_buffer, "receive") == 0) score += 100;
-  if (strcmp(misspelled, "absense") == 0 && strcmp(line_buffer, "absence") == 0) score += 100;
-  if (strcmp(misspelled, "colum") == 0 && strcmp(line_buffer, "column") == 0) score += 100;
-  if (strcmp(misspelled, "reciept") == 0 && strcmp(line_buffer, "receipt") == 0) score += 100;
-  if (strcmp(misspelled, "amatuer") == 0 && strcmp(line_buffer, "amateur") == 0) score += 100;
-  if (strcmp(misspelled, "appearence") == 0 && strcmp(line_buffer, "appearance") == 0) score += 100;
-  if (strcmp(misspelled, "arguement") == 0 && strcmp(line_buffer, "argument") == 0) score += 100;
-  if (strcmp(misspelled, "basicly") == 0 && strcmp(line_buffer, "basically") == 0) score += 100;
-  if (strcmp(misspelled, "begining") == 0 && strcmp(line_buffer, "beginning") == 0) score += 100;
+  // if (strcmp(miss, "alot") == 0 && strcmp(line, "a lot") == 0) score += 100;
+  // if (strcmp(miss, "alright") == 0 && strcmp(line, "all right") == 0) score += 100;
+  if (strcmp(miss, "absense") == 0 && strcmp(line, "absence") == 0) score += 100;
+  if (strcmp(miss, "acceptible") == 0 && strcmp(line, "acceptable") == 0) score += 100;
+  if (strcmp(miss, "accidant") == 0 && strcmp(line, "accident") == 0) score += 100;
+  if (strcmp(miss, "adviceable") == 0 && strcmp(line, "advisable") == 0) score += 100;
+  if (strcmp(miss, "agressiev") == 0 && strcmp(line, "aggressive") == 0) score += 100;
+  if (strcmp(miss, "amatuer") == 0 && strcmp(line, "amateur") == 0) score += 100;
+  if (strcmp(miss, "amature") == 0 && strcmp(line, "amateur") == 0) score += 100;
+  if (strcmp(miss, "annuall") == 0 && strcmp(line, "annual") == 0) score += 100;
+  if (strcmp(miss, "anuncement") == 0 && strcmp(line, "announcement") == 0) score += 100;
+  if (strcmp(miss, "apparant") == 0 && strcmp(line, "apparent") == 0) score += 100;
+  if (strcmp(miss, "appearence") == 0 && strcmp(line, "appearance") == 0) score += 100;
+  if (strcmp(miss, "appearences") == 0 && strcmp(line, "appearances") == 0) score += 100;
+  if (strcmp(miss, "arguement") == 0 && strcmp(line, "argument") == 0) score += 100;
+  if (strcmp(miss, "assistent") == 0 && strcmp(line, "assistant") == 0) score += 100;
+  if (strcmp(miss, "authour") == 0 && strcmp(line, "author") == 0) score += 100;
+  if (strcmp(miss, "awfull") == 0 && strcmp(line, "awful") == 0) score += 100;
+  if (strcmp(miss, "basicly") == 0 && strcmp(line, "basically") == 0) score += 100;
+  if (strcmp(miss, "beated") == 0 && strcmp(line, "beaten") == 0) score += 100;
+  if (strcmp(miss, "becomming") == 0 && strcmp(line, "becoming") == 0) score += 100;
+  if (strcmp(miss, "begining") == 0 && strcmp(line, "beginning") == 0) score += 100;
+  if (strcmp(miss, "believ") == 0 && strcmp(line, "belief") == 0) score += 100;
+  if (strcmp(miss, "believ") == 0 && strcmp(line, "believe") == 0) score += 100;
+  if (strcmp(miss, "calender") == 0 && strcmp(line, "calendar") == 0) score += 100;
+  if (strcmp(miss, "carribean") == 0 && strcmp(line, "caribbean") == 0) score += 100;
+  if (strcmp(miss, "catagory") == 0 && strcmp(line, "category") == 0) score += 100;
+  if (strcmp(miss, "cemetary") == 0 && strcmp(line, "cemetery") == 0) score += 100;
+  if (strcmp(miss, "coligue") == 0 && strcmp(line, "colleague") == 0) score += 100;
+  if (strcmp(miss, "colum") == 0 && strcmp(line, "column") == 0) score += 100;
+  if (strcmp(miss, "comite") == 0 && strcmp(line, "committee") == 0) score += 100;
+  if (strcmp(miss, "comitee") == 0 && strcmp(line, "committee") == 0) score += 100;
+  if (strcmp(miss, "comming") == 0 && strcmp(line, "coming") == 0) score += 100;
+  if (strcmp(miss, "condem") == 0 && strcmp(line, "condemn") == 0) score += 100;
+  if (strcmp(miss, "congradulations") == 0 && strcmp(line, "congratulations") == 0) score += 100;
+  if (strcmp(miss, "conveniance") == 0 && strcmp(line, "convenience") == 0) score += 100;
+  if (strcmp(miss, "definate") == 0 && strcmp(line, "definite") == 0) score += 100;
+  if (strcmp(miss, "definately") == 0 && strcmp(line, "definitely") == 0) score += 100;
+  if (strcmp(miss, "dilema") == 0 && strcmp(line, "dilemma") == 0) score += 100;
+  if (strcmp(miss, "doesnt") == 0 && strcmp(line, "doesn't") == 0) score += 100;
+  if (strcmp(miss, "exelent") == 0 && strcmp(line, "excellent") == 0) score += 100;
+  if (strcmp(miss, "exhilirate") == 0 && strcmp(line, "exhilarate") == 0) score += 100;
+  if (strcmp(miss, "existance") == 0 && strcmp(line, "existence") == 0) score += 100;
+  if (strcmp(miss, "extrem") == 0 && strcmp(line, "extreme") == 0) score += 100;
+  if (strcmp(miss, "familier") == 0 && strcmp(line, "familiar") == 0) score += 100;
+  if (strcmp(miss, "grammer") == 0 && strcmp(line, "gammar") == 0) score += 100;
+  if (strcmp(miss, "gratefull") == 0 && strcmp(line, "grateful") == 0) score += 100;
+  if (strcmp(miss, "guidence") == 0 && strcmp(line, "guidance") == 0) score += 100;
+  if (strcmp(miss, "humourous") == 0 && strcmp(line, "humorous") == 0) score += 100;
+  if (strcmp(miss, "immediatly") == 0 && strcmp(line, "immediately") == 0) score += 100;
+  if (strcmp(miss, "incidently") == 0 && strcmp(line, "incidentally") == 0) score += 100;
+  if (strcmp(miss, "indispensible") == 0 && strcmp(line, "indispensable") == 0) score += 100;
+  if (strcmp(miss, "lenght") == 0 && strcmp(line, "length") == 0) score += 100;
+  if (strcmp(miss, "liason") == 0 && strcmp(line, "liaison") == 0) score += 100;
+  if (strcmp(miss, "paralel") == 0 && strcmp(line, "parallel") == 0) score += 100;
+  if (strcmp(miss, "particuly") == 0 && strcmp(line, "particularly") == 0) score += 100;
+  if (strcmp(miss, "quize") == 0 && strcmp(line, "quiz") == 0) score += 100;
+  if (strcmp(miss, "reciept") == 0 && strcmp(line, "receipt") == 0) score += 100;
+  if (strcmp(miss, "recieve") == 0 && strcmp(line, "receive") == 0) score += 100;
+  if (strcmp(miss, "recipt") == 0 && strcmp(line, "receipt") == 0) score += 100;
+  if (strcmp(miss, "relavant") == 0 && strcmp(line, "relevant") == 0) score += 100;
+  if (strcmp(miss, "seperate") == 0 && strcmp(line, "separate") == 0) score += 100;
+  if (strcmp(miss, "tato") == 0 && strcmp(line, "tattoo") == 0) score += 100;
+  if (strcmp(miss, "tendancy") == 0 && strcmp(line, "tendency") == 0) score += 100;
+  if (strcmp(miss, "unnessary") == 0 && strcmp(line, "unnecessary") == 0) score += 100;
+  if (strcmp(miss, "untill") == 0 && strcmp(line, "until") == 0) score += 100;
+  if (strcmp(miss, "utill") == 0 && strcmp(line, "until") == 0) score += 100;
+  if (strcmp(miss, "wierd") == 0 && strcmp(line, "weird") == 0) score += 25;
 
-  if (strcmp(misspelled, "believ") == 0 && strcmp(line_buffer, "believe") == 0) score += 100;
-  if (strcmp(misspelled, "believ") == 0 && strcmp(line_buffer, "belief") == 0) score += 100;
-
-  if (strcmp(misspelled, "cemetary") == 0 && strcmp(line_buffer, "cemetery") == 0) score += 100;
-  if (strcmp(misspelled, "definate") == 0 && strcmp(line_buffer, "definite") == 0) score += 100;
-  if (strcmp(misspelled, "existance") == 0 && strcmp(line_buffer, "existence") == 0) score += 100;
-  if (strcmp(misspelled, "immediatly") == 0 && strcmp(line_buffer, "immediately") == 0) score += 100;
-  if (strcmp(misspelled, "incidently") == 0 && strcmp(line_buffer, "incidentally") == 0) score += 100;
-  if (strcmp(misspelled, "liason") == 0 && strcmp(line_buffer, "liaison") == 0) score += 100;
-  if (strcmp(misspelled, "relavant") == 0 && strcmp(line_buffer, "relevant") == 0) score += 100;
-  if (strcmp(misspelled, "untill") == 0 && strcmp(line_buffer, "until") == 0) score += 100;
-  if (strcmp(misspelled, "wierd") == 0 && strcmp(line_buffer, "weird") == 0) score += 25;
-
-  // if (strcmp(misspelled, "") == 0 && strcmp(line_buffer, "") == 0) score += 100;
+  // if (strcmp(miss, "") == 0 && strcmp(line, "") == 0) score += 100;
 
   return score;
 }
 
 int main() {
 
-  clock_t start = clock();
+  for (int i = 0; i < 100; i++) {
 
-  FILE *file = fopen("words/words.txt", "r");
+    clock_t start = clock();
 
-  if (file == NULL) {
-    perror("Error opening file");
-    return 1;
-  }
+    FILE *file = fopen("words/words.txt", "r");
 
-  int max_results = 400000;
-  int entry_count = 0;
-  char misspelled[] = "irelevant";
-  char line_buffer[30];
-  Match *results = malloc(sizeof(Match) * max_results);
+    if (file == NULL) {
+      perror("Error opening file");
+      return 1;
+    }
 
-  int total_groups_misspelled = 0;
-  char **misspelled_tokens = tokenize(misspelled, &total_groups_misspelled);
-  if (misspelled_tokens == NULL) return 1;
+    int max_results = 400000;
+    int entry_count = 0;
+    // char misspelled[] = "irelevant";
 
-  while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
+    char misspelled[30];
+    printf("> ");
+    scanf("%29s", misspelled);
 
-    line_buffer[strcspn(line_buffer, "\n")] = '\0';
+    char line_buffer[30];
+    Match *results = malloc(sizeof(Match) * max_results);
 
-    if (misspelled[0] != line_buffer[0]) continue;
+    int total_groups_misspelled = 0;
+    char **misspelled_tokens = tokenize(misspelled, &total_groups_misspelled);
+    if (misspelled_tokens == NULL) return 1;
 
-    // This would be avoided if we break down the dictionary into multiple parts, but it will do for now.
-    int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
-    if (word_difference > 2) continue;
+    while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
 
-    int total_groups_match = 0;
-    char **match_tokens = tokenize(line_buffer, &total_groups_match);
-    if (match_tokens == NULL) return 1;
+      line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
-    int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
+      if (misspelled[0] != line_buffer[0]) continue;
 
-    int score = 0;
-    score += full_group_match(limit, misspelled_tokens, match_tokens);
-    score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
-    score += swapped_letter_match(misspelled, line_buffer);
-    score += length_difference(misspelled, line_buffer);
-    score += first_and_last_letter(misspelled, line_buffer);
-    score += neighbour_scan(misspelled, line_buffer);
-    score += manual_list(misspelled, line_buffer);
+      // This would be avoided if we break down the dictionary into multiple parts, but it will do for now.
+      int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
+      if (word_difference > 2) continue;
 
-    strcpy(results[entry_count].word, line_buffer);
-    results[entry_count].points = score;
-    entry_count++;
-  }
+      int total_groups_match = 0;
+      char **match_tokens = tokenize(line_buffer, &total_groups_match);
+      if (match_tokens == NULL) return 1;
 
-  fclose(file);
+      int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
 
-  qsort(results, entry_count, sizeof(Match), compare_matches);
+      int score = 0;
+      score += full_group_match(limit, misspelled_tokens, match_tokens);
+      score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
+      score += swapped_letter_match(misspelled, line_buffer);
+      score += length_difference(misspelled, line_buffer);
+      score += first_and_last_letter(misspelled, line_buffer);
+      score += neighbour_scan(misspelled, line_buffer);
+      score += manual_list(misspelled, line_buffer);
 
-  for (int i = 0; i < 3 && i < entry_count; i++) {
-    printf("%s [%d]\n", results[i].word, results[i].points);
-  }
+      strcpy(results[entry_count].word, line_buffer);
+      results[entry_count].points = score;
+      entry_count++;
+    }
 
-  clock_t end = clock();
-  double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-  printf("\n\%fs", time_taken);
-  printf("\n%d", entry_count);
+    fclose(file);
+
+    qsort(results, entry_count, sizeof(Match), compare_matches);
+
+    for (int i = 0; i < 3 && i < entry_count; i++) {
+      printf("%s [%d]\n", results[i].word, results[i].points);
+    }
+
+    clock_t end = clock();
+    double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("\n\%fs", time_taken);
+    printf("\n%d", entry_count);
 
   free(results);
   free(misspelled_tokens);
+  printf("\n\n");
+}
   return 0;
 
   // char path[16];
