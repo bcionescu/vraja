@@ -366,7 +366,7 @@ int main() {
 
   int max_results = 400000;
   int entry_count = 0;
-  char misspelled[] = "tommorrow";
+  char misspelled[] = "begginner";
   char line_buffer[30];
   Match *results = malloc(sizeof(Match) * max_results);
 
@@ -377,6 +377,12 @@ int main() {
   while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
 
     line_buffer[strcspn(line_buffer, "\n")] = '\0';
+
+    if (misspelled[0] != line_buffer[0]) continue;
+
+    int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
+
+    if (word_difference > 2) continue;
 
     int total_groups_match = 0;
     char **match_tokens = tokenize(line_buffer, &total_groups_match);
