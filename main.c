@@ -816,7 +816,7 @@ int main() {
 
   int max_results = 400000;
   int entry_count = 0;
-  char misspelled[] = "tommorrow";
+  char misspelled[] = "beginer";
   char line_buffer[30];
   Match *results = malloc(sizeof(Match) * max_results);
 
