@@ -2821,20 +2821,17 @@ int main() {
 
       if (misspelled_tokens == NULL) return 1;
 
+      int miss_len = strlen(misspelled[i]);
+
       while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
 
         line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
         if (misspelled[i][0] != line_buffer[0]) continue;
 
-        int miss_len = strlen(misspelled[i]);
         int line_len = strlen(line_buffer);
-        int word_diff = abs(miss_len - line_len);
-        if (word_diff > 2) continue;
-
-        // This would be avoided if we break down the dictionary into multiple parts, but it will do for now.
-        int word_difference = abs((int)strlen(misspelled[i]) - (int)strlen(line_buffer));
-        if (word_difference > 2) continue;
+        if (line_len < miss_len - 2) continue;
+        if (line_len > miss_len + 2) break;
 
         int total_groups_match = 0;
         char **match_tokens = tokenize(line_buffer, &total_groups_match);
