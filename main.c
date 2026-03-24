@@ -938,9 +938,10 @@ int main() {
     // printf("> ");
     // scanf("%29s", misspelled);
 
-    char *misspelled[32] = {"affilliate", "affort", "aforememtioned"};
+    char *misspelled[7] = {"begginner", "beginner", "dogy", "doggy", "towl", "towel"};
+    int iterations = sizeof(misspelled) / sizeof(misspelled[0]);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < iterations - 1; i += 2) {
 
       int len = strlen(misspelled[i]);
       int max_results = 400000;
@@ -996,22 +997,33 @@ int main() {
 
       qsort(results, entry_count, sizeof(Match), compare_matches);
 
-      printf("> %s\n", misspelled[i]);
+      // printf("results[0].word -> %s\n", results[0].word);
+      // printf("misspelled[i + 1] -> %s\n", misspelled[i + 1]);
 
-      for (int i = 0; i < 2 && i < entry_count; i++) {
-        printf("%s [%d]\n", results[i].word, results[i].points);
+      if (strcmp(results[0].word, misspelled[i + 1]) == 0) {
+        // printf("%s -> ", misspelled[i + 1]);
+        // printf("%s %d [Match] ---------------- \n", results[i].word, results[i].points);
+        entry_count = 0;
+        free(results);
+        free(misspelled_tokens);
+        fclose(file);
+        continue;
+      } else {
+          printf("%s -> ", misspelled[i]);
+          // for (int i = 0; i < 1 && i < entry_count; i++) {
+          printf("%s [%d]\n\n", results[i].word, results[i].points);
+        // }
+
+          clock_t end = clock();
+          double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+          // printf("\n\%fs", time_taken);
+          // printf("\n%d", entry_count);
+
+          entry_count = 0;
+          free(results);
+          free(misspelled_tokens);
+          fclose(file);
       }
-
-      clock_t end = clock();
-      double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-      // printf("\n\%fs", time_taken);
-      // printf("\n%d", entry_count);
-
-      entry_count = 0;
-      free(results);
-      free(misspelled_tokens);
-      printf("\n");
-      fclose(file);
   }
 
 // }
