@@ -33,6 +33,8 @@ This way, we'd have to search through fewer words.
 
 # Updates
 
+Bear in mind that longer words will always score more. The score needs to be adjusted for length.
+
 Instead of tokenizing all the words, let's only select words that start with a neighbouring letter.
 
 Use the neighbouring strategy for the very first letter of the word. For example, if someone types "darpentry", and they meant carpentry, we should allow only allow for words that start with w,e,r,f,c,x,s,d. Also always include k, as it is often silent. This will dramatically reduce the number of words it could be, and improve our matching strategy.
@@ -74,3 +76,9 @@ Maybe sometimes prioritise words of the same, or similar length, especially for 
 If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
 
 Also add a manual list which supersedes all other processes, and shows up first (maybe).
+
+Idea: When deciding how much to allocate to max_results, instead of having a large number like 400k, instead calculate it based on how many lists we add into memory. For example, if we add words that are 7, 8, and 9 letters long, add those up, and make that the maximum, as we can't have more anyway. In fact, even that is wasteful. It should really only be a fraction of that, but not so few that we omit entries.
+
+Maybe do some experimentation, printing out how many entries we actually get, just to get a sense of things.
+
+Also, add a function which gives the word more points if it's a similar size to the word.

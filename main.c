@@ -343,17 +343,17 @@ int main() {
     return 1;
   }
 
-  int max_entries = 100000;
+  int max_results = 400000;
   int entry_count = 0;
-  char misspelled[] = "catpentry";
+  char misspelled[] = "begginner";
   char line_buffer[30];
-  Match *results = malloc(sizeof(Match) * max_entries);
+  Match *results = malloc(sizeof(Match) * max_results);
 
   int total_groups_misspelled = 0;
   char **misspelled_tokens = tokenize(misspelled, &total_groups_misspelled);
   if (misspelled_tokens == NULL) return 1;
 
-  while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_entries) {
+  while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
 
     line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
@@ -384,6 +384,7 @@ int main() {
   clock_t end = clock();
   double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
   printf("\n\%fs", time_taken);
+  printf("\n%d", entry_count);
 
   free(results);
   free(misspelled_tokens);
