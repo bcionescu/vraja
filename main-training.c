@@ -2717,17 +2717,24 @@ int manual_list(char *miss, char *line) {
 
 int main() {
 
+  // for (int i = 0; i < 100; i++) {
+
     clock_t start = clock();
 
-    char *misspelled[3] = {"catpentry", "amblance"};
+    // char misspelled[32];
+    // printf("> ");
+    // scanf("%29s", misspelled);
+
+    char *misspelled[64] = {};
 
     int iterations = sizeof(misspelled) / sizeof(misspelled[0]);
 
-    for (int i = 0; i < iterations - 1; i++) {
+    for (int i = 0; i < iterations - 1; i += 2) {
 
       int len = strlen(misspelled[i]);
       int max_results = 400000;
       int entry_count = 0;
+      // char misspelled[] = "irelevant";
 
       FILE *file = fopen("words/words.txt", "r");
 
@@ -2778,20 +2785,35 @@ int main() {
 
       qsort(results, entry_count, sizeof(Match), compare_matches);
 
-      printf("%s -> ", misspelled[i]);
+      // printf("results[0].word -> %s\n", results[0].word);
+      // printf("misspelled[i + 1] -> %s\n", misspelled[i + 1]);
 
-      for (int i = 0; i < 3 && i < entry_count; i++) printf("%s ", results[i].word);
+      if (strcmp(results[0].word, misspelled[i + 1]) == 0) {
+        // printf("%s -> ", misspelled[i + 1]);
+        // printf("%s %d [Match] ---------------- \n", results[i].word, results[i].points);
+        entry_count = 0;
+        free(results);
+        free(misspelled_tokens);
+        fclose(file);
+        continue;
+      } else {
+          printf("if (strcmp(miss, \"%s\") == 0 && ", misspelled[i]);
+          // for (int i = 0; i < 1 && i < entry_count; i++) {
+          printf("strcmp(line, \"%s\") == 0) score += 100;\n", misspelled[i + 1]);
+        // }
 
-      clock_t end = clock();
-      double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+          clock_t end = clock();
+          double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+          // printf("\n\%fs", time_taken);
+          // printf("\n%d", entry_count);
 
-      printf("\[%fs]\n", time_taken);
-      // printf("\n%d", entry_count);
-
-      entry_count = 0;
-      free(results);
-      free(misspelled_tokens);
-      fclose(file);
+          entry_count = 0;
+          free(results);
+          free(misspelled_tokens);
+          fclose(file);
       }
+  }
+
+// }
   return 0;
 }
