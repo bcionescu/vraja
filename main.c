@@ -2801,7 +2801,7 @@ int main() {
       clock_t start = clock();
 
       int len = strlen(misspelled[i]);
-      int max_results = 50000;
+      int max_results = 25000;
       int entry_count = 0;
 
       FILE *file = fopen("words/words.txt", "r");
@@ -2823,7 +2823,7 @@ int main() {
 
       int miss_len = strlen(misspelled[i]);
 
-      while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
+      while (fgets(line_buffer, sizeof(line_buffer), file)) {
 
         line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
@@ -2870,5 +2870,6 @@ int main() {
       free(misspelled_tokens);
       fclose(file);
       }
+
   return 0;
 }
