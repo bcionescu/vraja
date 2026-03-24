@@ -2803,7 +2803,10 @@ int main() {
 
       clock_t start = clock();
 
-      FILE *file = fopen("words/words.txt", "r");
+      char path[19];
+      sprintf(path, "words/groups/%c.txt", misspelled[i][0]);
+
+      FILE *file = fopen(path, "r");
 
       if (file == NULL) {
         perror("Error opening file");
@@ -2811,7 +2814,7 @@ int main() {
       }
 
       int len = strlen(misspelled[i]);
-      int max_results = 25000;
+      int max_results = 20000;
       int entry_count = 0;
 
       char line_buffer[30];
@@ -2821,16 +2824,12 @@ int main() {
 
       int total_groups_misspelled = 0;
       char **misspelled_tokens = tokenize(misspelled[i], &total_groups_misspelled);
-
       if (misspelled_tokens == NULL) return 1;
 
       int miss_len = strlen(misspelled[i]);
 
       while (fgets(line_buffer, sizeof(line_buffer), file)) {
-
         line_buffer[strcspn(line_buffer, "\n")] = '\0';
-
-        if (misspelled[i][0] != line_buffer[0]) continue;
 
         int line_len = strlen(line_buffer);
         if (line_len < miss_len - 2) continue;
