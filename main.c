@@ -778,6 +778,31 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
   return score;
 }
 
+int neighbour_scan(char *misspelled, char *line_buffer) {
+  int score = 0;
+
+  char shortest[30];
+  char largest[30];
+  if (strlen(misspelled) < strlen(line_buffer)) {
+      strcpy(shortest, misspelled);
+      strcpy(largest, line_buffer);
+  } else if (strlen(misspelled) > strlen(line_buffer)) {
+      strcpy(shortest, line_buffer);
+      strcpy(largest, misspelled);
+  } else {
+      strcpy(shortest, misspelled);
+      strcpy(largest, line_buffer);
+  }
+
+  if (shortest[0] == largest[1]) score += 5;
+
+  for (int i = 1; shortest[i] != '\0'; i++){
+    if (shortest[i] == largest[i - 1] || shortest[i] == largest[i + 1]) score += 5;
+  }
+
+  return score;
+}
+
 int main() {
 
   clock_t start = clock();
@@ -791,7 +816,7 @@ int main() {
 
   int max_results = 400000;
   int entry_count = 0;
-  char misspelled[] = "refridgerator";
+  char misspelled[] = "tommorrow";
   char line_buffer[30];
   Match *results = malloc(sizeof(Match) * max_results);
 
@@ -821,6 +846,7 @@ int main() {
     score += swapped_letter_match(misspelled, line_buffer);
     score += length_difference(misspelled, line_buffer);
     score += first_and_last_letter(misspelled, line_buffer);
+    score += neighbour_scan(misspelled, line_buffer);
 
     strcpy(results[entry_count].word, line_buffer);
     results[entry_count].points = score;
