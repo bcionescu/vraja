@@ -82,3 +82,5 @@ Idea: When deciding how much to allocate to max_results, instead of having a lar
 Maybe do some experimentation, printing out how many entries we actually get, just to get a sense of things.
 
 Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.
+
+There is also another concern. Extra or missing letters cause problems, because now the groups no longer line up. If you have "fridge" and "frridge", "fridge" will not be the obvious choice, as it'll get fewer points due to no longer lining up properly. Maybe we can add a meme where we go letter by letter, and we check if it's present before or after the current index, and add points for that.
