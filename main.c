@@ -892,87 +892,128 @@ int manual_list(char *miss, char *line) {
   if (strcmp(miss, "wierd") == 0 && strcmp(line, "weird") == 0) score += 25;
   if (strcmp(miss, "analize") == 0 && strcmp(line, "analyze") == 0) score += 100;
 
-  // if (strcmp(miss, "") == 0 && strcmp(line, "") == 0) score += 100;
+  if (strcmp(miss, "abondon") == 0 && strcmp(line, "abandon") == 0) score += 100;
+  if (strcmp(miss, "abondoning") == 0 && strcmp(line, "abandoning") == 0) score += 100;
+  if (strcmp(miss, "abondons") == 0 && strcmp(line, "abandons") == 0) score += 100;
+  if (strcmp(miss, "abreviated") == 0 && strcmp(line, "abbreviated") == 0) score += 100;
+  if (strcmp(miss, "abreviation") == 0 && strcmp(line, "abbreviation") == 0) score += 100;
+  if (strcmp(miss, "absailing") == 0 && strcmp(line, "abseiling") == 0) score += 100;
+  if (strcmp(miss, "absolutly") == 0 && strcmp(line, "absolutely") == 0) score += 100;
+  if (strcmp(miss, "absorbsion") == 0 && strcmp(line, "absorption") == 0) score += 100;
+  if (strcmp(miss, "absorbtion") == 0 && strcmp(line, "absorption") == 0) score += 100;
+  if (strcmp(miss, "accension") == 0 && strcmp(line, "accession") == 0) score += 100;
+  if (strcmp(miss, "accension") == 0 && strcmp(line, "ascension") == 0) score += 100;
+  if (strcmp(miss, "accomdate") == 0 && strcmp(line, "accommodate") == 0) score += 100;
+  if (strcmp(miss, "accoring") == 0 && strcmp(line, "according") == 0) score += 100;
+  if (strcmp(miss, "accquainted") == 0 && strcmp(line, "acquainted") == 0) score += 100;
+  if (strcmp(miss, "accredidation") == 0 && strcmp(line, "accreditation") == 0) score += 100;
+  if (strcmp(miss, "acedemic") == 0 && strcmp(line, "academic") == 0) score += 100;
+  if (strcmp(miss, "achiv") == 0 && strcmp(line, "achieve") == 0) score += 100;
+  if (strcmp(miss, "achive") == 0 && strcmp(line, "achieve") == 0) score += 100;
+  if (strcmp(miss, "achive") == 0 && strcmp(line, "archive") == 0) score += 100;
+  if (strcmp(miss, "achived") == 0 && strcmp(line, "achieved") == 0) score += 100;
+  if (strcmp(miss, "achived") == 0 && strcmp(line, "archived") == 0) score += 100;
+  if (strcmp(miss, "ackward") == 0 && strcmp(line, "awkward") == 0) score += 100;
+  if (strcmp(miss, "ackward") == 0 && strcmp(line, "backward") == 0) score += 100;
+  if (strcmp(miss, "activites") == 0 && strcmp(line, "activities") == 0) score += 100;
+  if (strcmp(miss, "adbandon") == 0 && strcmp(line, "abandon") == 0) score += 100;
+  if (strcmp(miss, "addmission") == 0 && strcmp(line, "admission") == 0) score += 100;
+  if (strcmp(miss, "addopted") == 0 && strcmp(line, "adopted") == 0) score += 100;
+  if (strcmp(miss, "addoptive") == 0 && strcmp(line, "adoptive") == 0) score += 100;
+  if (strcmp(miss, "addres") == 0 && strcmp(line, "address") == 0) score += 100;
+  if (strcmp(miss, "adequit") == 0 && strcmp(line, "adequate") == 0) score += 100;
+  if (strcmp(miss, "adhearing") == 0 && strcmp(line, "adhering") == 0) score += 100;
+  if (strcmp(miss, "") == 0 && strcmp(line, "") == 0) score += 100;
 
   return score;
 }
 
 int main() {
 
-  for (int i = 0; i < 100; i++) {
+  // for (int i = 0; i < 100; i++) {
 
     clock_t start = clock();
 
-    char misspelled[32];
-    printf("> ");
-    scanf("%29s", misspelled);
+    // char misspelled[32];
+    // printf("> ");
+    // scanf("%29s", misspelled);
 
-    int len = strlen(misspelled);
+    char *misspelled[32] = {"affilliate", "affort", "aforememtioned"};
 
-    FILE *file = fopen("words/words.txt", "r");
+    for (int i = 0; i < 3; i++) {
 
-    if (file == NULL) {
-      perror("Error opening file");
-      return 1;
-    }
+      int len = strlen(misspelled[i]);
+      int max_results = 400000;
+      int entry_count = 0;
+      // char misspelled[] = "irelevant";
 
-    int max_results = 400000;
-    int entry_count = 0;
-    // char misspelled[] = "irelevant";
+      FILE *file = fopen("words/words.txt", "r");
 
-    char line_buffer[30];
-    Match *results = malloc(sizeof(Match) * max_results);
+      if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+      }
 
-    int total_groups_misspelled = 0;
-    char **misspelled_tokens = tokenize(misspelled, &total_groups_misspelled);
-    if (misspelled_tokens == NULL) return 1;
+      char line_buffer[30];
+      line_buffer[0] = '\0';
 
-    while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
+      Match *results = malloc(sizeof(Match) * max_results);
 
-      line_buffer[strcspn(line_buffer, "\n")] = '\0';
+      int total_groups_misspelled = 0;
+      char **misspelled_tokens = tokenize(misspelled[i], &total_groups_misspelled);
 
-      if (misspelled[0] != line_buffer[0]) continue;
+      if (misspelled_tokens == NULL) return 1;
 
-      // This would be avoided if we break down the dictionary into multiple parts, but it will do for now.
-      int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
-      if (word_difference > 2) continue;
+      while (fgets(line_buffer, sizeof(line_buffer), file) && entry_count < max_results) {
 
-      int total_groups_match = 0;
-      char **match_tokens = tokenize(line_buffer, &total_groups_match);
-      if (match_tokens == NULL) return 1;
+        line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
-      int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
+        if (misspelled[i][0] != line_buffer[0]) continue;
 
-      int score = 0;
-      score += full_group_match(limit, misspelled_tokens, match_tokens);
-      score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
-      score += swapped_letter_match(misspelled, line_buffer);
-      score += length_difference(misspelled, line_buffer);
-      score += first_and_last_letter(misspelled, line_buffer);
-      score += neighbour_scan(misspelled, line_buffer);
-      score += manual_list(misspelled, line_buffer);
+        // This would be avoided if we break down the dictionary into multiple parts, but it will do for now.
+        int word_difference = abs((int)strlen(misspelled[i]) - (int)strlen(line_buffer));
+        if (word_difference > 2) continue;
 
-      strcpy(results[entry_count].word, line_buffer);
-      results[entry_count].points = score;
-      entry_count++;
-    }
+        int total_groups_match = 0;
+        char **match_tokens = tokenize(line_buffer, &total_groups_match);
+        if (match_tokens == NULL) return 1;
 
-    fclose(file);
+        int limit = calculate_group_limit(total_groups_misspelled, total_groups_match);
 
-    qsort(results, entry_count, sizeof(Match), compare_matches);
+        int score = 0;
+        score += full_group_match(limit, misspelled_tokens, match_tokens);
+        score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
+        score += swapped_letter_match(misspelled[i], line_buffer);
+        score += length_difference(misspelled[i], line_buffer);
+        score += first_and_last_letter(misspelled[i], line_buffer);
+        score += neighbour_scan(misspelled[i], line_buffer);
+        score += manual_list(misspelled[i], line_buffer);
 
-    for (int i = 0; i < 3 && i < entry_count; i++) {
-      printf("%s [%d]\n", results[i].word, results[i].points);
-    }
+        strcpy(results[entry_count].word, line_buffer);
+        results[entry_count].points = score;
+        entry_count++;
+      }
 
-    clock_t end = clock();
-    double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("\n\%fs", time_taken);
-    printf("\n%d", entry_count);
+      qsort(results, entry_count, sizeof(Match), compare_matches);
 
-  free(results);
-  free(misspelled_tokens);
-  printf("\n\n");
-}
+      printf("> %s\n", misspelled[i]);
+
+      for (int i = 0; i < 2 && i < entry_count; i++) {
+        printf("%s [%d]\n", results[i].word, results[i].points);
+      }
+
+      clock_t end = clock();
+      double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+      // printf("\n\%fs", time_taken);
+      // printf("\n%d", entry_count);
+
+      entry_count = 0;
+      free(results);
+      free(misspelled_tokens);
+      printf("\n");
+      fclose(file);
+  }
+
+// }
   return 0;
 }
