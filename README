@@ -81,4 +81,4 @@ Idea: When deciding how much to allocate to max_results, instead of having a lar
 
 Maybe do some experimentation, printing out how many entries we actually get, just to get a sense of things.
 
-Also, add a function which gives the word more points if it's a similar size to the word.
+Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.

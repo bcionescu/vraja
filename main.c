@@ -332,6 +332,27 @@ int compare_matches(const void *a, const void *b) {
   return (m2->points - m1->points);
 }
 
+int length_difference(char *misspelled, char *line_buffer) {
+  int score = 0;
+  int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
+
+  if (word_difference == 0) {
+    score += 10;
+  } else if (word_difference == 1) {
+    score += 7;
+  } else if (word_difference == 2) {
+    score += 2;
+  } else if ((word_difference >= 4) && (word_difference < 7)) {
+    score -= 7;
+  } else if ((word_difference > 7) && (word_difference < 12)) {
+    score -= 10;
+  } else {
+    score -= 100;
+  }
+
+  return score;
+}
+
 int main() {
 
   clock_t start = clock();
@@ -345,7 +366,7 @@ int main() {
 
   int max_results = 400000;
   int entry_count = 0;
-  char misspelled[] = "begginner";
+  char misspelled[] = "tommorrow";
   char line_buffer[30];
   Match *results = malloc(sizeof(Match) * max_results);
 
@@ -367,6 +388,7 @@ int main() {
     score += full_group_match(limit, misspelled_tokens, match_tokens);
     score += perfect_letter_match(limit, misspelled_tokens, match_tokens);
     score += swapped_letter_match(misspelled, line_buffer);
+    score += length_difference(misspelled, line_buffer);
 
     strcpy(results[entry_count].word, line_buffer);
     results[entry_count].points = score;
