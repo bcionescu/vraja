@@ -33,12 +33,14 @@ This way, we'd have to search through fewer words.
 
 # Updates
 
+Instead of breaking words up, let's instead load the word list in RAM, and then filter out the words that we need (same length and then -/+ 1). This should be more efficient.
+
+
 Bear in mind that longer words will always score more. The score needs to be adjusted for length.
 
 Instead of tokenizing all the words, let's only select words that start with a neighbouring letter.
 
 Use the neighbouring strategy for the very first letter of the word. For example, if someone types "darpentry", and they meant carpentry, we should allow only allow for words that start with w,e,r,f,c,x,s,d. Also always include k, as it is often silent. This will dramatically reduce the number of words it could be, and improve our matching strategy.
-
 
 In order to increase the speed at which we search, we should not only break the list down in terms of length, but also starting letter. So have 2a.txt, 2b.txt ... 8t.txt 8u.txt, etc.
 

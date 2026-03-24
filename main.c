@@ -903,6 +903,12 @@ int main() {
 
     clock_t start = clock();
 
+    char misspelled[32];
+    printf("> ");
+    scanf("%29s", misspelled);
+
+    int len = strlen(misspelled);
+
     FILE *file = fopen("words/words.txt", "r");
 
     if (file == NULL) {
@@ -913,10 +919,6 @@ int main() {
     int max_results = 400000;
     int entry_count = 0;
     // char misspelled[] = "irelevant";
-
-    char misspelled[30];
-    printf("> ");
-    scanf("%29s", misspelled);
 
     char line_buffer[30];
     Match *results = malloc(sizeof(Match) * max_results);
@@ -973,9 +975,4 @@ int main() {
   printf("\n\n");
 }
   return 0;
-
-  // char path[16];
-  // int len = strlen(misspelled);
-
-  // sprintf(path, "words/%d.txt", len);
 }
