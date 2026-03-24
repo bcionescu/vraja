@@ -2827,6 +2827,11 @@ int main() {
 
         if (misspelled[i][0] != line_buffer[0]) continue;
 
+        int miss_len = strlen(misspelled[i]);
+        int line_len = strlen(line_buffer);
+        int word_diff = abs(miss_len - line_len);
+        if (word_diff > 2) continue;
+
         // This would be avoided if we break down the dictionary into multiple parts, but it will do for now.
         int word_difference = abs((int)strlen(misspelled[i]) - (int)strlen(line_buffer));
         if (word_difference > 2) continue;
