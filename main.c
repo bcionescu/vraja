@@ -1009,9 +1009,9 @@ int main() {
         fclose(file);
         continue;
       } else {
-          printf("%s -> ", misspelled[i]);
+          printf("if (strcmp(miss, \"%s\") == 0 && ", misspelled[i]);
           // for (int i = 0; i < 1 && i < entry_count; i++) {
-          printf("%s [%d]\n\n", results[i].word, results[i].points);
+          printf("strcmp(line, \"%s\") == 0) score += 100;\n", results[i].word);
         // }
 
           clock_t end = clock();
