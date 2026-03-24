@@ -3,47 +3,23 @@ Spell is a spellchecker written in C.
 # To Do
 
 + [x] Assemble a dictionary.
-+ [ ] Start off by passing a word at a time.
-+ [ ] Pass a text as a variable.
++ [x] Pass misspelled words through an array.
++ [x] Start off by passing a word at a time.
++ [x] Tokenize each incorrect word in the string, and in the dictionary, into groups of three of less.
++ [x] Compare the first token in the misspelled word with the first token of every word in the dictionary which is +/-2 of the total length of the misspelled word. Do so by checking if each letter of the token appears in the dictionary word token, in any order. With each loose match, increment the score of the word by one. If we have a partial match, such as two letters in a row, increment it by two points, and if we have an exact match, increment it by three.
++ [x] Repeat this process with every matching length word in the dictionary, until we run out.
++ [x] Order the suggestions from highest to lowest. This way, the highest matching word will come up first.
++ [x] If we have multiple words with the same score, prioritise results of the exact same length as the misspelling. If we still have a tie, prioritise the word that starts with the same letter as the misspelled word, as I suspect errors are more likely to occur later in the word, as opposed to the start.
++ [ ] Add expressions such as "a lot" and "don't" in the dictionary. Alternatively, have them in their own dictionary, or hard code them into the .c file for now.
++ [ ] If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
++ [ ] Maybe sometimes prioritise words of the same, or similar length, especially for very short words.
++ [ ] Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.
++ [ ] Move the manual rules into multiple .txt files, and apply the same logic. Only import the one that you really need, and have it in an easily readable format, such as misspelling->correct-spelling
++ [ ] Pass a text via a file.
 + [ ] Check the text for words which do not appear in the dictionary.
 + [ ] Output the text to the console, writing the misspelled words in red text.
-+ [ ] Tokenize each incorrect word in the string, and in the dictionary, into groups of three of less.
-+ [ ] Compare the first token in the misspelled word with the first token of every word in the dictionary which is +/-2 of the total length of the misspelled word. Do so by checking if each letter of the token appears in the dictionary word token, in any order. With each loose match, increment the score of the word by one. If we have a partial match, such as two letters in a row, increment it by two points, and if we have an exact match, increment it by three.
-+ [ ] Repeat this process with every matching length word in the dictionary, until we run out.
-+ [ ] Order the suggestions from highest to lowest. This way, the highest matching word will come up first.
-+ [ ] If we have multiple words with the same score, prioritise results of the exact same length as the misspelling. If we still have a tie, prioritise the word that starts with the same letter as the misspelled word, as I suspect errors are more likely to occur later in the word, as opposed to the start.
 
-# Method
-
-During the drive back, I had an idea. What if we break each word in tokens of say three letters. We then look for words in the dictionary which are +/-2 in total length, and we compare the letters in each token.
-
-For example, let's say we have the word "calpentry", which should likely be "carpentry". We break it down into three tokens, "cal", "pen", "try". The word has a length of nine, so we examine dictionary words between the length of seven and eleven words.
-
-We start with the firs token, "cal", and then we check and see if other words in the dictionary have "c", "a", and "l" in their first token, in any order. "Calculator" might come up, as well as "calipers". All the words that match go into a list. As a requirement, only two of the three letters per token need to match, so "cameras" should also be a match.
-
-Then, we move onto the second token, "pen", and we compare it to the second token of each word of the appropriate length. Finally, we do the same for "try".
-
-When comparing with shorter words, such as "cameras", the last token of cameras will be "s". We will only include this word if we have a match in the previous tokens. If we have zero matches, we do not include it in the list.
-
-When it comes to larger potential matches, such as "calisthenic", the tokens will be "cal", "ist", "hen", "ic". Naturally, there will be nothing to compare "ic" with, and so, if we have a previous match, we include it in the list.
-
-Later edit: I'll need to explore ways in which I can make the searches as fast as possible. Are different types of databases faster than using a simple text file? If we're looking at word length, maybe we should break down out databases into smaller ones, based on word length? A database for words made up of two letters, three, four, etc.
-
-This way, we'd have to search through fewer words.
-
-# Updates
-
-Maybe sometimes prioritise words of the same, or similar length, especially for very short words.
-
-If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
-
-Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.
-
-There is also another concern. Extra or missing letters cause problems, because now the groups no longer line up. If you have "fridge" and "frridge", "fridge" will not be the obvious choice, as it'll get fewer points due to no longer lining up properly. Maybe we can add a meme where we go letter by letter, and we check if it's present before or after the current index, and add points for that.
-
-// These are not registered because they never come up in the list, and so they are never compared. Will need to add them, but to which one? A separate list? Maybe.
-
-We still need to do these:
+Words that still need manual rules:
 
 alot -> a lot || allot
 alright -> all right
@@ -83,8 +59,4 @@ allegedely->allegedly
 allegedy->allegedly
 
 
- "countrie's", "countries, countries', country's", "didnt", "didn't", "doesnt", "doesn't", "dosen't", "doesn't", "hasnt", "hasn't", "isnt", "isn't", "shoudln", "should, shouldn't", "thast", "that, that's", "theyre", "they're", "todays", "today's", "wasnt", "wasn't"
-
-, "alltime", "all-time", "antiapartheid", "anti-apartheid", "Coca Cola", "Coca-Cola", "co", "ncided->coincided", "aircrafts'", "aircraft's"};
-
-Maybe have a separate file that we import for other words, such as "a lot", or "don't".
+ {"countrie's", "countries, countries', country's", "didnt", "didn't", "doesnt", "doesn't", "dosen't", "doesn't", "hasnt", "hasn't", "isnt", "isn't", "shoudln", "should, shouldn't", "thast", "that, that's", "theyre", "they're", "todays", "today's", "wasnt", "wasn't", "alltime", "all-time", "antiapartheid", "anti-apartheid", "Coca Cola", "Coca-Cola", "co", "ncided->coincided", "aircrafts'", "aircraft's"};
