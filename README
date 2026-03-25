@@ -14,6 +14,7 @@ Spell is a spellchecker written in C.
 + [ ] If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
 + [ ] Maybe sometimes prioritise words of the same, or similar length, especially for very short words.
 + [ ] Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.
++ [ ] The if statements in the manual rules function are very inefficient. Not only do we check every single one, but we also check them all for each potential match. All we need to do is check whether the misspelling is in that list. If so, return the correct spelling. Maybe use a struct.
 + [ ] Move the manual rules into multiple .txt files, and apply the same logic. Only import the one that you really need, and have it in an easily readable format, such as misspelling->correct-spelling
 + [ ] Pass a text via a file.
 + [ ] Check the text for words which do not appear in the dictionary.
