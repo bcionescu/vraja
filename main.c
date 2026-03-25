@@ -2845,14 +2845,12 @@ int main() {
         return 1;
       }
 
-      int len = strlen(misspelled[i]);
-      int max_results = get_max_results(misspelled[i][0]);
       int entry_count = 0;
 
       char line_buffer[30];
       line_buffer[0] = '\0';
 
-      Match *results = malloc(sizeof(Match) * max_results);
+      Match *results = malloc(sizeof(Match) * get_max_results(misspelled[i][0]));
 
       int total_groups_misspelled = 0;
       char **misspelled_tokens = tokenize(misspelled[i], &total_groups_misspelled);
