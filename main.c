@@ -926,6 +926,7 @@ int manual_list(char *miss, char *line) {
     // if (strcmp(miss, "Unites States") == 0 && strcmp(line, "United States") == 0) return 100;
     // if (strcmp(miss, "Yementite") == 0 && strcmp(line, "Yemenite, Yemeni") == 0) return 100;
 
+    if (miss[0] == 'a') {
         struct Correction dict[] = {
             {"abondon", "abandon"},
             {"abondoning", "abandoning"},
@@ -1079,7 +1080,16 @@ int manual_list(char *miss, char *line) {
             {"avengence", "a vengeance"},
             {"awared", "awarded"},
             {"awfull", "awful"},
-            {"awya", "away"},
+            {"awya", "away"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'b') {
+        struct Correction dict[] = {
             {"baceause", "because"},
             {"bakc", "back"},
             {"banannas", "bananas"},
@@ -1132,7 +1142,16 @@ int manual_list(char *miss, char *line) {
             {"busines", "business"},
             {"busineses", "business, businesses"},
             {"busness", "business"},
-            {"bussiness", "business"},
+            {"bussiness", "business"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'c') {
+        struct Correction dict[] = {
             {"caculater", "calculator"},
             {"cacuses", "caucuses"},
             {"cahracters", "characters"},
@@ -1381,7 +1400,16 @@ int manual_list(char *miss, char *line) {
             {"cumulatative", "cumulative"},
             {"curch", "church"},
             {"curcuit", "circuit"},
-            {"cxan", "cyan"},
+            {"cxan", "cyan"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'd') {
+        struct Correction dict[] = {
             {"daed", "dead"},
             {"dael", "deal, dial, dahl"},
             {"dalmation", "dalmatian"},
@@ -1496,7 +1524,16 @@ int manual_list(char *miss, char *line) {
             {"dum", "dumb"},
             {"durig", "during"},
             {"duting", "during"},
-            {"dyas", "dryas"},
+            {"dyas", "dryas"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'e') {
+        struct Correction dict[] = {
             {"eahc", "each"},
             {"earlies", "earliest"},
             {"earnt", "earned"},
@@ -1597,7 +1634,16 @@ int manual_list(char *miss, char *line) {
             {"extremeophile", "extremophile"},
             {"eyar", "year, eyas"},
             {"eyars", "years, eyas"},
-            {"eyasr", "years, eyas"},
+            {"eyasr", "years, eyas"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'f') {
+        struct Correction dict[] = {
             {"facilites", "facilities"},
             {"familes", "families"},
             {"familier", "familiar"},
@@ -1640,7 +1686,16 @@ int manual_list(char *miss, char *line) {
             {"fucntion", "function"},
             {"fucntioning", "functioning"},
             {"funguses", "fungi"},
-            {"futhroc", "futhark, futhorc"},
+            {"futhroc", "futhark, futhorc"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'g') {
+        struct Correction dict[] = {
             {"gae", "game, Gael, gale"},
             {"gallaxies", "galaxies"},
             {"galvinized", "galvanized"},
@@ -1681,7 +1736,16 @@ int manual_list(char *miss, char *line) {
             {"guage", "gauge"},
             {"guidence", "guidance"},
             {"gunanine", "guanine"},
-            {"gya", "gay"},
+            {"gya", "gay"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    }else if (miss[0] == 'h') {
+        struct Correction dict[] = {
             {"habaeus", "habeas"},
             {"habeus", "habeas"},
             {"haemorrage", "haemorrhage"},
@@ -1736,7 +1800,16 @@ int manual_list(char *miss, char *line) {
             {"hydropobe", "hydrophobe"},
             {"hypocracy", "hypocrisy"},
             {"hypocrit", "hypocrite"},
-            {"hypocrits", "hypocrites"},
+            {"hypocrits", "hypocrites"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    }else if (miss[0] == 'i') {
+        struct Correction dict[] = {
             {"idaeidae", "idea"},
             {"idaes", "ideas"},
             {"idealogies", "ideologies"},
@@ -1849,18 +1922,45 @@ int manual_list(char *miss, char *line) {
             {"irrelevent", "irrelevant"},
             {"iunior", "junior"},
             {"iwll", "will"},
-            {"iwth", "with"},
+            {"iwth", "with"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'j') {
+        struct Correction dict[] = {
             {"journied", "journeyed"},
             {"journies", "journeys"},
             {"jstu", "just"},
-            {"jsut", "just"},
+            {"jsut", "just"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'k') {
+        struct Correction dict[] = {
             {"klenex", "kleenex"},
             {"knifes", "knives"},
             {"knwo", "know"},
             {"knwos", "knows"},
             {"konw", "know"},
             {"konws", "knows"},
-            {"kwno", "know"},
+            {"kwno", "know"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'l') {
+        struct Correction dict[] = {
             {"labatory", "lavatory, laboratory"},
             {"lable", "label"},
             {"labled", "labelled, labeled"},
@@ -1911,7 +2011,16 @@ int manual_list(char *miss, char *line) {
             {"lsat", "last"},
             {"lukid", "likud"},
             {"lveo", "love"},
-            {"lvoe", "love"},
+            {"lvoe", "love"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'm') {
+        struct Correction dict[] = {
             {"maching", "machine, marching, matching"},
             {"mackeral", "mackerel"},
             {"magincian", "magician"},
@@ -1984,7 +2093,16 @@ int manual_list(char *miss, char *line) {
             {"muscels", "mussels, muscles"},
             {"myraid", "myriad"},
             {"mysef", "myself"},
-            {"mysogynist", "misogynist"},
+            {"mysogynist", "misogynist"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'n') {
+        struct Correction dict[] = {
             {"naturaly", "naturally"},
             {"naturely", "naturally"},
             {"naturually", "naturally"},
@@ -2014,7 +2132,16 @@ int manual_list(char *miss, char *line) {
             {"nto", "not"},
             {"nucular", "nuclear"},
             {"nutritent", "nutrient"},
-            {"nuturing", "nurturing"},
+            {"nuturing", "nurturing"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'o') {
+        struct Correction dict[] = {
             {"obediance", "obedience"},
             {"obediant", "obedient"},
             {"obstacal", "obstacle"},
@@ -2046,7 +2173,16 @@ int manual_list(char *miss, char *line) {
             {"ouevre", "oeuvre"},
             {"overthere", "over there"},
             {"owrk", "work"},
-            {"owudl", "would"},
+            {"owudl", "would"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'p') {
+        struct Correction dict[] = {
             {"paide", "paid"},
             {"palce", "place, palace"},
             {"paleolitic", "paleolithic"},
@@ -2226,14 +2362,32 @@ int manual_list(char *miss, char *line) {
             {"pursuades", "persuades"},
             {"pususading", "persuading"},
             {"pwoer", "power"},
-            {"pyscic", "psychic"},
+            {"pyscic", "psychic"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'q') {
+        struct Correction dict[] = {
             {"qtuie", "quite, quiet"},
             {"quantaty", "quantity"},
             {"quantitiy", "quantity"},
             {"quicklyu", "quickly"},
             {"quitted", "quit"},
             {"quize", "quiz"},
-            {"qutie", "quite, quiet"},
+            {"qutie", "quite, quiet"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'r') {
+        struct Correction dict[] = {
             {"radify", "ratify"},
             {"raelly", "really"},
             {"rarified", "rarefied"},
@@ -2348,7 +2502,16 @@ int manual_list(char *miss, char *line) {
             {"russina", "Russian"},
             {"rwite", "write"},
             {"rythem", "rhythm"},
-            {"rythim", "rhythm"},
+            {"rythim", "rhythm"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 's') {
+        struct Correction dict[] = {
             {"sacrifical", "sacrificial"},
             {"sargant", "sergeant"},
             {"sargeant", "sergeant"},
@@ -2512,7 +2675,16 @@ int manual_list(char *miss, char *line) {
             {"synonymns", "synonyms"},
             {"synphony", "symphony"},
             {"sysmatically", "systematically"},
-            {"sytle", "style"},
+            {"sytle", "style"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 't') {
+        struct Correction dict[] = {
             {"tahn", "than"},
             {"taht", "that"},
             {"tast", "taste"},
@@ -2593,7 +2765,16 @@ int manual_list(char *miss, char *line) {
             {"twon", "town"},
             {"twpo", "two"},
             {"tyhe", "they"},
-            {"tyrany", "tyranny"},
+            {"tyrany", "tyranny"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'u') {
+        struct Correction dict[] = {
             {"ublisher", "publisher"},
             {"uise", "use"},
             {"unathorised", "unauthorised"},
@@ -2623,7 +2804,16 @@ int manual_list(char *miss, char *line) {
             {"upto", "up to"},
             {"usally", "usually"},
             {"usefull", "useful"},
-            {"utill", "until"},
+            {"utill", "until"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'v') {
+        struct Correction dict[] = {
             {"vaccume", "vacuum"},
             {"vacinity", "vicinity"},
             {"vaguaries", "vagaries"},
@@ -2649,7 +2839,16 @@ int manual_list(char *miss, char *line) {
             {"vreity", "variety"},
             {"vrey", "very"},
             {"vyer", "very"},
-            {"vyre", "very"},
+            {"vyre", "very"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'w') {
+        struct Correction dict[] = {
             {"waht", "what"},
             {"warantee", "warranty"},
             {"warrriors", "warriors"},
@@ -2701,8 +2900,26 @@ int manual_list(char *miss, char *line) {
             {"wrok", "work"},
             {"wroking", "working"},
             {"wtih", "with"},
-            {"wupport", "support"},
-            {"xenophoby", "xenophobia"},
+            {"wupport", "support"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'x') {
+        struct Correction dict[] = {
+            {"xenophoby", "xenophobia"}
+        };
+
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
+        }
+    } else if (miss[0] == 'y') {
+        struct Correction dict[] = {
             {"yaer", "year"},
             {"yaerly", "yearly"},
             {"yaers", "years"},
@@ -2720,11 +2937,12 @@ int manual_list(char *miss, char *line) {
             {"yuo", "you"}
         };
 
-    for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
-        if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
-            score = 100;
+        for (int i = 0; i < sizeof(dict)/sizeof(dict[0]); i++) {
+            if (strcmp(miss, dict[i].wrong) == 0 && strcmp(line, dict[i].right) == 0) {
+                score = 100;
+            }
         }
-    }
+    } else return 0;
 
     return score;
 }
