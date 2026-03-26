@@ -3010,17 +3010,17 @@ int main() {
         char **misspelled_tokens = tokenize(misspelled[i], &total_groups_misspelled);
         if (misspelled_tokens == NULL) return 1;
 
-        int miss_len = strlen(misspelled[i]);
-
         char *manual_match = manual_list(misspelled[i]);
 
         if (strcmp(manual_match, " ") != 0) {
             clock_t end = clock();
             double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-            printf("%s -> %s [%f]s <------------- manual\n", misspelled[i], manual_match, time_taken);
+            printf("%s -> %s [%fs] <------------- manual\n", misspelled[i], manual_match, time_taken);
             continue;
         }
+
+        int miss_len = strlen(misspelled[i]);
 
         while (fgets(line_buffer, sizeof(line_buffer), file)) {
             line_buffer[strcspn(line_buffer, "\n")] = '\0';
