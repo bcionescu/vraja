@@ -16,7 +16,7 @@ A spellchecker written in C from scratch.
 + [ ] If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
 + [ ] Maybe sometimes prioritise words of the same, or similar length, especially for very short words.
 + [ ] Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.
-+ [ ] The if statements in the manual rules function are very inefficient. Not only do we check every single one, but we also check them all for each potential match. All we need to do is check whether the misspelling is in that list. If so, return the correct spelling. Maybe use a struct.
++ [x] The if statements in the manual rules function are very inefficient. Not only do we check every single one, but we also check them all for each potential match. All we need to do is check whether the misspelling is in that list. If so, return the correct spelling. Maybe use a struct.
 + [ ] Move the manual rules into multiple .txt files, and apply the same logic. Only import the one that you really need, and have it in an easily readable format, such as misspelling->correct-spelling
 + [ ] Pass a text via a file.
 + [ ] Check the text for words which do not appear in the dictionary.
@@ -63,3 +63,105 @@ allegedy->allegedly
 
 
  {"countrie's", "countries, countries', country's", "didnt", "didn't", "doesnt", "doesn't", "dosen't", "doesn't", "hasnt", "hasn't", "isnt", "isn't", "shoudln", "should, shouldn't", "thast", "that, that's", "theyre", "they're", "todays", "today's", "wasnt", "wasn't", "alltime", "all-time", "antiapartheid", "anti-apartheid", "Coca Cola", "Coca-Cola", "co", "ncided->coincided", "aircrafts'", "aircraft's"};
+
+ Gemini said
+
+Aren't
+Can't
+Couldn't
+Daren't
+Didn't
+Doesn't
+Don't
+Hadn't
+Hasn't
+Haven't
+He'd
+He'll
+He's
+How'd
+How'll
+How's
+I'd
+I'll
+I'm
+I've
+Isn't
+It'd
+It'll
+It's
+Let's
+Ma'am
+Mayn't
+Mightn't
+Mustn't
+Needn't
+O'clock
+Oughtn't
+Shan't
+She'd
+She'll
+She's
+Shouldn't
+Should've
+That'd
+That'll
+That's
+There'd
+There'll
+There's
+They'd
+They'll
+They're
+They've
+Wasn't
+We'd
+We'll
+We're
+We've
+Weren't
+What'd
+What'll
+What're
+What's
+What've
+When's
+Where'd
+Where's
+Where've
+Who'd
+Who'll
+Who're
+Who's
+Who've
+Why'd
+Why'll
+Why's
+Won't
+Wouldn't
+Would've
+You'd
+You'll
+You're
+You've
+
+Gonna (Going to)
+Wanna (Want to)
+Gotta (Got to / Have to)
+Dunno (Don't know)
+Kinda (Kind of)
+Sorta (Sort of)
+Outta (Out of)
+Gimme (Give me)
+Lemme (Let me)
+Tell'em Tellem (Tell them)
+Cos (Because)
+Shoulda (Should have)
+Coulda (Could have)
+Woulda (Would have)
+Musta (Must have)
+Mighta (Might have)
+Lotsa (Lots of)
+Whatcha (What are you)
+Gotcha (Got you)
+Betcha (Bet you)

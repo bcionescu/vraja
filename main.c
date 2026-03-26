@@ -1478,6 +1478,7 @@ char* manual_list(char *miss) {
             {"dicovering", "discovering"},
             {"dicovers", "discovers"},
             {"dictionarys", "dictionaries"},
+            {"didnt", "didn't"},
             {"diea", "idea, die"},
             {"dieing", "dying, dyeing"},
             {"dieties", "deities"},
@@ -2981,7 +2982,7 @@ int get_max_results(char letter) {
 
 int main() {
 
-    char *misspelled[500] = {"accomodate", "acheive", "accross", "agressive", "aligment", "appearence", "arguement", "basicly", "beleive", "calender", "carribean", "cemetary", "chauffer", "collegue", "commitee", "completly", "conscientous", "definately", "disipline", "drunkeness", "embarass", "equiptment", "excede", "existance", "experiance", "firey", "foriegn", "guage", "greatfull", "guarentee", "harrass", "hieght", "hierachy", "humerous", "ignorence", "imediate", "independant", "indispensible", "inteligence", "judgement", "knowlege", "liesure", "liason", "libary", "lightening", "maintainance", "manover", "medievil", "momento", "milenium", "minature", "mischievous", "mispell", "nieghbor", "noticable", "ocassion", "occurence", "pantomine", "paralell", "percieve", "persistance", "personel", "plagerism", "possession", "preceed", "privilage", "pronounciation", "publically", "questionaire", "reciept", "reccommend", "refered", "relavent", "relidgious", "repetition", "rythm", "rediculous", "seperate", "sargent", "supercede", "threshhold", "tommorrow", "twelth", "tyrany", "unconcious", "untill", "vaccum", "viscious", "wether", "wierd"};
+    char *misspelled[500] = {"accomodate", "acheive", "accross", "agressive", "aligment", "appearence", "arguement", "basicly", "beleive", "calender", "carribean", "cemetary", "chauffer", "collegue", "commitee", "completly", "conscientous", "definately", "disipline", "drunkeness", "embarass", "equiptment", "excede", "existance", "experiance", "firey", "foriegn", "guage", "greatfull", "guarentee", "harrass", "hieght", "hierachy", "humerous", "ignorence", "imediate", "independant", "indispensible", "inteligence", "judgement", "knowlege", "liesure", "liason", "libary", "lightening", "maintainance", "manover", "medievil", "momento", "milenium", "minature", "mischievous", "mispell", "nieghbor", "noticable", "ocassion", "occurence", "pantomine", "paralell", "percieve", "persistance", "personel", "plagerism", "possession", "preceed", "privilage", "pronounciation", "publically", "questionaire", "reciept", "reccommend", "refered", "relavent", "relidgious", "repetition", "rythm", "rediculous", "seperate", "sargent", "supercede", "threshhold", "tommorrow", "twelth", "tyrany", "unconcious", "untill", "vaccum", "viscious", "wether", "wierd", "didnt"};
 
     int total_groups_match = 0;
     char **match_tokens;
