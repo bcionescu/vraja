@@ -336,18 +336,9 @@ int length_difference(char *misspelled, char *line_buffer) {
     int score = 0;
     int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
 
-    if (word_difference == 0) {
-        score += 10;
-    } else if (word_difference == 1) {
-        score += 7;
-    } else if (word_difference == 2) {
-        score += 2;
-    } else if ((word_difference >= 4) && (word_difference < 7)) {
-        score -= 7;
-    } else if ((word_difference > 7) && (word_difference < 12)) {
-        score -= 10;
-    } else {
-        score -= 100;
+    if (word_difference == 0) { score += 8; }
+    else if (word_difference == 1) { score += 5; }
+    else if (word_difference == 2) { score += 2;
     }
 
     return score;
@@ -3017,7 +3008,7 @@ int main() {
             clock_t end = clock();
             double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-            printf("\033[0;32m{\"%s\", \"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
+            // printf("\033[0;32m{\"%s\", \"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
             continue;
         }
 
