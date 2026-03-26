@@ -3026,7 +3026,7 @@ int main() {
             clock_t end = clock();
             double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-            // printf("\033[0;32m{\"%s\", \"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
+            printf("\033[0;32m{\"%s\", \"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
             continue;
         }
 
