@@ -1147,7 +1147,10 @@ char* manual_list(char *miss) {
             {"caculater", "calculator"},
             {"cacuses", "caucuses"},
             {"cahracters", "characters"},
-            {"calander", "calendar, calender, colander"},
+            {"calander", "calendar, colander"},
+            {"chauffer", "chauffeur"},
+            {"completly", "completely"},
+            {"conscientous", "conscientious"},
             {"calculater", "calculator"},
             {"calculs", "calculus"},
             {"calender", "calendar"},
@@ -1527,6 +1530,8 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'e') {
         struct Correction dict[] = {
+            {"excede", "exceed"},
+            {"experiance", "experience"},
             {"eahc", "each"},
             {"earlies", "earliest"},
             {"earnt", "earned"},
@@ -1637,6 +1642,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'f') {
         struct Correction dict[] = {
+            {"firey", "fiery, firry"},
             {"facilites", "facilities"},
             {"familes", "families"},
             {"familier", "familiar"},
@@ -1689,6 +1695,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'g') {
         struct Correction dict[] = {
+            {"greatfull", "grateful"},
             {"gae", "game, Gael, gale"},
             {"gallaxies", "galaxies"},
             {"galvinized", "galvanized"},
@@ -2087,6 +2094,7 @@ char* manual_list(char *miss) {
             {"myraid", "myriad"},
             {"mysef", "myself"},
             {"mysogynist", "misogynist"},
+            {"mischievous", "mischievous"},
             {NULL, NULL}
         };
 
@@ -2096,6 +2104,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'n') {
         struct Correction dict[] = {
+            {"nieghbor", "neighbor"},
             {"naturaly", "naturally"},
             {"naturely", "naturally"},
             {"naturually", "naturally"},
@@ -2135,6 +2144,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'o') {
         struct Correction dict[] = {
+            {"ocassion", "occasion"},
             {"obediance", "obedience"},
             {"obediant", "obedient"},
             {"obstacal", "obstacle"},
@@ -2176,6 +2186,9 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'p') {
         struct Correction dict[] = {
+            {"pantomine", "pantomime"},
+            {"possession", "possession"},
+            {"privilage", "privilege"},
             {"paide", "paid"},
             {"palce", "place, palace"},
             {"paleolitic", "paleolithic"},
@@ -2381,6 +2394,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'r') {
         struct Correction dict[] = {
+            {"relavent", "relevant"},
             {"radify", "ratify"},
             {"raelly", "really"},
             {"rarified", "rarefied"},
@@ -2507,6 +2521,7 @@ char* manual_list(char *miss) {
         struct Correction dict[] = {
             {"sacrifical", "sacrificial"},
             {"sargant", "sergeant"},
+            {"sargent", "sergeant"},
             {"sargeant", "sergeant"},
             {"sasy", "says, sassy"},
             {"saveing", "saving"},
@@ -2678,6 +2693,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 't') {
         struct Correction dict[] = {
+            {"threshhold", "threshold"},
             {"tahn", "than"},
             {"taht", "that"},
             {"tast", "taste"},
@@ -2807,6 +2823,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'v') {
         struct Correction dict[] = {
+            {"viscious", "vicious, viscous"},
             {"vaccume", "vacuum"},
             {"vacinity", "vicinity"},
             {"vaguaries", "vagaries"},
@@ -2842,6 +2859,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'w') {
         struct Correction dict[] = {
+            {"wether", "whether", "weather"}
             {"waht", "what"},
             {"warantee", "warranty"},
             {"warrriors", "warriors"},
@@ -2959,7 +2977,7 @@ int get_max_results(char letter) {
     if (letter == 'p') return 14562;
     if (letter == 'q') return 822;
     if (letter == 'r') return 10158;
-    if (letter == 's') return 18986;
+    if (letter == 's') return 18985;
     if (letter == 't') return 8746;
     if (letter == 'u') return 5068;
     if (letter == 'v') return 2735;
