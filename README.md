@@ -12,12 +12,12 @@ A spellchecker written in C from scratch.
 + [x] Repeat this process with every matching length word in the dictionary, until we run out.
 + [x] Order the suggestions from highest to lowest. This way, the highest matching word will come up first.
 + [x] If we have multiple words with the same score, prioritise results of the exact same length as the misspelling. If we still have a tie, prioritise the word that starts with the same letter as the misspelled word, as I suspect errors are more likely to occur later in the word, as opposed to the start.
++ [x] The if statements in the manual rules function are very inefficient. Not only do we check every single one, but we also check them all for each potential match. All we need to do is check whether the misspelling is in that list. If so, return the correct spelling. Maybe use a struct.
++ [ ] The current version of the algo gives higher scores to longer words. This is a problem, so the scores need to be adjusted based on the length. Maybe even something like dividing the score by the length of the word.
 + [ ] Add expressions such as "a lot" and "don't" in the dictionary. Alternatively, have them in their own dictionary, or hard code them into the .c file for now.
 + [ ] If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
 + [ ] Maybe sometimes prioritise words of the same, or similar length, especially for very short words.
 + [ ] Short words are more likely to not have the last group calculated. We still need to take that into account, and award some points for it.
-+ [x] The if statements in the manual rules function are very inefficient. Not only do we check every single one, but we also check them all for each potential match. All we need to do is check whether the misspelling is in that list. If so, return the correct spelling. Maybe use a struct.
-+ [ ] Move the manual rules into multiple .txt files, and apply the same logic. Only import the one that you really need, and have it in an easily readable format, such as misspelling->correct-spelling
 + [ ] Pass a text via a file.
 + [ ] Check the text for words which do not appear in the dictionary.
 + [ ] Output the text to the console, writing the misspelled words in red text.
