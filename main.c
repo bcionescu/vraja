@@ -2859,7 +2859,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'w') {
         struct Correction dict[] = {
-            {"wether", "whether", "weather"}
+            {"wether", "whether, weather"},
             {"waht", "what"},
             {"warantee", "warranty"},
             {"warrriors", "warriors"},
