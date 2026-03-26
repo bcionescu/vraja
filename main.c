@@ -2993,7 +2993,7 @@ int main() {
 
     clock_t start_global = clock();
 
-    char *misspelled[69420] = {"existance", "absense", "aquire", "beleive", "collegue", "conscienceous", "dilemna", "embarass", "equiptment", "exagerate", "farenheit", "fourty", "gage", "harrass", "hieght", "hygene", "ignerant", "imediately", "interupt", "jewelery", "knowlege", "liesure", "manouver", "millenium", "miniture", "mischevous", "noticable", "occassion", "paralell", "persue", "possession", "priviledge", "pronunced", "questionaire", "recieve", "reccommend", "refered", "religous", "rythm", "schedual", "sieze", "sentance", "sargent", "supercede", "terible", "twelvth", "tyrany", "unforgetable", "vaccuum", "visable"};
+    char *misspelled[500] = {"existance", "absense", "aquire", "beleive", "collegue", "conscienceous", "dilemna", "embarass", "equiptment", "exagerate", "farenheit", "fourty", "gage", "harrass", "hieght", "hygene", "ignerant", "imediately", "interupt", "jewelery", "knowlege", "liesure", "manouver", "millenium", "miniture", "mischevous", "noticable", "occassion", "paralell", "persue", "possession", "priviledge", "pronunced", "questionaire", "recieve", "reccommend", "refered", "religous", "rythm", "schedual", "sieze", "sentance", "sargent", "supercede", "terible", "twelvth", "tyrany", "unforgetable", "vaccuum", "visable"};
 
     int total_groups_match = 0;
     char **match_tokens;
