@@ -13,7 +13,7 @@ A spellchecker written in C from scratch.
 + [x] Order the suggestions from highest to lowest. This way, the highest matching word will come up first.
 + [x] If we have multiple words with the same score, prioritise results of the exact same length as the misspelling. If we still have a tie, prioritise the word that starts with the same letter as the misspelled word, as I suspect errors are more likely to occur later in the word, as opposed to the start.
 + [x] The if statements in the manual rules function are very inefficient. Not only do we check every single one, but we also check them all for each potential match. All we need to do is check whether the misspelling is in that list. If so, return the correct spelling. Maybe use a struct.
-+ [ ] Once we have our top 5, do a similarity check, out of those. Which one is the closest, and maybe give it some extra points.
++ [ ] Once we have our top 5, do a similarity check, out of those. Which one is the closest, and maybe give it some extra points. Maybe check the word against itself, getting the maximum possible number of points, and making that the baseline. Then, calculate the percentages of the other matches, based on their respective scores.
 + [ ] The current version of the algo gives higher scores to longer words. This is a problem, so the scores need to be adjusted based on the length. Maybe even something like dividing the score by the length of the word.
 + [ ] Add expressions such as "a lot" and "don't" in the dictionary. Alternatively, have them in their own dictionary, or hard code them into the .c file for now.
 + [ ] If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.

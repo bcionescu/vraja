@@ -2991,7 +2991,9 @@ int get_max_results(char letter) {
 
 int main() {
 
-    char *misspelled[500] = {"accomodate", "acheive", "accross", "agressive", "aligment", "appearence", "arguement", "basicly", "beleive", "calender", "carribean", "cemetary", "chauffer", "collegue", "commitee", "completly", "conscientous", "definately", "disipline", "drunkeness", "embarass", "equiptment", "excede", "existance", "experiance", "firey", "foriegn", "guage", "greatfull", "guarentee", "harrass", "hieght", "hierachy", "humerous", "ignorence", "imediate", "independant", "indispensible", "inteligence", "judgement", "knowlege", "liesure", "liason", "libary", "lightening", "maintainance", "manover", "medievil", "momento", "milenium", "minature", "mischievous", "mispell", "nieghbor", "noticable", "ocassion", "occurence", "pantomine", "paralell", "percieve", "persistance", "personel", "plagerism", "possession", "preceed", "privilage", "pronounciation", "publically", "questionaire", "reciept", "reccommend", "refered", "relavent", "relidgious", "repetition", "rythm", "rediculous", "seperate", "sargent", "supercede", "threshhold", "tommorrow", "twelth", "tyrany", "unconcious", "untill", "vaccum", "viscious", "wether", "wierd", "didnt"};
+    clock_t start_global = clock();
+
+    char *misspelled[69420] = {"existance", "absense", "aquire", "beleive", "collegue", "conscienceous", "dilemna", "embarass", "equiptment", "exagerate", "farenheit", "fourty", "gage", "harrass", "hieght", "hygene", "ignerant", "imediately", "interupt", "jewelery", "knowlege", "liesure", "manouver", "millenium", "miniture", "mischevous", "noticable", "occassion", "paralell", "persue", "possession", "priviledge", "pronunced", "questionaire", "recieve", "reccommend", "refered", "religous", "rythm", "schedual", "sieze", "sentance", "sargent", "supercede", "terible", "twelvth", "tyrany", "unforgetable", "vaccuum", "visable"};
 
     int total_groups_match = 0;
     char **match_tokens;
@@ -3027,6 +3029,7 @@ int main() {
             double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
             printf("\033[0;32m{\"%s\", \"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
+            // printf("{\"%s\", \"%s\"} [%fs]\n", misspelled[i], manual_match, time_taken);
             continue;
         }
 
@@ -3077,6 +3080,10 @@ int main() {
         free(misspelled_tokens);
         fclose(file);
     }
+
+    clock_t end_global = clock();
+    double time_taken_global = (double)(end_global - start_global) / CLOCKS_PER_SEC;
+    printf("\n[%fs]\n", time_taken_global);
 
     return 0;
 }
