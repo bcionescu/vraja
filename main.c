@@ -3017,7 +3017,7 @@ int main() {
             clock_t end = clock();
             double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-            printf("%s -> %s [%fs] <------------- manual\n", misspelled[i], manual_match, time_taken);
+            printf("{\"%s\", \"%s\"} [%fs] <------------- manual\n", misspelled[i], manual_match, time_taken);
             continue;
         }
 
@@ -3053,14 +3053,14 @@ int main() {
 
         qsort(results, entry_count, sizeof(Match), compare_matches);
 
-        printf("%s -> ", misspelled[i]);
+        printf("{\"%s\"", misspelled[i]);
 
-        for (int i = 0; i < 3 && i < entry_count; i++) printf("%s ", results[i].word);
+        for (int i = 0; i < 3 && i < entry_count; i++) printf(", \"%s\"", results[i].word);
 
         clock_t end = clock();
         double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-        printf("\[%fs] ", time_taken);
+        printf("} \[%fs] ", time_taken);
         printf("-> %d entries\n", entry_count);
 
         entry_count = 0;
