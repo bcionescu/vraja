@@ -2981,15 +2981,12 @@ int get_max_results(char letter) {
 
 int main() {
 
-    char *misspelled[24] = {"auther", "teh","recieve","seperate","definately","occured","untill","wich","becuase","thier","goverment","enviroment","acommodate","arguement","calender","concious","embarass","existance","foriegn","happend","independant","lable","neccessary"};
-
-    int iterations = sizeof(misspelled) / sizeof(misspelled[0]);
+    char *misspelled[500] = {"accomodate", "acheive", "accross", "agressive", "aligment", "appearence", "arguement", "basicly", "beleive", "calender", "carribean", "cemetary", "chauffer", "collegue", "commitee", "completly", "conscientous", "definately", "disipline", "drunkeness", "embarass", "equiptment", "excede", "existance", "experiance", "firey", "foriegn", "guage", "greatfull", "guarentee", "harrass", "hieght", "hierachy", "humerous", "ignorence", "imediate", "independant", "indispensible", "inteligence", "judgement", "knowlege", "liesure", "liason", "libary", "lightening", "maintainance", "manover", "medievil", "momento", "milenium", "minature", "mischievous", "mispell", "nieghbor", "noticable", "ocassion", "occurence", "pantomine", "paralell", "percieve", "persistance", "personel", "plagerism", "possession", "preceed", "privilage", "pronounciation", "publically", "questionaire", "reciept", "reccommend", "refered", "relavent", "relidgious", "repetition", "rythm", "rediculous", "seperate", "sargent", "supercede", "threshhold", "tommorrow", "twelth", "tyrany", "unconcious", "untill", "vaccum", "viscious", "wether", "wierd"};
 
     int total_groups_match = 0;
     char **match_tokens;
 
-    for (int i = 0; i < iterations - 1; i++) {
-
+    for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
 
         char path[19];
