@@ -1378,7 +1378,7 @@ char* manual_list(char *miss) {
             {"critisize", "criticize"},
             {"critisized", "criticized"},
             {"critisizes", "criticizes"},
-            {"critisizing", {"criticizing"},
+            {"critisizing", "criticizing"},
             {"critized", "criticized"},
             {"critizing", "criticizing"},
             {"crowm", "crown"},
@@ -1506,7 +1506,7 @@ char* manual_list(char *miss) {
             {"doign", "doing"},
             {"dominent", "dominant"},
             {"donig", "doing"},
-            {"doub", "doubt, daub"},
+            {"doub", "doubt, daub, dub"},
             {"dreasm", "dreams"},
             {"driectly", "directly"},
             {"drummless", "drumless"},
@@ -1515,6 +1515,7 @@ char* manual_list(char *miss) {
             {"duting", "during"},
             {"dyas", "dryas"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1627,6 +1628,7 @@ char* manual_list(char *miss) {
             {"eyars", "years, eyas"},
             {"eyasr", "years, eyas"},
             {NULL, NULL}
+            // check
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1680,6 +1682,7 @@ char* manual_list(char *miss) {
             {"funguses", "fungi"},
             {"futhroc", "futhark, futhorc"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1688,7 +1691,7 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'g') {
         struct Correction dict[] = {
-            {"gae", "game, Gael, gale"},
+            {"gae", "game, gale"},
             {"gallaxies", "galaxies"},
             {"galvinized", "galvanized"},
             {"ganerate", "generate"},
@@ -1731,6 +1734,7 @@ char* manual_list(char *miss) {
             {"gunanine", "guanine"},
             {"gya", "gay"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1795,6 +1799,7 @@ char* manual_list(char *miss) {
             {"hypocrit", "hypocrite"},
             {"hypocrits", "hypocrites"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1917,6 +1922,7 @@ char* manual_list(char *miss) {
             {"iwll", "will"},
             {"iwth", "with"},
             {NULL, NULL}
+            // check
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1930,6 +1936,7 @@ char* manual_list(char *miss) {
             {"jstu", "just"},
             {"jsut", "just"},
             {NULL, NULL}
+            // check
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1946,6 +1953,7 @@ char* manual_list(char *miss) {
             {"konws", "knows"},
             {"kwno", "know"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -2006,6 +2014,7 @@ char* manual_list(char *miss) {
             {"lveo", "love"},
             {"lvoe", "love"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -2064,7 +2073,6 @@ char* manual_list(char *miss) {
             {"moderm", "modem"},
             {"modle", "model"},
             {"moeny", "money"},
-            {"mohammedans", "muslims"},
             {"momento", "memento"},
             {"monestaries", "monasteries"},
             {"monestary", "monastery, monetary"},
@@ -2081,7 +2089,6 @@ char* manual_list(char *miss) {
             {"mucuous", "mucous"},
             {"muder", "murder"},
             {"mudering", "murdering"},
-            {"muhammadan", "muslim"},
             {"multipled", "multiplied"},
             {"munbers", "numbers"},
             {"muscels", "mussels, muscles"},
@@ -2089,6 +2096,7 @@ char* manual_list(char *miss) {
             {"mysef", "myself"},
             {"mysogynist", "misogynist"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -2129,6 +2137,7 @@ char* manual_list(char *miss) {
             {"nutritent", "nutrient"},
             {"nuturing", "nurturing"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -2171,6 +2180,7 @@ char* manual_list(char *miss) {
             {"owrk", "work"},
             {"owudl", "would"},
             {NULL, NULL}
+            // check
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -2198,7 +2208,7 @@ char* manual_list(char *miss) {
             {"particually", "particularly"},
             {"particulary", "particularly"},
             {"particuly", "particularly"},
-            {"pary", "party"},
+            {"pary", "party, parry"},
             {"passerbys", "passersby"},
             {"pastural", "pastoral"},
             {"pattented", "patented"},
@@ -2363,6 +2373,7 @@ char* manual_list(char *miss) {
             {"pwoer", "power"},
             {"pyscic", "psychic"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -2986,7 +2997,7 @@ int main() {
 
     clock_t start_global = clock();
 
-    char *misspelled[500] = {"cattleship"};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "harrass", "indictment", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
 
     int total_groups_match = 0;
     char **match_tokens;
