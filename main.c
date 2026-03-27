@@ -922,8 +922,8 @@ char* manual_list(char *miss) {
         struct Correction dict[] = {
             {"abondon", "abandon"},
             {"abondoning", "abandoning"},
-            {"abondons", "abandons"},
             {"abreviated", "abbreviated"},
+            {"abondons", "abandons"},
             {"abreviation", "abbreviation"},
             {"absailing", "abseiling"},
             {"absense", "absence"},
@@ -940,12 +940,9 @@ char* manual_list(char *miss) {
             {"accredidation", "accreditation"},
             {"acedemic", "academic"},
             {"achiv", "achieve"},
-            {"achive", "achieve"},
-            {"achive", "archive"},
-            {"achived", "achieved"},
-            {"achived", "archived"},
-            {"ackward", "awkward"},
-            {"ackward", "backward"},
+            {"achive", "achieve, archive"},
+            {"achived", "achieved, archived"},
+            {"ackward", "awkward, backward"},
             {"activites", "activities"},
             {"adbandon", "abandon"},
             {"addmission", "admission"},
@@ -960,23 +957,19 @@ char* manual_list(char *miss) {
             {"alos", "also"},
             {"alot", "a lot, allot"},
             {"alreayd", "already"},
-            {"alse", "else"},
-            {"alsot", "also"},
             {"altho", "although"},
             {"althought", "although"},
             {"alusion", "allusion, illusion"},
             {"alwasy", "always"},
             {"alwyas", "always"},
             {"amatuer", "amateur"},
-            {"amature", "amateur"},
-            {"amature", "armature, amateur"},
+            {"amature", "amateur, armature"},
             {"amercia", "america"},
             {"amke", "make"},
             {"amking", "making"},
             {"analagous", "analogous"},
             {"analitic", "analytic"},
             {"analize", "analyze"},
-            {"anarchistm", "anarchism"},
             {"anbd", "and"},
             {"ancestory", "ancestry"},
             {"andd", "and"},
@@ -990,10 +983,8 @@ char* manual_list(char *miss) {
             {"ansestors", "ancestors"},
             {"anthromorphization", "anthropomorphization"},
             {"anuncement", "announcement"},
-            {"anwsered", "answered"},
             {"anyother", "any other"},
             {"apenines", "apennines, apennines"},
-            {"apon", "upon, apron"},
             {"apparant", "apparent"},
             {"appartment", "apartment"},
             {"appartments", "apartments"},
@@ -1024,7 +1015,6 @@ char* manual_list(char *miss) {
             {"arrengement", "arrangement"},
             {"arrengements", "arrangements"},
             {"artical", "article"},
-            {"artice", "article"},
             {"articel", "article"},
             {"asetic", "ascetic"},
             {"asfar", "as far"},
@@ -1047,6 +1037,7 @@ char* manual_list(char *miss) {
             {"athenean", "athenian"},
             {"atheneans", "athenians"},
             {"athiest", "atheist"},
+            {"ateist", "atheist"},
             {"attaindre", "attainder, attained"},
             {"attemp", "attempt"},
             {"attemt", "attempt"},
@@ -1068,12 +1059,14 @@ char* manual_list(char *miss) {
             {"automaticly", "automatically"},
             {"automonomous", "autonomous"},
             {"availabe", "available"},
+            {"availabel", "available"},
             {"avalance", "avalanche"},
             {"avengence", "a vengeance"},
-            {"awared", "awarded"},
+            {"awared", "aware, awarded"},
             {"awfull", "awful"},
             {"awya", "away"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1085,6 +1078,7 @@ char* manual_list(char *miss) {
             {"baceause", "because"},
             {"bakc", "back"},
             {"banannas", "bananas"},
+            {"battelship", "battleship"},
             {"baout", "about, bout"},
             {"basicly", "basically"},
             {"bcak", "back"},
@@ -1101,10 +1095,9 @@ char* manual_list(char *miss) {
             {"befoer", "before"},
             {"beggin", "begin, begging"},
             {"begining", "beginning"},
-            {"behavour", "behavior, behaviour"},
+            {"behavour", "behavior"},
             {"beleive", "believe"},
-            {"believ", "belief"},
-            {"believ", "believe"},
+            {"believ", "belief, believe"},
             {"beligum", "belgium"},
             {"belive", "believe"},
             {"belived", "believed, beloved"},
@@ -1130,12 +1123,13 @@ char* manual_list(char *miss) {
             {"broady", "broadly"},
             {"buddah", "buddha"},
             {"buddist", "buddhist"},
-            {"buring", "burying, burning, burin, during"},
+            {"buring", "burying, burning, during, burin"},
             {"busines", "business"},
             {"busineses", "business, businesses"},
             {"busness", "business"},
             {"bussiness", "business"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1148,9 +1142,6 @@ char* manual_list(char *miss) {
             {"cacuses", "caucuses"},
             {"cahracters", "characters"},
             {"calander", "calendar, colander"},
-            {"chauffer", "chauffeur"},
-            {"completly", "completely"},
-            {"conscientous", "conscientious"},
             {"calculater", "calculator"},
             {"calculs", "calculus"},
             {"calender", "calendar"},
@@ -1176,14 +1167,13 @@ char* manual_list(char *miss) {
             {"carismatic", "charismatic"},
             {"carmalite", "carmelite"},
             {"carnagie", "carnegie"},
-            {"carnagie", "ellon->carnegie-mellon"},
+            {"carnagie ellon", "carnegie-mellon"},
             {"carnege", "carnage, carnegie"},
             {"carnige", "carnage, carnegie"},
             {"carnigie", "carnegie"},
-            {"carnigie", "ellon->carnegie-mellon"},
+            {"carnigie ellon", "carnegie-mellon"},
             {"carrers", "careers"},
             {"carribbean", "caribbean"},
-            {"carribean", "caribbean"},
             {"carribean", "caribbean"},
             {"carthagian", "carthaginian"},
             {"cartilidge", "cartilage"},
@@ -1200,8 +1190,8 @@ char* manual_list(char *miss) {
             {"catagory", "category"},
             {"cataline", "catiline, catalina"},
             {"catapillers", "caterpillars"},
-            {"catholocism", "catholicism"},
             {"cattleship", "battleship"},
+            {"catholocism", "catholicism"},
             {"causalities", "casualties"},
             {"ceasar", "caesar"},
             {"celcius", "celsius"},
@@ -1223,6 +1213,7 @@ char* manual_list(char *miss) {
             {"charactors", "characters"},
             {"charistics", "characteristics"},
             {"chasr", "chaser, chase"},
+            {"chauffer", "chauffeur"},
             {"cheif", "chief"},
             {"cheifs", "chiefs"},
             {"childbird", "childbirth"},
@@ -1278,9 +1269,9 @@ char* manual_list(char *miss) {
             {"competive", "competitive"},
             {"competiveness", "competitiveness"},
             {"compitent", "competent"},
-            {"completedthe", "completed the"},
             {"completelyl", "completely"},
             {"completetion", "completion"},
+            {"completly", "completely"},
             {"complier", "compiler"},
             {"componant", "component"},
             {"comprimise", "compromise"},
@@ -1305,6 +1296,7 @@ char* manual_list(char *miss) {
             {"conquerer", "conqueror"},
             {"conquerers", "conquerors"},
             {"conscent", "consent"},
+            {"conscientous", "conscientious"},
             {"consdider", "consider"},
             {"consentrate", "concentrate"},
             {"consentrated", "concentrated"},
@@ -1381,12 +1373,12 @@ char* manual_list(char *miss) {
             {"creche", "crèche"},
             {"criterias", "criteria"},
             {"criticists", "critics"},
-            {"critising", "criticising, criticizing"},
+            {"critising", "criticizing"},
             {"critisising", "criticising"},
-            {"critisize", "criticise, criticize"},
-            {"critisized", "criticised, criticized"},
-            {"critisizes", "criticises, criticizes"},
-            {"critisizing", "criticising, criticizing"},
+            {"critisize", "criticize"},
+            {"critisized", "criticized"},
+            {"critisizes", "criticizes"},
+            {"critisizing", {"criticizing"},
             {"critized", "criticized"},
             {"critizing", "criticizing"},
             {"crowm", "crown"},
@@ -1397,6 +1389,7 @@ char* manual_list(char *miss) {
             {"curcuit", "circuit"},
             {"cxan", "cyan"},
             {NULL, NULL}
+            // checked
         };
 
         for (int i = 0; dict[i].wrong != NULL; i++) {
@@ -1530,8 +1523,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'e') {
         struct Correction dict[] = {
-            {"excede", "exceed"},
-            {"experiance", "experience"},
             {"eahc", "each"},
             {"earlies", "earliest"},
             {"earnt", "earned"},
@@ -1599,6 +1590,7 @@ char* manual_list(char *miss) {
             {"excecuting", "executing"},
             {"excecution", "execution"},
             {"excedded", "exceeded"},
+            {"excede", "exceed"},
             {"excell", "excel"},
             {"excells", "excels"},
             {"excisted", "existed"},
@@ -1620,6 +1612,7 @@ char* manual_list(char *miss) {
             {"expecially", "especially"},
             {"expell", "expel"},
             {"expells", "expels"},
+            {"experiance", "experience"},
             {"expiditions", "expeditions"},
             {"exploititive", "exploitative"},
             {"extention", "extension"},
@@ -1642,7 +1635,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'f') {
         struct Correction dict[] = {
-            {"firey", "fiery, firry"},
             {"facilites", "facilities"},
             {"familes", "families"},
             {"familier", "familiar"},
@@ -1659,6 +1651,7 @@ char* manual_list(char *miss) {
             {"fimilies", "families"},
             {"finaly", "finally"},
             {"firends", "friends"},
+            {"firey", "fiery, firry"},
             {"firts", "flirts, first"},
             {"flawess", "flawless"},
             {"fleed", "fled, freed"},
@@ -1695,7 +1688,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'g') {
         struct Correction dict[] = {
-            {"greatfull", "grateful"},
             {"gae", "game, Gael, gale"},
             {"gallaxies", "galaxies"},
             {"galvinized", "galvanized"},
@@ -1731,6 +1723,7 @@ char* manual_list(char *miss) {
             {"grat", "great"},
             {"gratefull", "grateful"},
             {"greatful", "grateful"},
+            {"greatfull", "grateful"},
             {"gropu", "group"},
             {"grwo", "grow"},
             {"guage", "gauge"},
@@ -2059,6 +2052,7 @@ char* manual_list(char *miss) {
             {"millitary", "military"},
             {"minerial", "mineral"},
             {"ministery", "ministry"},
+            {"mischievous", "mischievous"},
             {"missen", "mizzen"},
             {"misterious", "mysterious"},
             {"mistery", "mystery"},
@@ -2094,7 +2088,6 @@ char* manual_list(char *miss) {
             {"myraid", "myriad"},
             {"mysef", "myself"},
             {"mysogynist", "misogynist"},
-            {"mischievous", "mischievous"},
             {NULL, NULL}
         };
 
@@ -2104,7 +2097,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'n') {
         struct Correction dict[] = {
-            {"nieghbor", "neighbor"},
             {"naturaly", "naturally"},
             {"naturely", "naturally"},
             {"naturually", "naturally"},
@@ -2118,6 +2110,7 @@ char* manual_list(char *miss) {
             {"neolitic", "neolithic"},
             {"nestin", "nesting"},
             {"nickle", "nickel"},
+            {"nieghbor", "neighbor"},
             {"ninties", "1990s"},
             {"nkow", "know"},
             {"nkwo", "know"},
@@ -2144,11 +2137,11 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'o') {
         struct Correction dict[] = {
-            {"ocassion", "occasion"},
             {"obediance", "obedience"},
             {"obediant", "obedient"},
             {"obstacal", "obstacle"},
             {"obstruced", "obstructed"},
+            {"ocassion", "occasion"},
             {"occassion", "occasion"},
             {"occurr", "occur"},
             {"ocuntries", "countries"},
@@ -2186,13 +2179,11 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'p') {
         struct Correction dict[] = {
-            {"pantomine", "pantomime"},
-            {"possession", "possession"},
-            {"privilage", "privilege"},
             {"paide", "paid"},
             {"palce", "place, palace"},
             {"paleolitic", "paleolithic"},
             {"pallete", "palette"},
+            {"pantomine", "pantomime"},
             {"paralel", "parallel"},
             {"paralell", "parallel"},
             {"paralelly", "parallelly"},
@@ -2273,6 +2264,7 @@ char* manual_list(char *miss) {
             {"posion", "poison"},
             {"positon", "position, positron"},
             {"possessess", "possesses"},
+            {"possession", "possession"},
             {"possition", "position"},
             {"potatos", "potatoes"},
             {"poverful", "powerful"},
@@ -2318,6 +2310,7 @@ char* manual_list(char *miss) {
             {"principaly", "principality"},
             {"principial", "principal"},
             {"principly", "principally"},
+            {"privilage", "privilege"},
             {"probabilaty", "probability"},
             {"probablly", "probably"},
             {"probalibity", "probability"},
@@ -2394,7 +2387,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'r') {
         struct Correction dict[] = {
-            {"relavent", "relevant"},
             {"radify", "ratify"},
             {"raelly", "really"},
             {"rarified", "rarefied"},
@@ -2447,6 +2439,7 @@ char* manual_list(char *miss) {
             {"reknowned", "renowned"},
             {"rela", "real"},
             {"relavant", "relevant"},
+            {"relavent", "relevant"},
             {"relected", "reelected"},
             {"releive", "relieve"},
             {"releived", "relieved"},
@@ -2521,8 +2514,8 @@ char* manual_list(char *miss) {
         struct Correction dict[] = {
             {"sacrifical", "sacrificial"},
             {"sargant", "sergeant"},
-            {"sargent", "sergeant"},
             {"sargeant", "sergeant"},
+            {"sargent", "sergeant"},
             {"sasy", "says, sassy"},
             {"saveing", "saving"},
             {"scaleable", "scalable"},
@@ -2693,7 +2686,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 't') {
         struct Correction dict[] = {
-            {"threshhold", "threshold"},
             {"tahn", "than"},
             {"taht", "that"},
             {"tast", "taste"},
@@ -2726,6 +2718,7 @@ char* manual_list(char *miss) {
             {"thna", "than"},
             {"thne", "then"},
             {"threatend", "threatened"},
+            {"threshhold", "threshold"},
             {"thrid", "third"},
             {"throughly", "thoroughly"},
             {"throught", "thought, through, throughout"},
@@ -2823,7 +2816,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'v') {
         struct Correction dict[] = {
-            {"viscious", "vicious, viscous"},
             {"vaccume", "vacuum"},
             {"vacinity", "vicinity"},
             {"vaguaries", "vagaries"},
@@ -2842,6 +2834,7 @@ char* manual_list(char *miss) {
             {"villian", "villain"},
             {"villin", "villi, villain, villein"},
             {"vincinity", "vicinity"},
+            {"viscious", "vicious, viscous"},
             {"visting", "visiting"},
             {"vitories", "victories"},
             {"volcanoe", "volcano"},
@@ -2859,7 +2852,6 @@ char* manual_list(char *miss) {
 
     } else if (miss[0] == 'w') {
         struct Correction dict[] = {
-            {"wether", "whether, weather"},
             {"waht", "what"},
             {"warantee", "warranty"},
             {"warrriors", "warriors"},
@@ -2872,6 +2864,7 @@ char* manual_list(char *miss) {
             {"weilded", "wielded"},
             {"wendsay", "Wednesday"},
             {"wensday", "Wednesday"},
+            {"wether", "whether, weather"},
             {"whant", "want"},
             {"whants", "wants"},
             {"wheras", "whereas"},
@@ -2993,7 +2986,7 @@ int main() {
 
     clock_t start_global = clock();
 
-    char *misspelled[500] = {"existance", "absense", "aquire", "beleive", "collegue", "conscienceous", "dilemna", "embarass", "equiptment", "exagerate", "farenheit", "fourty", "gage", "harrass", "hieght", "hygene", "ignerant", "imediately", "interupt", "jewelery", "knowlege", "liesure", "manouver", "millenium", "miniture", "mischevous", "noticable", "occassion", "paralell", "persue", "possession", "priviledge", "pronunced", "questionaire", "recieve", "reccommend", "refered", "religous", "rythm", "schedual", "sieze", "sentance", "sargent", "supercede", "terible", "twelvth", "tyrany", "unforgetable", "vaccuum", "visable"};
+    char *misspelled[500] = {"cattleship"};
 
     int total_groups_match = 0;
     char **match_tokens;
@@ -3028,7 +3021,7 @@ int main() {
             clock_t end = clock();
             double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-            printf("\033[0;32m{\"%s\", \"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
+            printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
             // printf("{\"%s\", \"%s\"} [%fs]\n", misspelled[i], manual_match, time_taken);
             continue;
         }
@@ -3065,9 +3058,9 @@ int main() {
 
         qsort(results, entry_count, sizeof(Match), compare_matches);
 
-        printf("{\"%s\"", misspelled[i]);
-
-        for (int i = 0; i < 3 && i < entry_count; i++) printf(", \"%s\"", results[i].word);
+        printf("{\"%s\"}", misspelled[i]);
+        printf(", { ");
+        for (int i = 0; i < 3 && i < entry_count; i++) printf("\"%s\" ", results[i].word);
 
         clock_t end = clock();
         double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
