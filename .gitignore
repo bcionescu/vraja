@@ -1,4 +1,8 @@
-main
-words
-words/master.txt
+.DS_Store
+assets
 Session.vim
+
+*.o
+build/*.o
+build/.DS_Store
+build/main
