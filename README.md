@@ -1,4 +1,4 @@
-# Vraja (vrah-jah)
+# Vraja (*vra-ya*)
 
 A spellchecker written in C from scratch.
 
