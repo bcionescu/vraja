@@ -93,8 +93,14 @@ int main() {
 
         printf("{\"%s\"}", misspelled[i]);
         printf(", { ");
+
         for (int i = 0; i < 3 && i < entry_count; i++) {
-            printf("\"%s [%d]\" ", results[i].word, results[i].points);
+            if (results[i].points < (0.95 * results[0].points)) {
+                // printf("\"%s [%d] SKIP\" ", results[i].word, results[i].points);
+                continue;
+            } else {
+                printf("\"%s [%d]\" ", results[i].word, results[i].points);
+            }
         }
 
         clock_t end = clock();
