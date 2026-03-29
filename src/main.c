@@ -53,8 +53,8 @@ int main() {
             clock_t end = clock();
             double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-            printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
-            // printf("{\"%s\", \"%s\"} [%fs]\n", misspelled[i], manual_match, time_taken);
+            // printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
+            printf("{\"%s\", \"%s\"} [%fs] [MANUAL]\n", misspelled[i], manual_match, time_taken);
             continue;
         }
 
@@ -64,8 +64,9 @@ int main() {
             line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
             int line_len = strlen(line_buffer);
-            if (line_len < miss_len - 2) continue;
-            if (line_len > miss_len + 2) break;
+            int max_search_length = 2;
+            if (line_len < miss_len - max_search_length) continue;
+            if (line_len > miss_len + max_search_length) break;
 
             if (i == 0) {
                 total_groups_match = 0;
@@ -92,7 +93,9 @@ int main() {
 
         printf("{\"%s\"}", misspelled[i]);
         printf(", { ");
-        for (int i = 0; i < 3 && i < entry_count; i++) printf("\"%s\" ", results[i].word);
+        for (int i = 0; i < 3 && i < entry_count; i++) {
+            printf("\"%s [%d]\" ", results[i].word, results[i].points);
+        }
 
         clock_t end = clock();
         double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
