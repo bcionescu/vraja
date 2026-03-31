@@ -1,5 +1,6 @@
 #include "../include/tokenize.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 char** tokenize(char *p, int *final_count) {
@@ -46,5 +47,7 @@ char** tokenize(char *p, int *final_count) {
     }
 
     *final_count = group_counter;
+
+    // printf("%c %d -> ", *p, *final_count);
     return list;
 }
