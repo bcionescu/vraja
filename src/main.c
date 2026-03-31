@@ -18,7 +18,7 @@ int main() {
 
     clock_t start_global = clock();
 
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "harrass", "indictment", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
 
     int total_groups_match = 0;
     char **match_tokens;

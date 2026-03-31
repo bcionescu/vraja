@@ -24,24 +24,32 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
         second_perfect_match += 1;
     }
 
-    if (misspelled[strlen(misspelled) - 2] == line_buffer[strlen(line_buffer) - 2]) {
-        score += 10;
-        second_perfect_match += 1;
+    if (strlen(misspelled) >= 4) {
+        if (misspelled[strlen(misspelled) - 2] == line_buffer[strlen(line_buffer) - 2]) {
+            score += 10;
+            second_perfect_match += 1;
+        }
+
+        if (second_perfect_match == 2) score += 15;
+
+        if (misspelled[2] == line_buffer[2]) {
+            score += 10;
+            third_perfect_match += 1;
+        }
+
+        if (third_perfect_match == 2) score += 10;
+
+        if (first_perfect_match == 2 && second_perfect_match == 2) { score += 15; }
     }
 
-    if (second_perfect_match == 2) score += 15;
+    if (strlen(misspelled) >= 6) {
+        if (misspelled[strlen(misspelled) - 3] == line_buffer[strlen(line_buffer) - 3]) {
+            score += 10;
+            third_perfect_match += 1;
+        }
 
-    if (misspelled[2] == line_buffer[2]) {
-        score += 10;
-        third_perfect_match += 1;
+        if (first_perfect_match == 2 && second_perfect_match == 2 && third_perfect_match == 2) { score += 15; }
     }
-
-    if (misspelled[strlen(misspelled) - 3] == line_buffer[strlen(line_buffer) - 3]) {
-        score += 10;
-        third_perfect_match += 1;
-    }
-
-    if (third_perfect_match == 2) score += 10;
 
     // If the first letter gets a neighbour match, 7 bonus points.
 
