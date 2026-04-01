@@ -19,6 +19,7 @@ A spellchecker written in C from scratch. To compile and run from Nvim, run this
 + [x] The if statements in the manual rules function are very inefficient. Not only do we check every single one, but we also check them all for each potential match. All we need to do is check whether the misspelling is in that list. If so, return the correct spelling. Maybe use a struct.
 + [x] If secondary matches are not within 95% of the first match, do not include them, as they are often incorrect.
 + [x] As time goes on, I am less convinced that tokenizing the words into groups of three is even necessary. All the other steps of the algorithm might just be sufficient. Make a copy of main.c and try out a version without tokenization. If the algo works just as well (or better), discard that step.
++ [x] New rule: If a misspelled words ends in “full”, prioritise potential matches that end in “ful”.
 + [ ] If a word is capitalized, convert it to lowercase first before processing.
 + [ ] Loading smaller dictionaries is slow. It might just make more sense to load the entire dictionary into address space via mmap.
 + [ ] When the algo improves, have a unit test where we remove the manual rules, and checks for them. The ones that the algo figures out we can remove. Or should we? They are faster to run. I’ll have to look into this.

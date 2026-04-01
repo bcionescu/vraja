@@ -18,7 +18,7 @@ int main(void)
     
     const int INCLUDE_MANUAL = 0;
 
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
 
     for (int i = 0; misspelled[i] != NULL; i++)
     {
@@ -59,6 +59,15 @@ int main(void)
 
         int miss_len = strlen(misspelled[i]);
 
+        char miss_end[5] = "";
+        int miss_end_counter = 0;
+        for (int j = miss_len - 4; j < miss_len; j++)
+        {
+            // printf("%c", misspelled[i][j]);
+            miss_end[miss_end_counter] = misspelled[i][j];
+            miss_end_counter++;
+        }
+
         while (fgets(line_buffer, sizeof(line_buffer), file))
         {
             line_buffer[strcspn(line_buffer, "\n")] = '\0';
@@ -74,6 +83,20 @@ int main(void)
             score += length_difference(misspelled[i], line_buffer);
             score += first_and_last_letter(misspelled[i], line_buffer);
             score += neighbour_scan(misspelled[i], line_buffer);
+
+            char match_end[4] = "";
+            int match_end_counter = 0;
+            for (int j = line_len - 3; j < line_len; j++)
+            {
+                match_end[match_end_counter] = line_buffer[j];
+                match_end_counter++;
+            }
+
+            if (strcmp(miss_end, "full") == 0 && strcmp(match_end, "ful") == 0)
+            {
+                score += 50;
+                // printf("\n %s %s %d\n", misspelled[i], line_buffer, score);
+            }
 
             strcpy(results[entry_count].word, line_buffer);
             results[entry_count].points = score;
