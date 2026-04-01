@@ -15,6 +15,8 @@
 int main(void)
 {
     clock_t start_global = clock();
+    
+    const int INCLUDE_MANUAL = 0;
 
     char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
 
@@ -40,16 +42,19 @@ int main(void)
 
         Match *results = malloc(sizeof(Match) * get_max_results(misspelled[i][0]));
 
-        char *manual_match = manual_rules(misspelled[i]);
-
-        if (strcmp(manual_match, " ") != 0)
+        if (INCLUDE_MANUAL == 1)
         {
-            clock_t end = clock();
-            double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+            char *manual_match = manual_rules(misspelled[i]);
 
-            // printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
-            printf("{\"%s\", \"%s\"} [%fs] [MANUAL]\n", misspelled[i], manual_match, time_taken);
-            continue;
+            if (strcmp(manual_match, " ") != 0)
+            {
+                clock_t end = clock();
+                double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+
+                // printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
+                printf("{\"%s\", \"%s\"} [%fs] [MANUAL]\n", misspelled[i], manual_match, time_taken);
+                continue;
+            }
         }
 
         int miss_len = strlen(misspelled[i]);
