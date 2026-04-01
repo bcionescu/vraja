@@ -32,6 +32,7 @@ A spellchecker written in C from scratch. To compile and run from Nvim, run this
 + [ ] Pass a text via a file.
 + [ ] Check the text for words which do not appear in the dictionary.
 + [ ] Output the text to the console, writing the misspelled words in red text.
++ [ ] Next to each misspelled red word, add the potential matches in green, within parentheses. This will provide a compact way to showcase the potential matches.
 
 Words that still need manual rules:
 
