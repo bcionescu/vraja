@@ -1,7 +1,7 @@
 #include "../include/get_max_results.h"
 
-int get_max_results(char letter) {
-
+int get_max_results(char letter)
+{
     if (letter == 'a') return 10441;
     if (letter == 'b') return 9275;
     if (letter == 'c') return 16229;

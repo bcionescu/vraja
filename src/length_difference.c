@@ -2,7 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-int length_difference(char *misspelled, char *line_buffer) {
+int length_difference(char *misspelled, char *line_buffer)
+{
     int score = 0;
     int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
 
