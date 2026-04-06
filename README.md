@@ -6,6 +6,10 @@ A spellchecker written in C from scratch. To compile and run from Nvim, run this
 :!make && ./build/main
 ```
 
+# Current issue
+
+After some investigation, it has become clear why loading the dictionary once is not working. It is because when iterating through `file`, we never reset. If the first word has 7 letters, once we find the match, it will continue from there for the second word, instead of starting from the start of the file once more.
+
 # To Do
 
 + [x] Assemble a dictionary.
