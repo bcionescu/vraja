@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -g -Iinclude
+CFLAGS = -O -Wall -Wextra -g -Iinclude
 TARGET = build/vraja
 
 SRCS = $(wildcard src/*.c)

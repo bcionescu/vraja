@@ -10,7 +10,6 @@
 #include "../include/neighbour_scan.h"
 #include "../include/perfect_letter_match.h"
 #include "../include/swapped_letter_match.h"
-#include "../include/tokenize.h"
 
 int main(void)
 {
