@@ -37,7 +37,7 @@ int main(void)
             return 1;
         }
 
-        int entry_count = 0;
+        register int entry_count = 0;
 
         char line_buffer[30];
         line_buffer[0] = '\0';

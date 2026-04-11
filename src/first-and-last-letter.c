@@ -6,13 +6,15 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
     int first_perfect_match = 0;
     int second_perfect_match = 0;
     int third_perfect_match = 0;
+    register int miss_len = strlen(misspelled);
+    register int line_len = strlen(line_buffer);
 
     if (misspelled[0] == line_buffer[0]) {
         score += 15;
         first_perfect_match += 1;
     }
 
-    if (misspelled[strlen(misspelled) - 1] == line_buffer[strlen(line_buffer) - 1]) {
+    if (misspelled[miss_len - 1] == line_buffer[line_len - 1]) {
         score += 15;
         first_perfect_match += 1;
     }
@@ -24,8 +26,8 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
         second_perfect_match += 1;
     }
 
-    if (strlen(misspelled) >= 4) {
-        if (misspelled[strlen(misspelled) - 2] == line_buffer[strlen(line_buffer) - 2]) {
+    if (miss_len >= 4) {
+        if (misspelled[miss_len - 2] == line_buffer[line_len - 2]) {
             score += 10;
             second_perfect_match += 1;
         }
@@ -42,8 +44,8 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
         if (first_perfect_match == 2 && second_perfect_match == 2) { score += 15; }
     }
 
-    if (strlen(misspelled) >= 6) {
-        if (misspelled[strlen(misspelled) - 3] == line_buffer[strlen(line_buffer) - 3]) {
+    if (miss_len >= 6) {
+        if (misspelled[miss_len - 3] == line_buffer[line_len - 3]) {
             score += 10;
             third_perfect_match += 1;
         }
@@ -262,8 +264,8 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
         n_z++;
     }
 
-    int miss_last = strlen(misspelled) - 1;
-    int line_last = strlen(line_buffer) - 1;
+    int miss_last = miss_len - 1;
+    int line_last = line_len - 1;
 
     while (*n_a) {
         if (misspelled[miss_last] == 'a' && line_buffer[line_last] == *n_a) {

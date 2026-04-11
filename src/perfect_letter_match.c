@@ -5,8 +5,8 @@ int perfect_letter_match(char *misspelled_tokens, char *match_tokens)
 {
     int score = 0;
 
-    char *p1 = misspelled_tokens;
-    char *p2 = match_tokens;
+    register char *p1 = misspelled_tokens;
+    register char *p2 = match_tokens;
 
     while (*p1 && *p2)
     {
