@@ -24,8 +24,10 @@ int main(void)
     {
         clock_t start = clock();
 
+        register char *misspelled_word = misspelled[i];
+
         char path[64];
-        sprintf(path, "assets/groups/%c.txt", misspelled[i][0]);
+        sprintf(path, "assets/groups/%c.txt", misspelled_word[0]);
 
         FILE *file = fopen(path, "r");
 
@@ -40,31 +42,31 @@ int main(void)
         char line_buffer[30];
         line_buffer[0] = '\0';
 
-        Match *results = malloc(sizeof(Match) * get_max_results(misspelled[i][0]));
+        Match *results = malloc(sizeof(Match) * get_max_results(misspelled_word[0]));
 
         if (INCLUDE_MANUAL == 1)
         {
-            char *manual_match = manual_rules(misspelled[i]);
+            char *manual_match = manual_rules(misspelled_word);
 
             if (strcmp(manual_match, " ") != 0)
             {
                 clock_t end = clock();
                 double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-                // printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled[i], manual_match, time_taken);
-                printf("{\"%s\", \"%s\"} [%fs] [MANUAL]\n", misspelled[i], manual_match, time_taken);
+                // printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled_word, manual_match, time_taken);
+                printf("{\"%s\", \"%s\"} [%fs] [MANUAL]\n", misspelled_word, manual_match, time_taken);
                 continue;
             }
         }
 
-        int miss_len = strlen(misspelled[i]);
+        int miss_len = strlen(misspelled_word);
 
         char miss_end[5] = "";
         int miss_end_counter = 0;
         for (int j = miss_len - 4; j < miss_len; j++)
         {
-            // printf("%c", misspelled[i][j]);
-            miss_end[miss_end_counter] = misspelled[i][j];
+            // printf("%c", misspelled_word[j]);
+            miss_end[miss_end_counter] = misspelled_word[j];
             miss_end_counter++;
         }
 
@@ -78,11 +80,11 @@ int main(void)
             if (line_len > miss_len + max_search_length) break;
 
             int score = 0;
-            score += perfect_letter_match(misspelled[i], line_buffer);
-            score += swapped_letter_match(misspelled[i], line_buffer);
-            score += length_difference(misspelled[i], line_buffer);
-            score += first_and_last_letter(misspelled[i], line_buffer);
-            score += neighbour_scan(misspelled[i], line_buffer);
+            score += perfect_letter_match(misspelled_word, line_buffer);
+            score += swapped_letter_match(misspelled_word, line_buffer);
+            score += length_difference(misspelled_word, line_buffer);
+            score += first_and_last_letter(misspelled_word, line_buffer);
+            score += neighbour_scan(misspelled_word, line_buffer);
 
             char match_end[4] = "";
             int match_end_counter = 0;
@@ -95,7 +97,7 @@ int main(void)
             if (strcmp(miss_end, "full") == 0 && strcmp(match_end, "ful") == 0)
             {
                 score += 50;
-                // printf("\n %s %s %d\n", misspelled[i], line_buffer, score);
+                // printf("\n %s %s %d\n", misspelled_word, line_buffer, score);
             }
 
             strcpy(results[entry_count].word, line_buffer);
@@ -105,7 +107,7 @@ int main(void)
 
         qsort(results, entry_count, sizeof(Match), compare_matches);
 
-        printf("{\"%s\"}", misspelled[i]);
+        printf("{\"%s\"}", misspelled_word);
         printf(", { ");
 
         for (int i = 0; i < 3 && i < entry_count; i++)
