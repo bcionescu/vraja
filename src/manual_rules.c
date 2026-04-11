@@ -110,7 +110,7 @@ char* manual_rules(char *miss) {
     // struct Correction *dict = NULL;
 
     if (miss[0] == 'a') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"abondon", "abandon"},
             {"abondoning", "abandoning"},
             {"abreviated", "abbreviated"},
@@ -264,7 +264,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'b') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"baceause", "because"},
             {"bakc", "back"},
             {"banannas", "bananas"},
@@ -327,7 +327,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'c') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"caculater", "calculator"},
             {"cacuses", "caucuses"},
             {"cahracters", "characters"},
@@ -586,7 +586,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'd') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"daed", "dead"},
             {"dael", "deal, dial, dahl"},
             {"dalmation", "dalmatian"},
@@ -712,7 +712,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'e') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"eahc", "each"},
             {"earlies", "earliest"},
             {"earnt", "earned"},
@@ -827,7 +827,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'f') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"facilites", "facilities"},
             {"familes", "families"},
             {"familier", "familiar"},
@@ -882,7 +882,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'g') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"gae", "game, gale"},
             {"gallaxies", "galaxies"},
             {"galvinized", "galvanized"},
@@ -931,7 +931,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'h') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"habaeus", "habeas"},
             {"habeus", "habeas"},
             {"haemorrage", "haemorrhage"},
@@ -995,7 +995,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'i') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"idaeidae", "idea"},
             {"idaes", "ideas"},
             {"idealogies", "ideologies"},
@@ -1118,7 +1118,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'j') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"journied", "journeyed"},
             {"journies", "journeys"},
             {"jstu", "just"},
@@ -1132,7 +1132,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'k') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"klenex", "kleenex"},
             {"knifes", "knives"},
             {"knwo", "know"},
@@ -1149,7 +1149,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'l') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"labatory", "lavatory, laboratory"},
             {"lable", "label"},
             {"labled", "labelled, labeled"},
@@ -1210,7 +1210,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'm') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"maching", "machine, marching, matching"},
             {"mackeral", "mackerel"},
             {"magincian", "magician"},
@@ -1292,7 +1292,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'n') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"naturaly", "naturally"},
             {"naturely", "naturally"},
             {"naturually", "naturally"},
@@ -1333,7 +1333,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'o') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"obediance", "obedience"},
             {"obediant", "obedient"},
             {"obstacal", "obstacle"},
@@ -1376,7 +1376,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'p') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"paide", "paid"},
             {"palce", "place, palace"},
             {"paleolitic", "paleolithic"},
@@ -1568,7 +1568,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'q') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"qtuie", "quite, quiet"},
             {"quantaty", "quantity"},
             {"quantitiy", "quantity"},
@@ -1584,7 +1584,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'r') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"radify", "ratify"},
             {"raelly", "really"},
             {"rarified", "rarefied"},
@@ -1709,7 +1709,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 's') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"sacrifical", "sacrificial"},
             {"sargant", "sergeant"},
             {"sargeant", "sergeant"},
@@ -1881,7 +1881,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 't') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"tahn", "than"},
             {"taht", "that"},
             {"tast", "taste"},
@@ -1972,7 +1972,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'u') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"ublisher", "publisher"},
             {"uise", "use"},
             {"unathorised", "unauthorised"},
@@ -2010,7 +2010,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'v') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"vaccume", "vacuum"},
             {"vacinity", "vicinity"},
             {"vaguaries", "vagaries"},
@@ -2046,7 +2046,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'w') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"waht", "what"},
             {"warantee", "warranty"},
             {"warrriors", "warriors"},
@@ -2108,7 +2108,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'x') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"xenophoby", "xenophobia"},
             {NULL, NULL}
         };
@@ -2118,7 +2118,7 @@ char* manual_rules(char *miss) {
         }
 
     } else if (miss[0] == 'y') {
-        struct Correction dict[] = {
+        static struct Correction dict[] = {
             {"yaer", "year"},
             {"yaerly", "yearly"},
             {"yaers", "years"},

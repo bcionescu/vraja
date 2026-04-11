@@ -53,32 +53,32 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
 
     // If the first letter gets a neighbour match, 7 bonus points.
 
-    char *n_a = "qwsxz`";
-    char *n_b = "vghn";
-    char *n_c = "xdfv";
-    char *n_d = "werfcxs";
-    char *n_e = "34rfdsw";
-    char *n_f = "ertgvcd";
-    char *n_g = "rtyhbvf";
-    char *n_h = "tyujnbg";
-    char *n_i = "89olkju";
-    char *n_j = "yuikmnh";
-    char *n_k = "uiol,mj";
-    char *n_l = "iop;.,k";
-    char *n_m = "njk,";
-    char *n_n = "bhjm";
-    char *n_o = "90p;lki";
-    char *n_p = "0-[';lo";
-    char *n_q = "12wsa";
-    char *n_r = "45tgfde";
-    char *n_s = "wedxzaq";
-    char *n_t = "56yhgfr";
-    char *n_u = "78ikjhy";
-    char *n_v = "cfgb";
-    char *n_w = "23edsaq";
-    char *n_x = "zsdc";
-    char *n_y = "67ujhgt";
-    char *n_z = "asx`";
+    static char *n_a = "qwsxz`";
+    static char *n_b = "vghn";
+    static char *n_c = "xdfv";
+    static char *n_d = "werfcxs";
+    static char *n_e = "34rfdsw";
+    static char *n_f = "ertgvcd";
+    static char *n_g = "rtyhbvf";
+    static char *n_h = "tyujnbg";
+    static char *n_i = "89olkju";
+    static char *n_j = "yuikmnh";
+    static char *n_k = "uiol,mj";
+    static char *n_l = "iop;.,k";
+    static char *n_m = "njk,";
+    static char *n_n = "bhjm";
+    static char *n_o = "90p;lki";
+    static char *n_p = "0-[';lo";
+    static char *n_q = "12wsa";
+    static char *n_r = "45tgfde";
+    static char *n_s = "wedxzaq";
+    static char *n_t = "56yhgfr";
+    static char *n_u = "78ikjhy";
+    static char *n_v = "cfgb";
+    static char *n_w = "23edsaq";
+    static char *n_x = "zsdc";
+    static char *n_y = "67ujhgt";
+    static char *n_z = "asx`";
 
     while (*n_a) {
         if (misspelled[0] == 'a' && line_buffer[0] == *n_a) {
