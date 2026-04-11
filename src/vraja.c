@@ -16,7 +16,7 @@ int main(void)
 {
     clock_t start_global = clock();
     
-    const int INCLUDE_MANUAL = 0;
+    const int INCLUDE_MANUAL = 1;
 
     char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
 
