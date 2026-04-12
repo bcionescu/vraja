@@ -38,8 +38,8 @@ int main(void)
 
         register int entry_count = 0;
 
-        char line_buffer[30];
-        line_buffer[0] = '\0';
+        static char line_buffer[30];
+        // line_buffer[0] = '\0';
 
         Match *results = malloc(sizeof(Match) * get_max_results(misspelled_word[0]));
 
@@ -58,7 +58,7 @@ int main(void)
             }
         }
 
-        int miss_len = strlen(misspelled_word);
+        register int miss_len = strlen(misspelled_word);
 
         char miss_end[5] = "";
         int miss_end_counter = 0;
@@ -73,7 +73,7 @@ int main(void)
         {
             line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
-            int line_len = strlen(line_buffer);
+            register int line_len = strlen(line_buffer);
             int max_search_length = 2;
             if (line_len < miss_len - max_search_length) continue;
             if (line_len > miss_len + max_search_length) break;
@@ -96,7 +96,6 @@ int main(void)
             if (strcmp(miss_end, "full") == 0 && strcmp(match_end, "ful") == 0)
             {
                 score += 50;
-                // printf("\n %s %s %d\n", misspelled_word, line_buffer, score);
             }
 
             strcpy(results[entry_count].word, line_buffer);
