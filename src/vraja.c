@@ -5,6 +5,7 @@
 #include "../include/compare_matches.h"
 #include "../include/first_and_last_letter.h"
 #include "../include/get_max_results.h"
+#include "../include/last_letters.h"
 #include "../include/length_difference.h"
 #include "../include/manual_rules.h"
 #include "../include/neighbour_scan.h"
@@ -85,13 +86,10 @@ int main(void)
             score += first_and_last_letter(misspelled_word, line_buffer);
             score += neighbour_scan(misspelled_word, line_buffer);
 
-            char match_end[4] = "";
-            int match_end_counter = 0;
-            for (int j = line_len - 3; j < line_len; j++)
-            {
-                match_end[match_end_counter] = line_buffer[j];
-                match_end_counter++;
-            }
+            char match_end[line_len + 1];
+            strcpy(match_end, line_buffer);
+
+            last_letters(match_end, line_len, 3);
 
             if (strcmp(miss_end, "full") == 0 && strcmp(match_end, "ful") == 0)
             {
