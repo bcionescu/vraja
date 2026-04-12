@@ -12,16 +12,14 @@
 #include "../include/perfect_letter_match.h"
 #include "../include/swapped_letter_match.h"
 
-int main(void)
-{
+int main(void) {
     clock_t start_global = clock();
     
     const int INCLUDE_MANUAL = 1;
 
     char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
 
-    for (int i = 0; misspelled[i] != NULL; i++)
-    {
+    for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
 
         register char *misspelled_word = misspelled[i];
@@ -31,8 +29,7 @@ int main(void)
 
         FILE *file = fopen(path, "r");
 
-        if (file == NULL)
-        {
+        if (file == NULL) {
             perror("Error opening file");
             return 1;
         }
@@ -44,12 +41,10 @@ int main(void)
 
         Match *results = malloc(sizeof(Match) * get_max_results(misspelled_word[0]));
 
-        if (INCLUDE_MANUAL == 1)
-        {
+        if (INCLUDE_MANUAL == 1) {
             char *manual_match = manual_rules(misspelled_word);
 
-            if (strcmp(manual_match, " ") != 0)
-            {
+            if (strcmp(manual_match, " ") != 0) {
                 clock_t end = clock();
                 double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
@@ -63,15 +58,13 @@ int main(void)
 
         char miss_end[5] = "";
         int miss_end_counter = 0;
-        for (int j = miss_len - 4; j < miss_len; j++)
-        {
+        for (int j = miss_len - 4; j < miss_len; j++) {
             // printf("%c", misspelled_word[j]);
             miss_end[miss_end_counter] = misspelled_word[j];
             miss_end_counter++;
         }
 
-        while (fgets(line_buffer, sizeof(line_buffer), file))
-        {
+        while (fgets(line_buffer, sizeof(line_buffer), file)) {
             line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
             register int line_len = strlen(line_buffer);
@@ -91,8 +84,7 @@ int main(void)
 
             last_letters(match_end, line_len, 3);
 
-            if (strcmp(miss_end, "full") == 0 && strcmp(match_end, "ful") == 0)
-            {
+            if (strcmp(miss_end, "full") == 0 && strcmp(match_end, "ful") == 0) {
                 score += 50;
             }
 
@@ -106,10 +98,8 @@ int main(void)
         printf("{\"%s\"}", misspelled_word);
         printf(", { ");
 
-        for (int i = 0; i < 3 && i < entry_count; i++)
-        {
-            if (results[i].points < (0.95 * results[0].points))
-            {
+        for (int i = 0; i < 3 && i < entry_count; i++) {
+            if (results[i].points < (0.95 * results[0].points)) {
                 // printf("\"%s [%d] SKIP\" ", results[i].word, results[i].points);
                 continue;
             } else {

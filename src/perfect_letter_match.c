@@ -1,17 +1,14 @@
 #include <stdlib.h>
 #include "../include/perfect_letter_match.h"
 
-int perfect_letter_match(char *misspelled_tokens, char *match_tokens)
-{
+int perfect_letter_match(char *misspelled_tokens, char *match_tokens) {
     int score = 0;
 
     register char *p1 = misspelled_tokens;
     register char *p2 = match_tokens;
 
-    while (*p1 && *p2)
-    {
-        if (*p1 == *p2)
-        {
+    while (*p1 && *p2) {
+        if (*p1 == *p2) {
             score += 2;
         } else {
 
