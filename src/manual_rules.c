@@ -9,6 +9,148 @@ char* manual_rules(char *miss) {
         char *right;
     };
 
+    // alot -> a lot || allot
+    // alright -> all right
+    // abouta->about a
+    // aboutit->about it
+    // aboutthe->about the
+    // admendment->amendment
+    // admissability->admissibility
+    // adquire->acquire
+    // adquired->acquired
+    // adquires->acquires
+    // adquiring->acquiring
+    // adres->address
+    // adresable->addressable
+    // adresing->addressing
+    // adviced->advised
+    // aeriels->aerials
+    // affort->afford, effort
+    // agains->against
+    // aggreement->agreement
+    // aggregious->egregious
+    // aggregrator->aggregator
+    // agian->again
+    // agin->again
+    // agina->again, angina
+    // aginst->against
+    // ahev->have
+    // ahppen->happen
+    // ahve->have
+    // aircrafts->aircraft
+    // alcohal->alcohol
+    // alcoholical->alcoholic
+    // aledges->alleges
+    // algebraical->algebraic
+    // algoritm->algorithm
+    // allegedely->allegedly
+    // allegedy->allegedly
+    //
+    //
+    //  {"countrie's", "countries, countries', country's", "didnt", "didn't", "doesnt", "doesn't", "dosen't", "doesn't", "hasnt", "hasn't", "isnt", "isn't", "shoudln", "should, shouldn't", "thast", "that, that's", "theyre", "they're", "todays", "today's", "wasnt", "wasn't", "alltime", "all-time", "antiapartheid", "anti-apartheid", "Coca Cola", "Coca-Cola", "co", "ncided->coincided", "aircrafts'", "aircraft's"};
+    //
+    //  Gemini said
+    //
+    // Aren't
+    // Can't
+    // Couldn't
+    // Daren't
+    // Didn't
+    // Doesn't
+    // Don't
+    // Hadn't
+    // Hasn't
+    // Haven't
+    // He'd
+    // He'll
+    // He's
+    // How'd
+    // How'll
+    // How's
+    // I'd
+    // I'll
+    // I'm
+    // I've
+    // Isn't
+    // It'd
+    // It'll
+    // It's
+    // Let's
+    // Ma'am
+    // Mayn't
+    // Mightn't
+    // Mustn't
+    // Needn't
+    // O'clock
+    // Oughtn't
+    // Shan't
+    // She'd
+    // She'll
+    // She's
+    // Shouldn't
+    // Should've
+    // That'd
+    // That'll
+    // That's
+    // There'd
+    // There'll
+    // There's
+    // They'd
+    // They'll
+    // They're
+    // They've
+    // Wasn't
+    // We'd
+    // We'll
+    // We're
+    // We've
+    // Weren't
+    // What'd
+    // What'll
+    // What're
+    // What's
+    // What've
+    // When's
+    // Where'd
+    // Where's
+    // Where've
+    // Who'd
+    // Who'll
+    // Who're
+    // Who's
+    // Who've
+    // Why'd
+    // Why'll
+    // Why's
+    // Won't
+    // Wouldn't
+    // Would've
+    // You'd
+    // You'll
+    // You're
+    // You've
+    //
+    // Gonna (Going to)
+    // Wanna (Want to)
+    // Gotta (Got to / Have to)
+    // Dunno (Don't know)
+    // Kinda (Kind of)
+    // Sorta (Sort of)
+    // Outta (Out of)
+    // Gimme (Give me)
+    // Lemme (Let me)
+    // Tell'em Tellem (Tell them)
+    // Cos (Because)
+    // Shoulda (Should have)
+    // Coulda (Could have)
+    // Woulda (Would have)
+    // Musta (Must have)
+    // Mighta (Might have)
+    // Lotsa (Lots of)
+    // Whatcha (What are you)
+    // Gotcha (Got you)
+    // Betcha (Bet you)
+
     // if (strcmp(miss, "alot") == 0 && strcmp(line, "a lot") == 0) return 100;
     // if (strcmp(miss, "alright") == 0 && strcmp(line, "all right") == 0) return 100;
     // if (strcmp(miss, "Dravadian") == 0 && strcmp(line, "Dravidian") == 0) return 100;
