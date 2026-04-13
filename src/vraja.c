@@ -87,6 +87,10 @@ int main(void) {
             score += first_and_last_letter(misspelled_word, line_buffer);
             score += neighbour_scan(misspelled_word, line_buffer);
 
+            // The next step is to move all the code below to their own function, and only call them
+            // if the misspelled word ends in full, ely, aly, phoby, or if it contains ie. That will
+            // spare a lot of computation
+
             // full -> ful
             char match_end_three[line_len + 1];
             strcpy(match_end_three, line_buffer);
