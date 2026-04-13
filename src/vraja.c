@@ -1,3 +1,8 @@
+#define INCLUDE_MANUAL 0
+#define DISPLAY_SCORE 1
+#define DISPLAY_TIME 1
+#define DISPLAY_ENTRIES 1
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,9 +20,7 @@
 int main(void) {
     clock_t start_global = clock();
     
-    const int INCLUDE_MANUAL = 0;
-
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving"};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving", "basd"};
 
     for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
@@ -48,8 +51,11 @@ int main(void) {
                 clock_t end = clock();
                 double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-                // printf("\033[0;32m{\"%s\"}, {\"%s\"} [%fs]\n\033[0m", misspelled_word, manual_match, time_taken);
-                printf("{\"%s\", \"%s\"} [%fs] [MANUAL]\n", misspelled_word, manual_match, time_taken);
+                if (DISPLAY_TIME) {
+                    printf("%s -> %s [%fs] [MANUAL]\n", misspelled_word, manual_match, time_taken);
+                } else {
+                    printf("%s -> %s [MANUAL]\n", misspelled_word, manual_match);
+                }
                 continue;
             }
         }
@@ -107,7 +113,7 @@ int main(void) {
             if (strcmp(miss_end_four,   "raly") == 0 && strcmp(match_end_five,  "rally") == 0) { score += 50; }
             if (strcmp(miss_end_five,   "tance") == 0 && strcmp(match_end_five, "tence") == 0) { score += 50; }
             if (strcmp(miss_end_five,   "phoby") == 0 && strcmp(match_end_six,  "phobia") == 0) { score += 50; }
-            if (strstr(misspelled_word, "ie") != NULL && strstr(line_buffer,    "ei") != NULL ) { score += 15; }
+            if (strstr(misspelled_word, "ie") != NULL && strstr(line_buffer,    "ei") != NULL ) { score += 30; }
 
             score = (float) score / (float) miss_len;
 
@@ -118,23 +124,24 @@ int main(void) {
 
         qsort(results, entry_count, sizeof(Match), compare_matches);
 
-        printf("{\"%s\"}", misspelled_word);
-        printf(", { ");
+        printf("%s -> ", misspelled_word);
 
         for (int i = 0; i < 3 && i < entry_count; i++) {
             if (results[i].points < (0.95 * results[0].points)) {
                 // printf("\"%s [%d] SKIP\" ", results[i].word, results[i].points);
                 continue;
             } else {
-                printf("\"%s [%d]\" ", results[i].word, results[i].points);
+                printf("%s ", results[i].word);
+                if (DISPLAY_SCORE) { printf("[%d] ", results[i].points); }
             }
         }
 
         clock_t end = clock();
         double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-        printf("} \[%fs] ", time_taken);
-        printf("-> %d entries\n", entry_count);
+        if (DISPLAY_TIME) { printf("[%fs] ", time_taken); }
+        if (DISPLAY_ENTRIES) { printf("-> %d entries", entry_count); }
+        printf("\n");
 
         entry_count = 0;
         free(results);
