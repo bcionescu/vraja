@@ -5,17 +5,17 @@
 #include "../include/compare_matches.h"
 #include "../include/first_and_last_letter.h"
 #include "../include/get_max_results.h"
-#include "../include/last_letters.h"
 #include "../include/length_difference.h"
 #include "../include/manual_rules.h"
 #include "../include/neighbour_scan.h"
 #include "../include/perfect_letter_match.h"
+#include "../include/rules.h"
 #include "../include/swapped_letter_match.h"
 
 int main(void) {
     clock_t start_global = clock();
     
-    const int INCLUDE_MANUAL = 1;
+    const int INCLUDE_MANUAL = 0;
 
     char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving"};
 
@@ -56,20 +56,14 @@ int main(void) {
 
         register int miss_len = strlen(misspelled_word);
 
-        char miss_end[5] = "";
-        int miss_end_counter = 0;
-        for (int j = miss_len - 4; j < miss_len; j++) {
-            // printf("%c", misspelled_word[j]);
-            miss_end[miss_end_counter] = misspelled_word[j];
-            miss_end_counter++;
-        }
-
         char miss_end_three[miss_len + 1];
-        strcpy(miss_end_three, misspelled_word);
-        last_letters(miss_end_three, miss_len, 3);
-
+        char miss_end_four[miss_len + 1];
         char miss_end_five[miss_len + 1];
+        strcpy(miss_end_three, misspelled_word);
+        strcpy(miss_end_four, misspelled_word);
         strcpy(miss_end_five, misspelled_word);
+        last_letters(miss_end_three, miss_len, 3);
+        last_letters(miss_end_four, miss_len, 4);
         last_letters(miss_end_five, miss_len, 5);
 
         while (fgets(line_buffer, sizeof(line_buffer), file)) {
@@ -91,47 +85,31 @@ int main(void) {
             // if the misspelled word ends in full, ely, aly, phoby, or if it contains ie. That will
             // spare a lot of computation
 
-            // full -> ful
             char match_end_three[line_len + 1];
-            strcpy(match_end_three, line_buffer);
-            last_letters(match_end_three, line_len, 3);
-            // printf("match_end_three: %s\n", match_end_three);
-
-            if (strcmp(miss_end, "full") == 0 && strcmp(match_end_three, "ful") == 0) {
-                score += 50;
-            }
-
-            // ely -> uly
-            if (strcmp(miss_end_three, "ely") == 0 && strcmp(match_end_three, "uly") == 0) {
-                score += 50;
-            }
-
-            // aly -> ally
             char match_end_four[line_len + 1];
-            strcpy(match_end_four, line_buffer);
-            last_letters(match_end_four, line_len, 4);
-            // printf("match_end_four: %s\n", match_end_four);
-
-            if (strcmp(miss_end_three, "aly") == 0 && strcmp(match_end_four, "ally") == 0) {
-                score += 50;
-            }
-
-            // phoby -> phobia
+            char match_end_five[line_len + 1];
             char match_end_six[line_len + 1];
+            strcpy(match_end_three, line_buffer);
+            strcpy(match_end_four, line_buffer);
+            strcpy(match_end_five, line_buffer);
             strcpy(match_end_six, line_buffer);
+            last_letters(match_end_three, line_len, 3);
+            last_letters(match_end_four, line_len, 4);
+            last_letters(match_end_five, line_len, 5);
             last_letters(match_end_six, line_len, 6);
-            // printf("match_end_six: %s\n", match_end_six);
 
-            if (strcmp(miss_end_five, "phoby") == 0 && strcmp(match_end_six, "phobia") == 0) {
-                score += 50;
-            }
+            if (strcmp(miss_end_three,  "ely") == 0 && strcmp(match_end_three,  "uly") == 0) { score += 50; }
+            if (strcmp(miss_end_three,  "aly") == 0 && strcmp(match_end_four,   "ally") == 0) { score += 50; }
+            if (strcmp(miss_end_four,   "full") == 0 && strcmp(match_end_three, "ful") == 0) { score += 50; }
+            if (strcmp(miss_end_four,   "gnor") == 0 && strcmp(match_end_four,  "gner") == 0) { score += 50; }
+            if (strcmp(miss_end_four,   "gnar") == 0 && strcmp(match_end_four,  "gner") == 0) { score += 50; }
+            if (strcmp(miss_end_four,   "itly") == 0 && strcmp(match_end_five,  "itely") == 0) { score += 50; }
+            if (strcmp(miss_end_four,   "raly") == 0 && strcmp(match_end_five,  "rally") == 0) { score += 50; }
+            if (strcmp(miss_end_five,   "tance") == 0 && strcmp(match_end_five, "tence") == 0) { score += 50; }
+            if (strcmp(miss_end_five,   "phoby") == 0 && strcmp(match_end_six,  "phobia") == 0) { score += 50; }
+            if (strstr(misspelled_word, "ie") != NULL && strstr(line_buffer,    "ei") != NULL ) { score += 15; }
 
             score = (float) score / (float) miss_len;
-
-            // ie -> ei
-            if (strstr(misspelled_word, "ie") != NULL && strstr(line_buffer, "ei") != NULL ) {
-                score += 15;
-            }
 
             strcpy(results[entry_count].word, line_buffer);
             results[entry_count].points = score;
