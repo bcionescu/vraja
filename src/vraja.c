@@ -17,7 +17,7 @@ int main(void) {
     
     const int INCLUDE_MANUAL = 1;
 
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd"};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly"};
 
     for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
@@ -64,6 +64,14 @@ int main(void) {
             miss_end_counter++;
         }
 
+        char miss_end_three[miss_len + 1];
+        strcpy(miss_end_three, misspelled_word);
+        last_letters(miss_end_three, miss_len, 3);
+
+        char miss_end_five[miss_len + 1];
+        strcpy(miss_end_five, misspelled_word);
+        last_letters(miss_end_five, miss_len, 5);
+
         while (fgets(line_buffer, sizeof(line_buffer), file)) {
             line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
@@ -79,14 +87,42 @@ int main(void) {
             score += first_and_last_letter(misspelled_word, line_buffer);
             score += neighbour_scan(misspelled_word, line_buffer);
 
-            char match_end[line_len + 1];
-            strcpy(match_end, line_buffer);
+            // full -> ful
+            char match_end_three[line_len + 1];
+            strcpy(match_end_three, line_buffer);
+            last_letters(match_end_three, line_len, 3);
+            // printf("match_end_three: %s\n", match_end_three);
 
-            last_letters(match_end, line_len, 3);
-
-            if (strcmp(miss_end, "full") == 0 && strcmp(match_end, "ful") == 0) {
+            if (strcmp(miss_end, "full") == 0 && strcmp(match_end_three, "ful") == 0) {
                 score += 50;
             }
+
+            // ely -> uly
+            if (strcmp(miss_end_three, "ely") == 0 && strcmp(match_end_three, "uly") == 0) {
+                score += 50;
+            }
+
+            // aly -> ally
+            char match_end_four[line_len + 1];
+            strcpy(match_end_four, line_buffer);
+            last_letters(match_end_four, line_len, 4);
+            // printf("match_end_four: %s\n", match_end_four);
+
+            if (strcmp(miss_end_three, "aly") == 0 && strcmp(match_end_four, "ally") == 0) {
+                score += 50;
+            }
+
+            // phoby -> phobia
+            char match_end_six[line_len + 1];
+            strcpy(match_end_six, line_buffer);
+            last_letters(match_end_six, line_len, 6);
+            // printf("match_end_six: %s\n", match_end_six);
+
+            if (strcmp(miss_end_five, "phoby") == 0 && strcmp(match_end_six, "phobia") == 0) {
+                score += 50;
+            }
+
+            score = (float) score / (float) miss_len;
 
             strcpy(results[entry_count].word, line_buffer);
             results[entry_count].points = score;

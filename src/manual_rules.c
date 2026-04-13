@@ -843,7 +843,6 @@ char* manual_rules(char *miss) {
             {"fiels", "feels, fields, files, phials"},
             {"fightings", "fighting"},
             {"fimilies", "families"},
-            {"finaly", "finally"},
             {"firends", "friends"},
             {"firey", "fiery, firry"},
             {"firts", "flirts, first"},
@@ -2075,7 +2074,6 @@ char* manual_rules(char *miss) {
             {"wich", "which, witch"},
             {"wief", "wife"},
             {"wierd", "weird"},
-            {"wierd", "weird"},
             {"wiew", "view"},
             {"wiht", "with"},
             {"wille", "will"},
@@ -2100,16 +2098,6 @@ char* manual_rules(char *miss) {
             {"wroking", "working"},
             {"wtih", "with"},
             {"wupport", "support"},
-            {NULL, NULL}
-        };
-
-        for (int i = 0; dict[i].wrong != NULL; i++) {
-            if (strcmp(miss, dict[i].wrong) == 0) return dict[i].right;
-        }
-
-    } else if (miss[0] == 'x') {
-        static struct Correction dict[] = {
-            {"xenophoby", "xenophobia"},
             {NULL, NULL}
         };
 
