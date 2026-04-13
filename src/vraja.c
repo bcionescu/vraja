@@ -17,7 +17,7 @@ int main(void) {
     
     const int INCLUDE_MANUAL = 1;
 
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "publically", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly"};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving"};
 
     for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
@@ -123,6 +123,11 @@ int main(void) {
             }
 
             score = (float) score / (float) miss_len;
+
+            // ie -> ei
+            if (strstr(misspelled_word, "ie") != NULL && strstr(line_buffer, "ei") != NULL ) {
+                score += 15;
+            }
 
             strcpy(results[entry_count].word, line_buffer);
             results[entry_count].points = score;
