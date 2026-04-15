@@ -16,11 +16,12 @@
 #include "../include/perfect_letter_match.h"
 #include "../include/rules.h"
 #include "../include/swapped_letter_match.h"
+#include "../include/utils.h"
 
 int main(void) {
     clock_t start_global = clock();
     
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving", "basd"};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving", "basd",};
 
     for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
@@ -60,7 +61,7 @@ int main(void) {
             }
         }
 
-        register int miss_len = strlen(misspelled_word);
+        register int miss_len = len(misspelled_word);
 
         char miss_end_three[miss_len + 1];
         char miss_end_four[miss_len + 1];
@@ -75,7 +76,7 @@ int main(void) {
         while (fgets(line_buffer, sizeof(line_buffer), file)) {
             line_buffer[strcspn(line_buffer, "\n")] = '\0';
 
-            register int line_len = strlen(line_buffer);
+            register int line_len = len(line_buffer);
             int max_search_length = 2;
             if (line_len < miss_len - max_search_length) continue;
             if (line_len > miss_len + max_search_length) break;

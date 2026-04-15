@@ -11,7 +11,6 @@ A spellchecker written in C from scratch. To compile and run from Nvim, run this
 After some investigation, it has become clear why loading the dictionary once is not working. It is because when iterating through `file`, we never reset. If the first word has 7 letters, once we find the match, it will continue from there for the second word, instead of starting from the start of the file once more.
 
 # To Do
-+ [ ] I wonder if writing my own `strlen()` function would make the program faster?
 + [ ] If a word is capitalized, convert it to lowercase first before processing.
 + [ ] Look into `mmap`, as that should make working with large dictionaries a lot easier.
 + [ ] When the algo improves, have a unit test where we remove the manual rules, and checks for them. The ones that the algo figures out we can remove. Or should we? They are faster to run. I’ll have to look into this.

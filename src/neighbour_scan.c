@@ -1,4 +1,5 @@
 #include "../include/neighbour_scan.h"
+#include "../include/utils.h"
 #include <string.h>
 
 int neighbour_scan(char *misspelled, char *line_buffer) {
@@ -6,10 +7,10 @@ int neighbour_scan(char *misspelled, char *line_buffer) {
 
     char shortest[30];
     char largest[30];
-    if (strlen(misspelled) < strlen(line_buffer)) {
+    if (len(misspelled) < len(line_buffer)) {
         strcpy(shortest, misspelled);
         strcpy(largest, line_buffer);
-    } else if (strlen(misspelled) > strlen(line_buffer)) {
+    } else if (len(misspelled) > len(line_buffer)) {
         strcpy(shortest, line_buffer);
         strcpy(largest, misspelled);
     } else {

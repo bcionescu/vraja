@@ -1,13 +1,13 @@
 #include "../include/first_and_last_letter.h"
-#include <string.h>
+#include "../include/utils.h"
 
 int first_and_last_letter(char *misspelled, char *line_buffer) {
     int score = 0;
     int first_perfect_match = 0;
     int second_perfect_match = 0;
     int third_perfect_match = 0;
-    register int miss_len = strlen(misspelled);
-    register int line_len = strlen(line_buffer);
+    register int miss_len = len(misspelled);
+    register int line_len = len(line_buffer);
 
     if (misspelled[0] == line_buffer[0]) {
         score += 15;

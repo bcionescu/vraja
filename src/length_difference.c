@@ -1,10 +1,10 @@
 #include "../include/length_difference.h"
-#include <string.h>
+#include "../include/utils.h"
 #include <stdlib.h>
 
 int length_difference(char *misspelled, char *line_buffer) {
     int score = 0;
-    int word_difference = abs((int)strlen(misspelled) - (int)strlen(line_buffer));
+    int word_difference = abs((int)len(misspelled) - (int)len(line_buffer));
 
     if (word_difference == 0) { score += 8; }
     else if (word_difference == 1) { score += 5; }
