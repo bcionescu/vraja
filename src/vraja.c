@@ -66,9 +66,9 @@ int main(void) {
         char miss_end_three[miss_len + 1];
         char miss_end_four[miss_len + 1];
         char miss_end_five[miss_len + 1];
-        strcpy(miss_end_three, misspelled_word);
-        strcpy(miss_end_four, misspelled_word);
-        strcpy(miss_end_five, misspelled_word);
+        stringcopy(miss_len, miss_end_three, misspelled_word);
+        stringcopy(miss_len, miss_end_four, misspelled_word);
+        stringcopy(miss_len, miss_end_five, misspelled_word);
         last_letters(miss_end_three, miss_len, 3);
         last_letters(miss_end_four, miss_len, 4);
         last_letters(miss_end_five, miss_len, 5);
@@ -96,10 +96,10 @@ int main(void) {
             char match_end_four[line_len + 1];
             char match_end_five[line_len + 1];
             char match_end_six[line_len + 1];
-            strcpy(match_end_three, line_buffer);
-            strcpy(match_end_four, line_buffer);
-            strcpy(match_end_five, line_buffer);
-            strcpy(match_end_six, line_buffer);
+            stringcopy(line_len, match_end_three, line_buffer);
+            stringcopy(line_len, match_end_four, line_buffer);
+            stringcopy(line_len, match_end_five, line_buffer);
+            stringcopy(line_len, match_end_six, line_buffer);
             last_letters(match_end_three, line_len, 3);
             last_letters(match_end_four, line_len, 4);
             last_letters(match_end_five, line_len, 5);
