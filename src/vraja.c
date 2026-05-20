@@ -1,4 +1,4 @@
-#define INCLUDE_MANUAL 0
+#define INCLUDE_MANUAL 1
 #define DISPLAY_SCORE 1
 #define DISPLAY_TIME 1
 #define DISPLAY_ENTRIES 1
@@ -21,7 +21,7 @@
 int main(void) {
     clock_t start_global = clock();
     
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving", "basd",};
+    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving", "teh", "basd"};
 
     for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
