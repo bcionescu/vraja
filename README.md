@@ -6,20 +6,23 @@ A spellchecker written in C from scratch. To compile and run from Nvim, run this
 :!make && ./build/vraja
 ```
 
-# Current issue
-
-After some investigation, it has become clear why loading the dictionary once is not working. It is because when iterating through `file`, we never reset. If the first word has 7 letters, once we find the match, it will continue from there for the second word, instead of starting from the start of the file once more.
-
-# To Do
-+ [ ] Finish implementing my own version of `strcpy()`
-+ [ ] If a word is capitalized, convert it to lowercase first before processing.
+## To Do
 + [ ] Look into `mmap`, as that should make working with large dictionaries a lot easier.
++ [ ] Finish implementing my own version of `strcpy()`
 + [ ] When the algo improves, have a unit test where we remove the manual rules, and checks for them. The ones that the algo figures out we can remove. Or should we? They are faster to run. I’ll have to look into this.
-+ [ ] Once we have our top 5, do a similarity check, out of those. Which one is the closest, and maybe give it some extra points. Maybe check the word against itself, getting the maximum possible number of points, and making that the baseline. Then, calculate the percentages of the other matches, based on their respective scores.
-+ [ ] Add expressions such as "a lot" and "don't" in the dictionary. Alternatively, have them in their own dictionary, or hard code them into the .c file for now.
++ [ ] Add expressions such as "a lot" and "don't" in the dictionary.
 + [ ] If we only have one letter, like x, or t, especially if it's ['q','w','d','x','z','`'] then it's probably just 'a'.
-+ [ ] Maybe sometimes prioritise words of the same, or similar length, especially for very short words.
-+ [ ] Pass a text via a file.
-+ [ ] Check the text for words which do not appear in the dictionary.
-+ [ ] Output the text to the console, writing the misspelled words in red text.
-+ [ ] Next to each misspelled red word, add the potential matches in green, within parentheses. This will provide a compact way to showcase the potential matches.
+
+## Documentation
+
+`The README is a work in progress, and it will be completed soon.`
+
+Why build a spellchecker, when this problem has been solved, and why do it in C? Why did I not look up how to do a spellchecker, instead opting to figure it out by myself?
+
+When solving a real problem, you will encounter problems which not many people have dealt with. This means that you will be unable to look up the solution. Google will not have it, and neither will your favourite LLM. In such a scenario, you become a pioneer. You will have to solve the problem, and push technology further.
+
+Looking up solutions does not foster such a mentality. This is why I chose to write my own spellchecker, without looking up existing algorithms or methods. Because I want to work on projects that matter; programs that move the needle, and in order to do this, I must be able to solve problems.
+
+### How does this work?
+
+
