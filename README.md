@@ -1,6 +1,6 @@
 # Vraja (*vra-ya*)
 
-A spellchecker written in C from scratch. To compile and run from Nvim, run this one-liner.
+A spellchecker written in C from scratch. To compile and run from Nvim, run this one-liner. This project is still a work in progress. There’s so much that I want to add and improve, but I wanted to release the code in this early state.
 
 ```nvim
 :!make && ./build/vraja
