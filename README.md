@@ -6,6 +6,22 @@ A spellchecker written in C from scratch. To compile and run from Nvim, run this
 :!make && ./build/vraja
 ```
 
+## How Do You Use It?
+
+At the top of the `main` function in `vraja.c` you will find an array called `misspelled`. Fill it with words that you want to test out. At the top of the `vraja.c` file itself, you will find `#define INCLUDE_MANUAL 0`. If you want to purely use the algorithm, leave it as it is. If, however, you wish to use a manual list of rules, set it to `1`.
+
+This will match misspellings to a preset list of correct spellings. It’s faster, and makes the program more accurate, but right now I’m still improving the algorithm itself.
+
+Finally, on line `130` you will find the following code.
+
+```c
+for (int i = 0; i < 3 && i < entry_count; i++) {
+    if (results[i].points < (0.95 * results[0].points)) {
+```
+
+Currently, the algorithm only displays a maximum of three results, in the top 95% of scores. In other words, if, for example, the 2nd highest rated possibility is not within 95% of the 1st score, it will not be displayed. By adjusting these two numbers, you can make the output more or less strict.
+
+
 ## To Do
 + [ ] Look into `mmap`, as that should make working with large dictionaries a lot easier.
 + [ ] Finish implementing my own version of `strcpy()`
