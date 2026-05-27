@@ -63,6 +63,8 @@ int main(void) {
 
         register int miss_len = len(misspelled_word);
 
+        // This next section is sloppy, lol
+
         char miss_end_three[miss_len + 1];
         char miss_end_four[miss_len + 1];
         char miss_end_five[miss_len + 1];
