@@ -1,4 +1,6 @@
 #define INCLUDE_MANUAL 0
+#define MAX_ENTRIES 3
+#define SCORE_LIMITER 0.95
 #define DISPLAY_SCORE 1
 #define DISPLAY_TIME 1
 #define DISPLAY_ENTRIES 1
@@ -129,8 +131,8 @@ int main(void) {
 
         printf("%s -> ", misspelled_word);
 
-        for (int i = 0; i < 3 && i < entry_count; i++) {
-            if (results[i].points < (0.95 * results[0].points)) {
+        for (int i = 0; i < MAX_ENTRIES && i < entry_count; i++) {
+            if (results[i].points < (SCORE_LIMITER * results[0].points)) {
                 // printf("\"%s [%d] SKIP\" ", results[i].word, results[i].points);
                 continue;
             } else {

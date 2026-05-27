@@ -12,15 +12,15 @@ At the top of the `main` function in `vraja.c` you will find an array called `mi
 
 This will match misspellings to a preset list of correct spellings. It’s faster, and makes the program more accurate, but right now I’m still improving the algorithm itself.
 
-Finally, on line `130` you will find the following code.
-
-```c
-for (int i = 0; i < 3 && i < entry_count; i++) {
-    if (results[i].points < (0.95 * results[0].points)) {
-```
-
 Currently, the algorithm only displays a maximum of three results, in the top 95% of scores. In other words, if, for example, the 2nd highest rated possibility is not within 95% of the 1st score, it will not be displayed. By adjusting these two numbers, you can make the output more or less strict.
 
+If you wish to play with these parameters, you can find their corresponding macros at the top of the `vraja.c` file.
+
+`MAX_ENTRIES` allows you to configure the maximum number of entries. Even if you increase it, you may notice that the program might still display only one or two. This is because of the next macro called `SCORE_LIMITER`.
+
+By default, the score limiter is set to 0.95, meaning that once the first match is obtained, if the score of the following matches do not fall within 95% of the first, they will not be displayed. Thus, if you wish to see more matches, you need to both increase `MAX_ENTRIES` and decrease `SCORE_LIMITER`.
+
+The other macros also allow you to control the output. So, if you do not wish to see the score of each match, the time it took to generate them, or the number of entries that the program searched through for that particular word, you can set them to `0`.
 
 ## To Do
 + [ ] Look into `mmap`, as that should make working with large dictionaries a lot easier.
