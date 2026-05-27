@@ -12,7 +12,7 @@ At the top of the `main` function in `vraja.c` you will find an array called `mi
 
 This will match misspellings to a preset list of correct spellings. It’s faster, and makes the program more accurate, but right now I’m still improving the algorithm itself.
 
-Currently, the algorithm only displays a maximum of three results, in the top 95% of scores. In other words, if, for example, the 2nd highest rated possibility is not within 95% of the 1st score, it will not be displayed. By adjusting these two numbers, you can make the output more or less strict.
+Currently, the algorithm only displays a maximum of three results, in the top 95% of scores. In other words, if, for example, the 2nd highest rated match is not within 95% of the 1st score, it will not be displayed. By adjusting these two numbers, you can make the output more or less strict.
 
 If you wish to play with these parameters, you can find their corresponding macros at the top of the `vraja.c` file.
 
