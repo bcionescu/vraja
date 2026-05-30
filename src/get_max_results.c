@@ -7,7 +7,7 @@ int get_max_results(char letter)
     if (letter == 'c') return 16229;
     if (letter == 'd') return 10147;
     if (letter == 'e') return 7054;
-    if (letter == 'f') return 6766;
+    if (letter == 'f') return 6767;
     if (letter == 'g') return 5588;
     if (letter == 'h') return 6300;
     if (letter == 'i') return 6977;
