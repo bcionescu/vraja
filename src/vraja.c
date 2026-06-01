@@ -1,5 +1,5 @@
 #define INCLUDE_MANUAL 0
-#define MAX_ENTRIES 999
+#define MAX_ENTRIES 3
 #define SCORE_LIMITER 0.95
 #define DISPLAY_SCORE 1
 #define DISPLAY_TIME 1
@@ -144,7 +144,7 @@ int main(void) {
         clock_t end = clock();
         double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
-        if (DISPLAY_TIME) { printf("[%fs] ", time_taken); }
+        if (DISPLAY_TIME) { printf("[%0.3fms] ", time_taken * 1000); }
         if (DISPLAY_ENTRIES) { printf("-> %d entries", entry_count); }
         printf("\n");
 
