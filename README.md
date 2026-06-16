@@ -14,18 +14,6 @@ First, navigate to the project directory, and create a binary file.
 make ./build/vraja
 ```
 
-Then, run it.
-
-```bash
-./build/vraja
-```
-
-Alternatively, you can build and run the program straight from Neovim.
-
-```nvim
-:!make && ./build/vraja
-```
-
 ## Usage
 
 ```bash
