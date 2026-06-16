@@ -23,9 +23,19 @@ make ./build/vraja
 The current version of the program only accepts lower-case words, with no punctuation. The example above will produce the following output.
 
 ```bash
-flw -> flaw [28] flow [28] flew [28] [0.361ms] -> 669 entries
-ters -> tears [32] [0.574ms] -> 1757 entries
-pollice -> police [25] [2.859ms] -> 7548 entries
+flw ( flaw flow flew ) my ters ( terrors tears termers ) the pollice ( police ) man said
+```
+
+The program also makes use of ANSI colors to highlight the misspellings in red, and the suggestions in blue/green.
+
+Here is an additional example.
+
+```bash
+./build/vraja "the brwn foox jumpd over the hgh fenece"
+```
+
+```bash
+the brwn ( brawn brown ) foox ( fox ) jumpd ( jumped ) over the hgh ( high hah heth ) fenece ( fence )
 ```
 
 ## Advanced Usage
@@ -39,6 +49,8 @@ Currently, the algorithm only displays a maximum of three results, in the top 95
 By default, the score limiter is set to 0.95, meaning that once the first match is obtained, if the score of the following matches do not fall within 95% of the first, they will not be displayed. Thus, if you wish to see more matches, you need to both increase `MAX_ENTRIES` and decrease `SCORE_LIMITER`.
 
 The other macros also allow you to control the output. So, if you do not wish to see the score of each match, the time it took to generate them, or the number of entries that the program searched through for that particular word, you can set them to `0`.
+
+As of now, many of these macros are set to zero, in order to make the output more readable.
 
 ## To Do
 + [ ] Look into `mmap`, as that should make working with large dictionaries a lot easier.

@@ -13,8 +13,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    char delim[] = ",.? ";
-    char *token = strtok(argv[1], delim);
+    char *token = strtok(argv[1], " ");
     char line[30];
 
     while (token != NULL)
@@ -43,6 +42,8 @@ int main(int argc, char *argv[]) {
         
         if (found == 0) {
             spell_check(token);
+        } else {
+            printf("%s ", token);
         }
 
         token = strtok(NULL, " ");

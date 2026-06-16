@@ -6,8 +6,8 @@ int first_and_last_letter(char *misspelled, char *line_buffer) {
     int first_perfect_match = 0;
     int second_perfect_match = 0;
     int third_perfect_match = 0;
-    register int miss_len = len(misspelled);
-    register int line_len = len(line_buffer);
+    int miss_len = len(misspelled);
+    int line_len = len(line_buffer);
 
     if (misspelled[0] == line_buffer[0]) {
         score += 15;
