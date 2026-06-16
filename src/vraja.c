@@ -23,7 +23,7 @@
 int main(void) {
     clock_t start_global = clock();
     
-    char *misspelled[500] = {"accomodate", "achieveable", "agressive", "arguement", "beleive", "calender", "cemetary", "concious", "definitly", "disapoint", "embarass", "existance", "extacy", "farenheit", "fluorescent", "foreignor", "goverment", "gratefull", "gracefull", "harrass", "indispensible", "occurance", "paralell", "possession", "privledge", "recieve", "reccommend", "seperate", "threshhold", "tommorrow", "truely", "untill", "wierd", "xenophoby", "comptely", "especialy", "generaly", "accidentaly", "finaly", "reciever", "recievers", "reciepents", "reciept", "recieving", "basd", "femvoy"};
+    char *misspelled[500] = {"teh", "recieve", "definately", "occured", "seperate", "wich", "adress", "becuase", "untill", "goverment", "thier", "freind", "ricochet" , "concious", "embarass", "dependant", "acheive", "succesful", "tommorow", "wichout", "femvoy"};
 
     for (int i = 0; misspelled[i] != NULL; i++) {
         clock_t start = clock();
@@ -47,7 +47,7 @@ int main(void) {
 
         Match *results = malloc(sizeof(Match) * get_max_results(misspelled_word[0]));
 
-        if (INCLUDE_MANUAL == 1) {
+        if (INCLUDE_MANUAL) {
             char *manual_match = manual_rules(misspelled_word);
 
             if (strcmp(manual_match, " ") != 0) {
