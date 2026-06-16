@@ -40,7 +40,7 @@ the brwn ( brawn brown ) foox ( fox ) jumpd ( jumped ) over the hgh ( high hah h
 
 ## Advanced Usage
 
-At the top of the `spell_check` function in `spell_check.c` you will find a number of macros.
+At the top of `spell_check.c` you will find a number of macros.
 
 Currently, the algorithm only displays a maximum of three results, in the top 95% of scores. In other words, if, for example, the 2nd highest rated match is not within 95% of the 1st score, it will not be displayed. By adjusting these two numbers, you can make the output more or less strict.
 
