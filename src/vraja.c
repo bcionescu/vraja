@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 #include "../include/spell_check.h"
 
 int main(int argc, char *argv[]) {
@@ -41,7 +42,7 @@ int main(int argc, char *argv[]) {
         fclose(full_list);
         
         if (found == 0) {
-            int discard = spell_check(token);
+            spell_check(token);
         }
 
         token = strtok(NULL, " ");

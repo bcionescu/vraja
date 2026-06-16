@@ -37,7 +37,7 @@ void spell_check(char *misspelled_word) {
     register int entry_count = 0;
 
     static char line_buffer[30];
-    // line_buffer[0] = '\0';
+    line_buffer[0] = '\0';
 
     Match *results = malloc(sizeof(Match) * get_max_results(misspelled_word[0]));
 
