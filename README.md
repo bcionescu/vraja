@@ -8,7 +8,7 @@ When solving real-world problems, solutions are often not publicly available. If
 
 ## Quick Start
 
-First, navigate to the project directory, and create a binary file.
+Navigate to the project directory, and create a binary file.
 
 ```bash
 make ./build/vraja
