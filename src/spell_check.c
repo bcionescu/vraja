@@ -1,4 +1,4 @@
-#define INCLUDE_MANUAL 0
+// #define INCLUDE_MANUAL 0
 #define MAX_ENTRIES 3
 #define SCORE_LIMITER 0.95
 #define DISPLAY_SCORE 1
@@ -41,20 +41,20 @@ void spell_check(char *misspelled_word) {
 
     Match *results = malloc(sizeof(Match) * get_max_results(misspelled_word[0]));
 
-    if (INCLUDE_MANUAL) {
-        char *manual_match = manual_rules(misspelled_word);
-
-        if (strcmp(manual_match, " ") != 0) {
-            clock_t end = clock();
-            double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-
-            if (DISPLAY_TIME) {
-                printf("%s -> %s [%fs] [MANUAL]\n", misspelled_word, manual_match, time_taken);
-            } else {
-                printf("%s -> %s [MANUAL]\n", misspelled_word, manual_match);
-            }
-        }
-    }
+    // if (INCLUDE_MANUAL) {
+    //     char *manual_match = manual_rules(misspelled_word);
+    //
+    //     if (strcmp(manual_match, " ") != 0) {
+    //         clock_t end = clock();
+    //         double time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    //
+    //         if (DISPLAY_TIME) {
+    //             printf("%s -> %s [%fs] [MANUAL]\n", misspelled_word, manual_match, time_taken);
+    //         } else {
+    //             printf("%s -> %s [MANUAL]\n", misspelled_word, manual_match);
+    //         }
+    //     }
+    // }
 
     register int miss_len = len(misspelled_word);
 

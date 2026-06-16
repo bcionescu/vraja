@@ -2,16 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "../include/compare_matches.h"
-#include "../include/first_and_last_letter.h"
-#include "../include/get_max_results.h"
-#include "../include/length_difference.h"
-#include "../include/manual_rules.h"
-#include "../include/neighbour_scan.h"
-#include "../include/perfect_letter_match.h"
-#include "../include/rules.h"
-#include "../include/swapped_letter_match.h"
-#include "../include/utils.h"
 #include "../include/spell_check.h"
 
 int main(int argc, char *argv[]) {
@@ -22,12 +12,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    FILE *full_list = fopen("assets/list.txt", "r");
-
-    if (full_list == NULL) {
-        perror("Error opening file");
-        return 1;
-    }
     char delim[] = ",.? ";
     char *token = strtok(argv[1], delim);
     char line[30];
@@ -35,6 +19,17 @@ int main(int argc, char *argv[]) {
     while (token != NULL)
     {
         int found = 0;
+
+        // I know this is inefficient, but from what I can currently
+        // tell, if I open it outside the loop, I can't iterate
+        // through it multiple times
+        FILE *full_list = fopen("assets/list.txt", "r");
+
+        if (full_list == NULL) {
+            perror("Error opening file");
+            return 1;
+        }
+
         while (fgets(line, sizeof(line), full_list)) {
             line[strcspn(line, "\n")] = '\0';
             if (strcmp(line, token) == 0) {
@@ -42,9 +37,11 @@ int main(int argc, char *argv[]) {
                 break;
             }
         }
+
+        fclose(full_list);
         
         if (found == 0) {
-            spell_check(token);
+            int discard = spell_check(token);
         }
 
         token = strtok(NULL, " ");

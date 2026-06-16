@@ -28,13 +28,24 @@ Alternatively, you can build and run the program straight from Neovim.
 
 ## Usage
 
-At the top of the `main` function in `vraja.c` you will find an array called `misspelled`. Fill it with words that you want to test. At the top of the `vraja.c` file itself, you will find `#define INCLUDE_MANUAL 0`. If you want to purely use the algorithm, leave it as it is. If, however, you wish to use a manual list of rules, set it to `1`.
+```bash
+./build/vraja "the quik brown foox jumps ovr the lazy dogg"
+```
 
-This will match misspellings to a preset list of correct spellings. It’s faster, and makes the program more accurate, but right now I’m still improving the algorithm itself.
+The current version of the program only accepts lower-case words, with no punctuation. The example above will produce the following output.
+
+```bash
+quik -> quirk [24] quick [24] [0.093ms] -> 150 entries
+foox -> fox [32] [0.579ms] -> 1374 entries
+ovr -> over [28] [0.184ms] -> 338 entries
+dogg -> dog [24] dogleg [23] [0.457ms] -> 1543 entries
+```
+
+## Advanced Usage
+
+At the top of the `spell_check` function in `spell_check.c` you will find a number of macros.
 
 Currently, the algorithm only displays a maximum of three results, in the top 95% of scores. In other words, if, for example, the 2nd highest rated match is not within 95% of the 1st score, it will not be displayed. By adjusting these two numbers, you can make the output more or less strict.
-
-If you wish to play with these parameters, you can find their corresponding macros at the top of the `vraja.c` file.
 
 `MAX_ENTRIES` allows you to configure the maximum number of entries. Even if you increase it, you may notice that the program might still display only one or two. This is because of the next macro called `SCORE_LIMITER`.
 
@@ -43,7 +54,6 @@ By default, the score limiter is set to 0.95, meaning that once the first match 
 The other macros also allow you to control the output. So, if you do not wish to see the score of each match, the time it took to generate them, or the number of entries that the program searched through for that particular word, you can set them to `0`.
 
 ## To Do
-+ [ ] Implement the ability to provide words via args. If present, ignore the array, and use the arguments instead.
 + [ ] Look into `mmap`, as that should make working with large dictionaries a lot easier.
 + [ ] Finish implementing my own version of `strcpy()`
 + [ ] When the algo improves, have a unit test where we remove the manual rules, and checks for them. The ones that the algo figures out we can remove. Or should we? They are faster to run. I’ll have to look into this.
