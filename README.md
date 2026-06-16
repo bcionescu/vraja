@@ -17,16 +17,15 @@ make ./build/vraja
 ## Usage
 
 ```bash
-./build/vraja "the quik brown foox jumps ovr the lazy dogg"
+./build/vraja "flw my ters the pollice man said"
 ```
 
 The current version of the program only accepts lower-case words, with no punctuation. The example above will produce the following output.
 
 ```bash
-quik -> quirk [24] quick [24] [0.093ms] -> 150 entries
-foox -> fox [32] [0.579ms] -> 1374 entries
-ovr -> over [28] [0.184ms] -> 338 entries
-dogg -> dog [24] dogleg [23] [0.457ms] -> 1543 entries
+flw -> flaw [28] flow [28] flew [28] [0.361ms] -> 669 entries
+ters -> tears [32] [0.574ms] -> 1757 entries
+pollice -> police [25] [2.859ms] -> 7548 entries
 ```
 
 ## Advanced Usage
