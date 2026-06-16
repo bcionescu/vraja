@@ -2,13 +2,29 @@
 
 A spellchecker written in C from scratch. To compile and run from Nvim, run this one-liner. This project is still a work in progress. For your convenience, I made a [YouTube video](https://www.youtube.com/watch?v=j-5sgued3RM), going through the code and explaining how this program works.
 
+## Quick Start
+
+First, navigate to the project directory, and create a binary file.
+
+```bash
+make ./build/vraja
+```
+
+Then, run it.
+
+```bash
+./build/vraja
+```
+
+Alternatively, you can build and run the program straight from Neovim.
+
 ```nvim
 :!make && ./build/vraja
 ```
 
 ## How Do You Use It?
 
-At the top of the `main` function in `vraja.c` you will find an array called `misspelled`. Fill it with words that you want to test out. At the top of the `vraja.c` file itself, you will find `#define INCLUDE_MANUAL 0`. If you want to purely use the algorithm, leave it as it is. If, however, you wish to use a manual list of rules, set it to `1`.
+At the top of the `main` function in `vraja.c` you will find an array called `misspelled`. Fill it with words that you want to test. At the top of the `vraja.c` file itself, you will find `#define INCLUDE_MANUAL 0`. If you want to purely use the algorithm, leave it as it is. If, however, you wish to use a manual list of rules, set it to `1`.
 
 This will match misspellings to a preset list of correct spellings. It’s faster, and makes the program more accurate, but right now I’m still improving the algorithm itself.
 
@@ -23,6 +39,7 @@ By default, the score limiter is set to 0.95, meaning that once the first match 
 The other macros also allow you to control the output. So, if you do not wish to see the score of each match, the time it took to generate them, or the number of entries that the program searched through for that particular word, you can set them to `0`.
 
 ## To Do
++ [ ] Implement the ability to provide words via args. If present, ignore the array, and use the arguments instead.
 + [ ] Look into `mmap`, as that should make working with large dictionaries a lot easier.
 + [ ] Finish implementing my own version of `strcpy()`
 + [ ] When the algo improves, have a unit test where we remove the manual rules, and checks for them. The ones that the algo figures out we can remove. Or should we? They are faster to run. I’ll have to look into this.
