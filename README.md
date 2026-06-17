@@ -17,13 +17,13 @@ make ./build/vraja
 ## Usage
 
 ```bash
-./build/vraja "flw my ters the pollice man said"
+./build/vraja "flw my ters teh pollice man said"
 ```
 
 The current version of the program only accepts lower-case words, with no punctuation. The example above will produce the following output.
 
 ```bash
-flw ( flaw flow flew ) my ters ( terrors tears termers ) the pollice ( police ) man said
+flw ( flaw flow flew ) my ters ( terrors tears termers ) teh ( the teth ) pollice ( police ) man said
 ```
 
 The program also makes use of ANSI colors to highlight the misspellings in red, and the suggestions in blue/green.

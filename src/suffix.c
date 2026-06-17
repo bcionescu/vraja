@@ -32,5 +32,7 @@ int suffix(int line_len, char *line_buffer, char *miss_end_three, char *miss_end
     if (strcmp(miss_end_five,   "phoby") == 0 && strcmp(match_end_six,  "phobia") == 0) { score += 50; }
     if (strstr(misspelled_word, "ie") != NULL && strstr(line_buffer,    "ei") != NULL ) { score += 30; }
 
+    if (strcmp(misspelled_word, "teh") == 0 && strcmp(line_buffer, "the") == 0 ) { score += 50; } 
+
     return score;
 }
